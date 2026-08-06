@@ -22,10 +22,9 @@
       font-family: 'Playfair Display', serif;
       font-weight: 600;
     }
-        .navbar-logo {
+    .navbar-logo {
       width: 47px;
       height: 42px;
-      /* background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%); */
       border-radius: 6px;
       display: flow;
       align-items: center;
@@ -158,10 +157,10 @@
       padding: 2rem;
     }
 
-    /* ============ MOCKUP STYLES ============ */
+   /* ============ ANIMATED MOCKUP STYLES ============ */
     .website-mockup {
       width: 100%;
-      max-width: 500px;
+      max-width: &00px;
       height: 400px;
       background: linear-gradient(145deg, #e9f0f7 0%, #dce4ee 100%);
       border-radius: 24px;
@@ -189,11 +188,22 @@
       overflow: hidden;
       position: relative;
       transform: perspective(800px) rotateY(-2deg) rotateX(2deg);
-      transition: transform 0.3s;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: perspective(800px) rotateY(-2deg) rotateX(2deg) translateY(0px);
+      }
+      50% {
+        transform: perspective(800px) rotateY(1deg) rotateX(-1deg) translateY(-10px);
+      }
     }
 
     .browser-window:hover {
-      transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+      transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateY(-5px);
+      animation-play-state: paused;
     }
 
     .browser-bar {
@@ -211,11 +221,16 @@
       height: 8px;
       border-radius: 50%;
       flex-shrink: 0;
+      transition: transform 0.3s;
     }
 
     .dot.red { background: #ff5f57; }
     .dot.yellow { background: #febc2e; }
     .dot.green { background: #28c840; }
+
+    .dot:hover {
+      transform: scale(1.3);
+    }
 
     .address-bar {
       background: #ffffff;
@@ -225,16 +240,37 @@
       margin-left: 6px;
       display: flex;
       align-items: center;
-      padding: 0 8px;
+      padding:每天 0 8px;
       font-size: 8px;
       color: #8899aa;
       border: 1px solid #dce2e8;
       gap: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .address-bar::before {
+      content: 'www.tektonnova.com';
+      position: absolute;
+      left: 8px;
+      animation: typing 3s steps(20) infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes typing {
+      0%, 90%, 100% { left: 8px; }
+      10%, 80% { left: calc(100% - 120px); }
     }
 
     .address-bar i {
       color: #28c840;
       font-size: 7px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
 
     .browser-content {
@@ -257,6 +293,12 @@
       height: 14px;
       background: #0a1929;
       border-radius: 3px;
+      animation: logoGlow特 3s infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(10, 25, 41, 0.2); }
+      50% { box-shadow: 0 0 8px rgba(10, 25, 41, 0.4); }
     }
 
     .mock-nav {
@@ -269,10 +311,24 @@
       height: 5px;
       background: #cbd5e1;
       border-radius: 2px;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
     }
 
     .mock-nav-item:first-child {
       background: #d4a843;
+      animation: navPulse 2s infinite;
+    }
+
+    @keyframes navPulse {
+      0%, 100% { background: #d4a843; }
+      50% { background: #b88a2e; }
+    }
+
+    .mock-nav-item:hover {
+      height:的特 7px;
+      background: #0a1929;
     }
 
     .mock-hero {
@@ -293,10 +349,17 @@
       background: #1e293b;
       border-radius: 3px;
       width: 100%;
+      animation: slideIn 1s ease-out;
     }
 
     .mock-heading.short {
       width: 65%;
+      animation-delay: 0.2s;
+    }
+
+    @keyframes slideIn {
+      from { width: 0; opacity: 0; }
+      to { opacity: 1; }
     }
 
     .mock-subtext {
@@ -304,10 +367,12 @@
       background: #94a3b8;
       border-radius: 2px;
       width: 85%;
+      animation: slideIn 1s ease-out 0.4s backwards;
     }
 
     .mock-subtext.shorter {
       width: 55%;
+      animation-delay: 0.6s;
     }
 
     .mock-button {
@@ -316,6 +381,19 @@
       background: #d4a843;
       border-radius: 15px;
       margin-top: 2px;
+      animation: buttonPulse 2s infinite;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    @keyframes buttonPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .mock-button:hover {
+      background: #b88a2e;
+      transform: scale(1.1);
     }
 
     .mock-hero-image {
@@ -327,11 +405,23 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      animation: gradientShift 8s infinite alternate;
+    }
+
+    @keyframes gradientShift {
+      0% { background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%); }
+      100% { background: linear-gradient(135deg, #1a3a5c 0%, #2a4a7c 100%); }
     }
 
     .mock-hero-image i {
       font-size: 22px;
       color: #d4a843;
+      animation: spinSlow 10s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .mock-features {
@@ -349,6 +439,13 @@
       align-items: center;
       justify-content: center;
       gap: 3px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .mock-feature-card:hover {
+      background: #e2e8f0;
+      transform: translateY(-3px);
     }
 
     .mock-feature-icon {
@@ -356,6 +453,12 @@
       height: 10px;
       background: #d4a843;
       border-radius: 3px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
     }
 
     .mock-feature-line {
@@ -369,6 +472,7 @@
       position: absolute;
       border-radius: 50%;
       opacity: 0.12;
+      animation: moveCircles 15s infinite linear;
     }
 
     .decor-circle.one {
@@ -377,6 +481,7 @@
       background: #d4a843;
       top: -20px;
       right: -20px;
+      animation-name: moveCircle1;
     }
 
     .decor-circle.two {
@@ -385,6 +490,7 @@
       background: #0a1929;
       bottom: 35px;
       left: 15px;
+      animation-name: moveCircle2;
     }
 
     .decor-circle.three {
@@ -393,6 +499,25 @@
       background: #d4a843;
       bottom: 70px;
       right: 50px;
+      animation-name: moveCircle3;
+    }
+
+    @keyframes moveCircle1 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(-20px, 10px) rotate(120deg); }
+      66% { transform: translate(10px, -15px) rotate(240deg); }
+    }
+
+    @keyframes moveCircle2 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(15px, -10px) rotate(120deg); }
+      66% { transform: translate(-10px, 15px) rotate(240deg); }
+    }
+
+    @keyframes moveCircle3 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(-15px, -5px) rotate(120deg); }
+      66% { transform: translate(5px, 10px) rotate(240deg); }
     }
 
     .floating-element {
@@ -408,21 +533,71 @@
       font-weight: 600;
       color: #1e293b;
       z-index: 2;
+      animation: floatElement 4s ease-in-out infinite;
+    }
+
+    @keyframes floatElement {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .floating-element.seo {
       top: 25px;
       right: 15px;
+      animation-delay: 0.5s;
     }
 
     .floating-element.speed {
       bottom: 35px;
       left: 10px;
+      animation-delay: 1s;
     }
 
     .floating-element i {
       color: #d4a843;
       font-size: 11px;
+      animation: iconSpin 4s linear infinite;
+    }
+
+    @keyframes iconSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Progress bar animation */
+    .progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #d4a843, #b88a2e, #d4a843);
+      width: 0%;
+      animation: loading 3s ease-in-out infinite;
+      border-radius: 0 0 16px 16px;
+    }
+
+    @keyframes loading {
+      0% { width: 0%; left: 0; }
+      50% { width: 100%; left: 0; }
+      100% { width: 0%; left: 100%; }
+    }
+
+    /* Data flow animation */
+    .data-flow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .data-dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #d4a843;
+      border-radius: 50%;
+      opacity: 0;
     }
 
     @media (max-width: 768px) {
@@ -436,6 +611,9 @@
       .browser-window {
         height: 220px;
       }
+      .floating-element {
+        display: none; /* Hide floating elements on mobile */
+      }
     }
   </style>
 </head>
@@ -444,7 +622,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-   <a href="https://tektonnova.in" >
+    <a href="https://tektonnova.in" >
       <img src="logo.png" alt="logo" class="navbar-logo">
     </a> &nbsp;&nbsp;
     <a class="navbar-brand" href="https://tektonnova.in">TEKTON NOVA</a>
@@ -473,8 +651,11 @@
         <h1 class="display-4 fw-bold" style="font-family: 'Playfair Display', serif;">Let's Build Your Digital Future Website</h1>
         <p class="lead text-secondary mt-3">We create responsive, fast, secure, and user-friendly websites tailored to your business needs. Years of experience, expert developers, and customer-focused solutions.</p>
         <div class="mt-4">
-          <a href="#contact" class="btn btn-gold me-3">Get Your Free Consultation Today</a>
+<div class="d-flex flex-column flex-md-row gap-2">
+          <a href="#contact" class="btn btn-gold me-3">Get Your Free Consultation Today</a> 
+<p></p>
           <a href="#services" class="btn btn-outline-gold">Our Services</a>
+</div>
         </div>
         <div class="mt-4 d-flex align-items-center gap-4">
           <div><i class="fas fa-check-circle text-gold"></i> 20+ Projects</div>
@@ -483,83 +664,90 @@
         </div>
       </div>
       <div class="col-lg-5 mt-4 mt-lg-0">
-        <!-- ============ EMBEDDED MOCKUP ============ -->
-        <div class="website-mockup">
-          <!-- Decorative circles -->
-          <div class="decor-circle one"></div>
-          <div class="decor-circle two"></div>
-          <div class="decor-circle three"></div>
+       
+      <!-- ============ ANIMATED MOCKUP ============ -->
+  <div class="website-mockup">
+    <!-- Decorative circles -->
+    <div class="decor-circle one"></div>
+    <div class="decor-circle two"></div>
+    <div class="decor-circle three"></div>
 
-          <!-- Floating badges -->
-          <div class="floating-element seo">
-            <i class="fas fa-search"></i> SEO Optimized
-          </div>
-          <div class="floating-element speed">
-            <i class="fas fa-bolt"></i> Fast Loading
-          </div>
+    <!-- Data flow dots -->
+    <div class="data-flow" id="dataFlow"></div>
 
-          <!-- Browser window -->
-          <div class="browser-window">
-            <!-- Browser top bar -->
-            <div class="browser-bar">
-              <div class="dot red"></div>
-              <div class="dot yellow"></div>
-              <div class="dot green"></div>
-              <div class="address-bar">
-                <i class="fas fa-lock"></i> www.tektonnova.com
-              </div>
-            </div>
+    <!-- Floating badges -->
+    <div class="floating-element seo">
+      <i class="fas fa-search"></i> SEO Optimized
+    </div>
+    <div class="floating-element speed">
+      <i class="fas fa-bolt"></i> Fast Loading
+    </div>
 
-            <!-- Browser content -->
-            <div class="browser-content">
-              <!-- Header -->
-              <div class="mock-header">
-                <div class="mock-logo"></div>
-                <div class="mock-nav">
-                  <div class="mock-nav-item"></div>
-                  <div class="mock-nav-item"></div>
-                  <div class="mock-nav-item"></div>
-                  <div class="mock-nav-item"></div>
-                </div>
-              </div>
+    <!-- Progress bar -->
+    <div class="progress-bar"></div>
 
-              <!-- Hero -->
-              <div class="mock-hero">
-                <div class="mock-hero-text">
-                  <div class="mock-heading"></div>
-                  <div class="mock-heading short"></div>
-                  <div class="mock-subtext"></div>
-                  <div class="mock-subtext shorter"></div>
-                  <div class="mock-button"></div>
-                </div>
-                <div class="mock-hero-image">
-                  <i class="fas fa-code"></i>
-                </div>
-              </div>
+    <!-- Browser window -->
+    <div class="browser-window">
+      <!-- Browser top bar -->
+      <div class="browser-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="address-bar">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
 
-              <!-- Features -->
-              <div class="mock-features">
-                <div class="mock-feature-card">
-                  <div class="mock-feature-icon"></div>
-                  <div class="mock-feature-line"></div>
-                </div>
-                <div class="mock-feature-card">
-                  <div class="mock-feature-icon"></div>
-                  <div class="mock-feature-line"></div>
-                </div>
-                <div class="mock-feature-card">
-                  <div class="mock-feature-icon"></div>
-                  <div class="mock-feature-line"></div>
-                </div>
-                <div class="mock-feature-card">
-                  <div class="mock-feature-icon"></div>
-                  <div class="mock-feature-line"></div>
-                </div>
-              </div>
-            </div>
+      <!-- Browser content -->
+      <div class="browser-content">
+        <!-- Header -->
+        <div class="mock-header">
+          <div class="mock-logo"></div>
+          <div class="mock-nav">
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
           </div>
         </div>
-        <!-- ============ END MOCKUP ============ -->
+
+        <!-- Hero -->
+        <div class="mock-hero">
+          <div class="mock-hero-text">
+            <div class="mock-heading"></div>
+            <div class="mock-heading short"></div>
+            <div class="mock-subtext"></div>
+            <div class="mock-subtext shorter"></div>
+            <div class="mock-button"></div>
+          </div>
+          <div class="mock-hero-image">
+            <i class="fas fa-code"></i>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mock-features">
+          <div class="mock-feature-card">
+            <div class="mock-feature-icon"></div>
+            <div class="mock-feature-line"></div>
+          </div>
+          <div class="mock-feature-card">
+            <div class="mock-feature-icon"></div>
+            <div class="mock-feature-line"></div>
+          </div>
+          <div class="mock-feature-card">
+            <div class="mock-feature-icon"></div>
+            <div class="mock-feature-line"></div>
+          </div>
+          <div class="mock-feature-card">
+            <div class="mock-feature-icon"></div>
+            <div class="mock-feature-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============ END ANIMATED MOCKUP ============ -->
       </div>
     </div>
   </div>
@@ -599,99 +787,18 @@
       <h2 class="display-6 fw-bold mt-2">Our Services</h2>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
-          <h4>Custom Website Development</h4>
-          <p class="text-secondary">Bespoke websites built from scratch using latest technologies. Unique, scalable, high-performance solutions tailored to your business.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-shopping-cart"></i></div>
-          <h4>E-commerce Development</h4>
-          <p class="text-secondary">Robust online stores with secure payments, inventory management, and optimized checkout flows on WooCommerce, Shopify, or custom carts.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fab fa-wordpress"></i></div>
-          <h4>WordPress Development</h4>
-          <p class="text-secondary">Custom themes, advanced plugins, and fully editable websites. Fast, SEO-friendly, and secured WordPress solutions.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-window-maximize"></i></div>
-          <h4>Web Application Development</h4>
-          <p class="text-secondary">Complex apps including portals, dashboards, SaaS platforms using React, Angular, Node.js, and Laravel.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-tools"></i></div>
-          <h4>Maintenance & Support</h4>
-          <p class="text-secondary">Ongoing updates, security patches, backups, and 24/7 technical support to keep your site running smoothly.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-paint-brush"></i></div>
-          <h4>UI/UX Design</h4>
-          <p class="text-secondary">Conversion-centered design with wireframing, prototyping, and intuitive user journeys that delight visitors.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fa-solid fa-arrows-rotate"></i></div>
-    <h4>Website Recreation & Modernization</h4>
-    <p class="text-secondary">
-      Transform outdated static websites into modern, dynamic, and responsive web applications with enhanced functionality, improved performance, and an engaging user experience.
-    </p>
-  </div>
-</div>
-      <div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-search"></i></div>
-    <h4>SEO Optimization</h4>
-    <p class="text-secondary">Improve your website's search engine rankings with on-page SEO, technical optimization, keyword research, and performance enhancements.</p>
-  </div>
-</div>
-
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-tachometer-alt"></i></div>
-    <h4>Website Speed Optimization</h4>
-    <p class="text-secondary">Boost website performance with code optimization, image compression, caching, and Core Web Vitals improvements for faster loading.</p>
-  </div>
-</div>
-
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-exchange-alt"></i></div>
-    <h4>Website Migration</h4>
-    <p class="text-secondary">Migrate your website between hosting providers, domains, or platforms with zero data loss, minimal downtime, and complete support.</p>
-  </div>
-</div>
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
-    <h4>Responsive Web Design</h4>
-    <p class="text-secondary">
-      Build fully responsive websites that deliver a seamless experience across desktops, tablets, and smartphones with modern, mobile-first design.
-    </p>
-  </div>
-</div>
-
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-server"></i></div>
-    <h4>Web Hosting & Deployment</h4>
-    <p class="text-secondary">
-      Reliable website deployment, domain configuration, SSL installation, server setup, and hosting management to ensure your website is secure and always online.
-    </p>
-  </div>
-</div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-laptop-code"></i></div><h4>Custom Website Development</h4><p class="text-secondary">Bespoke websites built from scratch using latest technologies.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-shopping-cart"></i></div><h4>E-commerce Development</h4><p class="text-secondary">Robust online stores with secure payments and optimized checkout.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fab fa-wordpress"></i></div><h4>WordPress Development</h4><p class="text-secondary">Custom themes, plugins, and fully editable websites.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-window-maximize"></i></div><h4>Web Application Development</h4><p class="text-secondary">Complex apps, portals, dashboards, SaaS platforms.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-tools"></i></div><h4>Maintenance & Support</h4><p class="text-secondary">Updates, security patches, backups, 24/7 support.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-paint-brush"></i></div><h4>UI/UX Design</h4><p class="text-secondary">Conversion-centered design with intuitive user journeys.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fa-solid fa-arrows-rotate"></i></div><h4>Website Recreation & Modernization</h4><p class="text-secondary">Transform static sites into modern dynamic web applications.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-search"></i></div><h4>SEO Optimization</h4><p class="text-secondary">Improve rankings with on-page and technical SEO.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-tachometer-alt"></i></div><h4>Website Speed Optimization</h4><p class="text-secondary">Boost performance and Core Web Vitals.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-exchange-alt"></i></div><h4>Website Migration</h4><p class="text-secondary">Zero data loss migration between hosts or platforms.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-mobile-alt"></i></div><h4>Responsive Web Design</h4><p class="text-secondary">Seamless experience across all devices.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-server"></i></div><h4>Web Hosting & Deployment</h4><p class="text-secondary">Domain, SSL, server setup and reliable hosting.</p></div></div>
     </div>
   </div>
 </section>
@@ -702,76 +809,23 @@
     <div class="row align-items-center">
       <div class="col-lg-5 mb-4 mb-lg-0">
         <span class="text-gold fw-semibold">Why Tekton Nova</span>
-        
         <h2 class="display-6 fw-bold mt-2">Reliable Web Solutions That Drive Business Growth</h2>
-<p class="text-secondary">
-  Every project is backed by a dedicated team, a customized development strategy, transparent communication, rigorous quality assurance, and continuous post-launch support to ensure your business succeeds online.
-</p>
+        <p class="text-secondary">Every project is backed by a dedicated team, a customized development strategy, transparent communication, rigorous quality assurance, and continuous post-launch support.</p>
         <a href="#contact" class="btn btn-gold mt-3">Start Your Project</a>
       </div>
       <div class="col-lg-7">
         <div class="row g-3">
-        <div class="row g-3">
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-tags text-gold me-2"></i> Affordable Pricing
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-tags text-gold me-2"></i> Affordable Pricing</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-calendar-check text-gold me-2"></i> On-Time Delivery</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-headset text-gold me-2"></i> 24/7 Technical Support</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-user-tie text-gold me-2"></i> Dedicated Project Manager</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-chart-line text-gold me-2"></i> SEO-Friendly Development</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-graduation-cap text-gold me-2"></i> Post-Launch Training</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-shield-alt text-gold me-2"></i> Secure & Scalable Solutions</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-bolt text-gold me-2"></i> High-Performance Websites</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile-Responsive Design</div></div>
+          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-sync-alt text-gold me-2"></i> Free Minor Revisions</div></div>
         </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-calendar-check text-gold me-2"></i> On-Time Delivery
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-headset text-gold me-2"></i> 24/7 Technical Support
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-user-tie text-gold me-2"></i> Dedicated Project Manager
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-chart-line text-gold me-2"></i> SEO-Friendly Development
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-graduation-cap text-gold me-2"></i> Post-Launch Training
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-shield-alt text-gold me-2"></i> Secure & Scalable Solutions
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-bolt text-gold me-2"></i> High-Performance Websites
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-mobile-alt text-gold me-2"></i> Mobile-Responsive Design
-        </div>
-    </div>
-
-    <div class="col-6">
-        <div class="border rounded-4 p-3">
-            <i class="fas fa-sync-alt text-gold me-2"></i> Free Minor Revisions
-        </div>
-    </div>
-</div>
       </div>
     </div>
   </div>
@@ -783,77 +837,16 @@
     <div class="text-center mb-5">
       <span class="text-gold fw-semibold">How We Work</span>
       <h2 class="display-6 fw-bold mt-2">From Idea to Successful Launch</h2>
-      <p class="text-secondary mx-auto" style="max-width: 700px;">
-        We follow a structured development process to ensure every project is delivered
-        on time, meets your business goals, and provides an exceptional user experience.
-      </p>
     </div>
-
     <div class="row g-3 text-center">
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-comments fa-2x text-gold mb-2"></i>
-          <h6>Discovery</h6>
-          <small class="text-secondary">Understand your goals & requirements</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-pencil-ruler fa-2x text-gold mb-2"></i>
-          <h6>Planning</h6>
-          <small class="text-secondary">Project roadmap & technical strategy</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-palette fa-2x text-gold mb-2"></i>
-          <h6>UI/UX Design</h6>
-          <small class="text-secondary">Modern, responsive interface design</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-code fa-2x text-gold mb-2"></i>
-          <h6>Development</h6>
-          <small class="text-secondary">Clean, scalable & secure coding</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-vial fa-2x text-gold mb-2"></i>
-          <h6>Testing</h6>
-          <small class="text-secondary">Quality assurance & performance testing</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-rocket fa-2x text-gold mb-2"></i>
-          <h6>Deployment</h6>
-          <small class="text-secondary">Launch your website with confidence</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-headset fa-2x text-gold mb-2"></i>
-          <h6>Maintenance</h6>
-          <small class="text-secondary">Continuous support & future updates</small>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 col-lg-1-5">
-  <div class="process-step-item">
-    <i class="fas fa-chart-pie fa-2x text-gold mb-2"></i>
-    <h6>Analysis</h6>
-    <small class="text-secondary">Research, insights & project strategy</small>
-  </div>
-</div>
-
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-comments fa-2x text-gold mb-2"></i><h6>Discovery</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-pencil-ruler fa-2x text-gold mb-2"></i><h6>Planning</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-palette fa-2x text-gold mb-2"></i><h6>UI/UX Design</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-code fa-2x text-gold mb-2"></i><h6>Development</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-vial fa-2x text-gold mb-2"></i><h6>Testing</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-rocket fa-2x text-gold mb-2"></i><h6>Deployment</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-headset fa-2x text-gold mb-2"></i><h6>Maintenance</h6></div></div>
+      <div class="col-6 col-md-3"><div class="process-step-item"><i class="fas fa-chart-pie fa-2x text-gold mb-2"></i><h6>Analysis</h6></div></div>
     </div>
   </div>
 </section>
@@ -861,10 +854,7 @@
 <!-- Technologies Section -->
 <section id="technologies" class="section-padding bg-white">
   <div class="container">
-    <div class="text-center mb-5">
-      <span class="text-gold fw-semibold">Tech Stack</span>
-      <h2 class="display-6 fw-bold mt-2">Technologies We Use</h2>
-    </div>
+    <div class="text-center mb-5"><span class="text-gold fw-semibold">Tech Stack</span><h2 class="display-6 fw-bold mt-2">Technologies We Use</h2></div>
     <div class="d-flex flex-wrap justify-content-center gap-2">
       <span class="tech-badge"><i class="fab fa-html5"></i> HTML5</span>
       <span class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
@@ -878,159 +868,32 @@
       <span class="tech-badge"><i class="fab fa-wordpress"></i> WordPress</span>
       <span class="tech-badge"><i class="fas fa-database"></i> MySQL</span>
       <span class="tech-badge"><i class="fas fa-database"></i> PostgreSQL</span>
-<span class="tech-badge"><i class="fas fa-database"></i> MongoDB</span>
-<span class="tech-badge"><i class="fas fa-database"></i> SQLite</span>
+      <span class="tech-badge"><i class="fas fa-database"></i> MongoDB</span>
+      <span class="tech-badge"><i class="fas fa-database"></i> SQLite</span>
       <span class="tech-badge"><i class="fab fa-aws"></i> AWS</span>
       <span class="tech-badge"><i class="fab fa-docker"></i> Docker</span>
       <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
-       <span class="tech-badge"><i class="fas fa-leaf"></i> Django</span>
-    <span class="tech-badge"><i class="fas fa-flask"></i> Flask</span>
-    <span class="tech-badge"><i class="fab fa-java"></i> Java</span>
+      <span class="tech-badge"><i class="fas fa-leaf"></i> Django</span>
+      <span class="tech-badge"><i class="fas fa-flask"></i> Flask</span>
+      <span class="tech-badge"><i class="fab fa-java"></i> Java</span>
     </div>
   </div>
 </section>
 
 <!-- Testimonials -->
 <section class="section-padding bg-light-gray">
-    <div class="container">
-
-        <div class="text-center mb-5">
-            <span class="text-gold fw-semibold">Client Feedback</span>
-            <h2 class="display-6 fw-bold mt-2">What Our Clients Say</h2>
-            <p class="text-secondary">
-                Trusted by businesses for reliable web solutions, innovative designs, and outstanding support.
-            </p>
-        </div>
-
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-
-            <div class="carousel-inner">
-
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="row g-4">
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "Tekton Nova transformed our outdated website into a modern digital platform.
-                                    Our customer engagement and online visibility improved significantly."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "The web application developed by Tekton Nova streamlined our operations
-                                    and helped us automate daily business processes."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "Excellent communication, affordable pricing, and professional service.
-                                    The team delivered exactly what we needed."
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="row g-4">
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "Their UI/UX design improved our customer experience and made our
-                                    website easier and faster to navigate."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "Fast development, clean coding practices, and excellent support after
-                                    launch. Highly recommended."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "Tekton Nova converted our simple website into a powerful dynamic
-                                    platform with impressive results."
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="row g-4">
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "The team understood our requirements perfectly and created a website
-                                    that represents our brand professionally."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "From design to deployment, the entire process was smooth and
-                                    professional. We are extremely satisfied."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="testimonial-card p-4">
-                                <i class="fas fa-quote-right text-gold mb-3"></i>
-                                <p class="fst-italic">
-                                    "Tekton Nova provided a reliable solution that improved our online
-                                    presence and helped us reach more customers."
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-
-            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-
-        </div>
-
+  <div class="container">
+    <div class="text-center mb-5"><span class="text-gold fw-semibold">Client Feedback</span><h2 class="display-6 fw-bold mt-2">What Our Clients Say</h2></div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova transformed our outdated website into a modern digital platform."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"The web application streamlined our operations and automated daily processes."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Excellent communication, affordable pricing, and professional service."</p></div></div></div></div>
+        <div class="carousel-item"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Their UI/UX design improved our customer experience significantly."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Fast development, clean coding, and excellent support after launch."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova converted our simple website into a powerful dynamic platform."</p></div></div></div></div>
+        <div class="carousel-item"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"The team understood our requirements perfectly and delivered professionally."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"From design to deployment, the entire process was smooth and professional."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova provided a reliable solution that improved our online presence."</p></div></div></div></div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
     </div>
+  </div>
 </section>
 
 <!-- Contact & CTA Section -->
@@ -1052,36 +915,14 @@
           <span><i class="fab fa-instagram fa-lg"></i></span>
           <span><i class="fab fa-github fa-lg"></i></span>
         </div>
-        <!-- <div class="mt-3 p-2 bg-white rounded-3 d-inline-block">
-          <img src="qr_code.png" alt="QR Code" width="80">
-        </div> -->
       </div>
-<div class="col-lg-6">
-  <div class="bg-white text-dark p-5 rounded-4 shadow h-100">
-
-    <h3 class="fw-bold mb-3">Request a Free Quote</h3>
-
-    <p class="text-secondary mb-4">
-      Tell us about your project requirements, and our team will get back to you
-      with a customized solution and a competitive quote.
-    </p>
-
-    <a href="https://forms.gle/RFeuM8Gym6zzkYeQ9"
-       target="_blank"
-       class="btn btn-gold btn-lg px-4">
-      <i class="fas fa-file-alt me-2"></i>
-      Fill Out the Quote Form
-    </a>
-
-    <div class="mt-4">
-      <small class="text-muted">
-        <i class="fas fa-clock me-2"></i>
-        We typically respond within 24 hours.
-      </small>
-    </div>
-
-  </div>
-</div>
+      <div class="col-lg-6">
+        <div class="bg-white text-dark p-5 rounded-4 shadow h-100">
+          <h3 class="fw-bold mb-3">Request a Free Quote</h3>
+          <p class="text-secondary mb-4">Tell us about your project requirements, and our team will get back to you with a customized solution and a competitive quote.</p>
+          <a href="https://forms.gle/RFeuM8Gym6zzkYeQ9" target="_blank" class="btn btn-gold btn-lg px-4"><i class="fas fa-file-alt me-2"></i>Fill Out the Quote Form</a>
+          <div class="mt-4"><small class="text-muted"><i class="fas fa-clock me-2"></i>We typically respond within 24 hours.</small></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1097,6 +938,125 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Data flow animation
+  function createDataFlow() {
+    const dataFlow = document.getElementById('dataFlow');
+    if (!dataFlow) return;
+    
+    // Clear existing dots
+    dataFlow.innerHTML = '';
+    
+    // Create new dots
+    for (let i = 0; i < 15; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'data-dot';
+      
+      // Random starting position
+      const startX = Math.random() * 100;
+      const startY = Math.random() * 100;
+      
+      // Random animation duration
+      const duration = 2 + Math.random() * 3;
+      
+      // Random delay
+      const delay = Math.random() * 5;
+      
+      dot.style.left = `${startX}%`;
+      dot.style.top = `${startY}%`;
+      dot.style.animation = `moveDataDot ${duration}s linear ${delay}s infinite`;
+      
+      dataFlow.appendChild(dot);
+    }
+  }
 
+  // CSS for data dot animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes moveDataDot {
+      0% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * .100 - 50}px);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Interactive features
+  document.addEventListener('DOMContentLoaded', function() {
+    createDataFlow();
+    
+    // Make mock features interactive
+    const featureCards = document.querySelectorAll('.mock-feature-card');
+    featureCards.forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = 'translateY(-3px)';
+        }, 150);
+      });
+    });
+    
+    // Make mock button interactive
+    const mockButton = document.querySelector('.mock-button');
+    if (mockButton) {
+      mockButton.addEventListener('click', function() {
+        this.style.animation = 'none';
+        this.style.transform = 'scale(1.2)';
+        this.style.backgroundColor = '#0a1929';
+        this.style.color = 'white';
+        
+        setTimeout(() => {
+          this.style.animation = 'buttonPulse 2s infinite';
+          this.style.transform = 'scale(1)';
+          this.style.backgroundColor = '#d4a843';
+        }, 300);
+      });
+    }
+    
+    // Add typing animation to address bar
+    const addressBar = document.querySelector('.address-bar');
+    if (addressBar) {
+      setInterval(() => {
+        addressBar.style.animation = 'none';
+        setTimeout(() => {
+          addressBar.style.animation = 'typing 3s steps(20) infinite';
+        }, 10);
+      }, 3000);
+    }
+    
+    // Browser window interaction
+    const browserWindow = document.querySelector('.browser-window');
+    if (browserWindow) {
+      browserWindow.addEventListener('mouseenter', function() {
+        // Add subtle shake to dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach(dot => {
+          dot.style.transform = 'translateX(2px)';
+          setTimeout(() => {
+            dot.style.transform = 'translateX(-2px)';
+          }, 100);
+          setTimeout(() => {
+            dot.style.transform = 'translateX(0)';
+          }, 200);
+        });
+      });
+    }
+  });
+
+  // Recreate data flow periodically
+  setInterval(createDataFlow, 8000);
+</script>
 </body>
 </html>
+```
