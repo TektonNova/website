@@ -157,10 +157,136 @@
       padding: 2rem;
     }
 
+    /* ============ WEBSITE TYPES SECTION ============ */
+    .type-card {
+      border: none;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      overflow: hidden;
+    }
+    .type-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 45px rgba(0,0,0,0.08);
+    }
+    .type-card-header {
+      padding: 1.75rem 1.5rem 1.25rem;
+      color: #fff;
+      background: #0a1929;
+    }
+    .type-card-header.gold {
+      background: linear-gradient(135deg, #d4a843 0%, #b88a2e 100%);
+      color: #0a1929;
+    }
+    .type-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 0.9rem;
+    }
+    .type-card-header.gold .type-card-icon {
+      background: rgba(10,25,41,0.12);
+      color: #0a1929;
+    }
+    .type-card-label {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      opacity: 0.85;
+      text-transform: uppercase;
+    }
+    .type-card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin: 0.15rem 0 0;
+    }
+    .type-card-body {
+      padding: 1.5rem;
+    }
+    .type-card-body ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .type-card-body ul li {
+      padding-left: 1.4rem;
+      position: relative;
+      margin-bottom: 0.6rem;
+      font-size: 0.92rem;
+      color: #475569;
+    }
+    .type-card-body ul li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #d4a843;
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 0.75rem;
+    }
+    .type-card-price {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #e2e8f0;
+      text-align: center;
+    }
+    .type-card-price .price-tag-label {
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .type-card-price .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0a1929;
+      line-height: 1.2;
+    }
+    .type-card-price .price-extra {
+      font-size: 0.75rem;
+      color: #b88a2e;
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+    .type-card-price .price-note {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      font-style: italic;
+      margin-top: 0.4rem;
+      line-height: 1.3;
+    }
+    .type-pricing-disclaimer {
+      background: #fdf7ea;
+      border: 1px solid #f0e0b8;
+      border-radius: 14px;
+      padding: 1rem 1.5rem;
+      color: #7a5c14;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .type-pricing-disclaimer i {
+      color: #d4a843;
+      margin-top: 0.2rem;
+    }
+
    /* ============ ANIMATED MOCKUP STYLES ============ */
     .website-mockup {
       width: 100%;
-      max-width: &00px;
+      /*max-width: 400px;*/
       height: 400px;
       background: linear-gradient(145deg, #e9f0f7 0%, #dce4ee 100%);
       border-radius: 24px;
@@ -240,7 +366,7 @@
       margin-left: 6px;
       display: flex;
       align-items: center;
-      padding:每天 0 8px;
+      padding: 0 8px;
       font-size: 8px;
       color: #8899aa;
       border: 1px solid #dce2e8;
@@ -293,7 +419,7 @@
       height: 14px;
       background: #0a1929;
       border-radius: 3px;
-      animation: logoGlow特 3s infinite;
+      animation: logoGlow 3s infinite;
     }
 
     @keyframes logoGlow {
@@ -327,7 +453,7 @@
     }
 
     .mock-nav-item:hover {
-      height:的特 7px;
+      height: 7px;
       background: #0a1929;
     }
 
@@ -633,6 +759,7 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#website-types">Website Types</a></li>
         <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
         <li class="nav-item"><a class="nav-link" href="#technologies">Technologies</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -799,6 +926,114 @@
       <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-exchange-alt"></i></div><h4>Website Migration</h4><p class="text-secondary">Zero data loss migration between hosts or platforms.</p></div></div>
       <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-mobile-alt"></i></div><h4>Responsive Web Design</h4><p class="text-secondary">Seamless experience across all devices.</p></div></div>
       <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-server"></i></div><h4>Web Hosting & Deployment</h4><p class="text-secondary">Domain, SSL, server setup and reliable hosting.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Website Types Section -->
+<section id="website-types" class="section-padding bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="text-gold fw-semibold">Architecture Options</span>
+      <h2 class="display-6 fw-bold mt-2">Website Types We Build</h2>
+      <p class="text-secondary mt-2 col-lg-8 mx-auto">We match the right architecture to your goals — from a simple static page to a fully dynamic, database-driven platform.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="type-card">
+          <div class="type-card-header gold">
+            <div class="type-card-icon"><i class="fas fa-desktop"></i></div>
+            <div class="type-card-label">Static Site</div>
+            <h4 class="type-card-title">With Server</h4>
+          </div>
+          <div class="type-card-body">
+            <p class="text-secondary small">Plain HTML/CSS/JS files hosted on a traditional web server you own or rent.</p>
+            <ul>
+              <li>You purchase &amp; manage server</li>
+              <li>No database or backend logic</li>
+              <li>Fast, secure, low maintenance</li>
+            </ul>
+            <div class="type-card-price">
+              <div class="price-tag-label">Starting From</div>
+              <div class="price-amount">₹6,000/-</div>
+              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="type-card">
+          <div class="type-card-header gold">
+            <div class="type-card-icon"><i class="fas fa-cloud"></i></div>
+            <div class="type-card-label">Static Site</div>
+            <h4 class="type-card-title">Without Server</h4>
+          </div>
+          <div class="type-card-body">
+            <p class="text-secondary small">Files served via CDN / serverless hosting — no traditional server to manage.</p>
+            <ul>
+              <li>Hosted on Netlify, Vercel, GitHub Pages</li>
+              <li>Auto-scaling, near-zero maintenance</li>
+              <li>Often free or very low cost</li>
+            </ul>
+            <div class="type-card-price">
+              <div class="price-tag-label">Starting From</div>
+              <div class="price-amount">₹4,999/-</div>
+              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="type-card">
+          <div class="type-card-header gold">
+            <div class="type-card-icon"><i class="fas fa-cogs"></i></div>
+            <div class="type-card-label">SSG</div>
+            <h4 class="type-card-title">Static Site Generation</h4>
+          </div>
+          <div class="type-card-body">
+            <p class="text-secondary small">Pages are pre-built at build time from templates and content, then deployed as static files.</p>
+            <ul>
+              <li>Built with Next.js, Astro, Hugo, Gatsby</li>
+              <li>SEO-friendly + very fast delivery</li>
+              <li>Great for blogs, docs, catalogs</li>
+            </ul>
+            <div class="type-card-price">
+              <div class="price-tag-label">Starting From</div>
+              <div class="price-amount">₹5,000/-</div>
+              <div class="price-extra">+ ₹650/year yearly charges</div>
+              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="type-card">
+          <div class="type-card-header">
+            <div class="type-card-icon"><i class="fas fa-database"></i></div>
+            <div class="type-card-label">Dynamic Site</div>
+            <h4 class="type-card-title">Server Purchase Required</h4>
+          </div>
+          <div class="type-card-body">
+            <p class="text-secondary small">Pages generated on the fly per request, backed by a database and server-side logic.</p>
+            <ul>
+              <li>Requires a purchased/managed server</li>
+              <li>Real-time data &amp; user accounts</li>
+              <li>Ideal for SaaS, portals, e-commerce</li>
+            </ul>
+            <div class="type-card-price">
+              <div class="price-tag-label">Starting From</div>
+              <div class="price-amount">₹12,000/-</div>
+              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="type-pricing-disclaimer mt-4">
+      <i class="fas fa-circle-info"></i>
+      <div>
+        <strong>Please note:</strong> The prices above are development starting prices only. Domain registration and hosting charges are <strong>not included</strong> and will be arranged/paid separately by the client.
+      </div>
     </div>
   </div>
 </section>
@@ -985,7 +1220,7 @@
         opacity: 0.8;
       }
       100% {
-        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * .100 - 50}px);
+        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
         opacity: 0;
       }
     }
