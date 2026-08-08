@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -741,7 +742,151 @@
         display: none; /* Hide floating elements on mobile */
       }
     }
-  </style>
+/* back to top button */
+  #backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #d4a843;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+/* pop css for the terms and condition */
+ 
+/* Terms Popup */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+
+  display: none; /* Hidden initially */
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Show popup when active */
+.popup-overlay.active {
+  display: flex;
+}
+
+/* Popup Box */
+.terms-popup {
+  width: 100%;
+  max-width: 850px;
+  max-height: 95vh;
+
+  background: #fff;
+  color: #222;
+
+  border-radius: 12px;
+  padding: 20px 25px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* Heading */
+.terms-popup h2 {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 22px;
+}
+
+/* Sections */
+.terms-section {
+  margin-bottom: 7px;
+}
+
+.terms-section h3 {
+  margin: 0 0 2px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.terms-section p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Close Button */
+.close-bottom-btn {
+  display: block;
+  margin: 10px auto 0;
+
+  padding: 8px 25px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.close-bottom-btn:hover {
+  background: #333;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .popup-overlay {
+    padding: 5px;
+  }
+
+  .terms-popup {
+    max-height: 98vh;
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .terms-popup h2 {
+    font-size: 17px;
+    margin-bottom: 7px;
+  }
+
+  .terms-section {
+    margin-bottom: 4px;
+  }
+
+  .terms-section h3 {
+    font-size: 10px;
+    margin-bottom: 1px;
+  }
+
+  .terms-section p {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+
+  .close-bottom-btn {
+    margin-top: 6px;
+    padding: 5px 18px;
+    font-size: 10px;
+  }
+}
+
+ </style>
 </head>
 <body>
 
@@ -759,7 +904,7 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#website-types">Website Types</a></li>
+        <li class="nav-item"><a class="nav-link" href="#website-types">Pricing</a></li>
         <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
         <li class="nav-item"><a class="nav-link" href="#technologies">Technologies</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -879,6 +1024,10 @@
     </div>
   </div>
 </section>
+
+<button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+  ↑
+</button>
 
 <!-- About Section -->
 <section id="about" class="section-padding bg-white">
@@ -1030,8 +1179,8 @@
           <div class="type-card-body">
             <p class="text-secondary small">Plain HTML/CSS/JS files hosted on a traditional web server you own or rent.</p>
             <ul>
-              <li>You purchase &amp; manage server</li>
-              <li>No database or backend logic</li>
+              <li>You purchase &amp; manage server </li>
+              <li>No database or backend logic </li>
               <li>Fast, secure, low maintenance</li>
             </ul>
             <div class="type-card-price">
@@ -1052,7 +1201,7 @@
           <div class="type-card-body">
             <p class="text-secondary small">Files served via CDN / serverless hosting — no traditional server to manage.</p>
             <ul>
-              <li>Hosted on Netlify, Vercel, GitHub Pages</li>
+              <li>Hosted on Netlify, Vercel,Cloudflare page, GitHub Pages</li>
               <li>Auto-scaling, near-zero maintenance</li>
               <li>Often free or very low cost</li>
             </ul>
@@ -1081,7 +1230,7 @@
             <div class="type-card-price">
               <div class="price-tag-label">Starting From</div>
               <div class="price-amount">₹5,000/-</div>
-              <div class="price-extra">+ ₹650/year yearly charges</div>
+              <div class="price-extra">+ ₹650 yearly charges</div>
               <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
             </div>
           </div>
@@ -1275,6 +1424,137 @@
   </div>
 </section>
 
+<!-- term and condition -->
+
+<!-- Button -->
+<div class="text-center mb-5"><span class="text-gold fw-semibold"><button class="btn-gold"onclick="openTerms()">Terms & Conditions</button></div>
+
+
+<!-- Popup -->
+<div id="termsPopup" class="popup-overlay">
+  <div class="terms-popup">
+
+    <!--<button class="close-btn" onclick="closeTerms()">×</button>-->
+
+    <h2>Terms & Conditions</h2>
+
+    <div class="terms-section">
+      <h3>1. General Terms</h3>
+      <p>
+        These are the general terms and conditions. By using this website,
+        you agree to follow the rules and conditions described here.
+      </p>
+</div>
+<div class="terms-section">
+  <h3>2. Project Scope</h3>
+  <p>
+    The project will be completed according to the agreed requirements. Any
+    additional features or changes may incur extra charges.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>3. Payment Terms</h3>
+  <p>
+    A 50% advance payment is required before the project begins. The remaining
+    50% must be paid before the final website is delivered or made live.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>4. Project Timeline</h3>
+  <p>
+    The estimated delivery time will be provided before work starts. Delays
+    caused by the client, such as late content or approvals, may extend the
+    delivery schedule.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>5. Client Responsibilities</h3>
+  <p>
+    The client must provide all required content, images, logos, and other
+    materials on time. The client is responsible for ensuring they have
+    permission to use any provided content.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>6. Revisions</h3>
+  <p>
+    Up to 2–3 rounds of revisions are included. Additional revisions will be
+    charged separately.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>7. Website Ownership</h3>
+  <p>
+    Full ownership of the website will be transferred to the client after full
+    payment is received.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>8. Hosting & Domain</h3>
+  <p>
+    Domain registration and web hosting are not included unless specifically
+    mentioned in the quotation.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>9. Support & Maintenance</h3>
+  <p>
+    Free support is provided for 30 days after project completion for bug fixes.
+    Ongoing maintenance will require a separate agreement.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>10. Cancellation</h3>
+  <p>
+    If the project is cancelled after work has started, the advance payment is
+    non-refundable.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>11. Confidentiality</h3>
+  <p>
+    Both parties agree to keep all project information and business data
+    confidential.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>12. Limitation of Liability</h3>
+  <p>
+    The company is not responsible for losses caused by third-party services,
+    hosting issues, cyberattacks, or client-made changes after project delivery.
+  </p>
+</div>
+
+<div class="terms-section">
+  <h3>13. Acceptance</h3>
+  <p>
+    By approving the quotation or making the advance payment, the client agrees
+    to these Terms & Conditions.
+  </p>
+</div>
+
+    
+    <button class="close-bottom-btn" onclick="closeTerms()">
+      Close
+    </button>
+
+  </div>
+</div>
+
+
+
+
+
 <!-- Contact & CTA Section -->
 <section id="contact" class="section-padding bg-navy text-white">
   <div class="container">
@@ -1318,6 +1598,15 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+// terms and condition
+ function openTerms() {
+    document.getElementById("termsPopup").style.display = "flex";
+  }
+
+  function closeTerms() {
+    document.getElementById("termsPopup").style.display = "none";
+  }
+
   // Data flow animation
   function createDataFlow() {
     const dataFlow = document.getElementById('dataFlow');
