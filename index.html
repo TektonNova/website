@@ -1,1729 +1,2741 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>TEKTON NOVA | Innovative Craftsmen | Web Development</title>
-  <link rel="icon" type="image/x-icon" href="logo.png">
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      scroll-behavior: smooth;
-    }
-    h1, h2, h3, .navbar-brand, .company-font {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-    }
-    .navbar-logo {
-      width: 47px;
-      height: 42px;
-      border-radius: 6px;
-      display: flow;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(10, 25, 41, 0.2);
-    }
-    .text-gold {
-      color: #d4a843;
-    }
-    .bg-navy {
-      background-color: #0a1929;
-    }
-    .bg-light-gray {
-      background-color: #f1f5f9;
-    }
-    .btn-gold {
-      background-color: #d4a843;
-      color: #0a1929;
-      font-weight: 700;
-      border: none;
-      padding: 0.7rem 2rem;
-      border-radius: 40px;
-      transition: 0.3s;
-      letter-spacing: 0.5px;
-    }
-    .btn-gold:hover {
-      background-color: #b88a2e;
-      color: #000;
-    }
-    .btn-outline-gold {
-      border: 2px solid #d4a843;
-      color: #d4a843;
-      font-weight: 600;
-      border-radius: 40px;
-      padding: 0.6rem 2rem;
-      transition: 0.3s;
-    }
-    .btn-outline-gold:hover {
-      background-color: #d4a843;
-      color: #0a1929;
-    }
-    .navbar {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
-    .navbar-brand {
-      font-size: 1.8rem;
-      color: #0a1929 !important;
-    }
-    .nav-link {
-      font-weight: 500;
-      color: #334155 !important;
-      margin: 0 0.3rem;
-    }
-    .nav-link:hover {
-      color: #d4a843 !important;
-    }
-    .hero-section {
-      background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
-      padding: 6rem 0 4rem;
-    }
-    .section-padding {
-      padding: 5rem 0;
-    }
-    .card-custom {
-      border: none;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
-      height: 100%;
-    }
-    .card-custom:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 45px rgba(0,0,0,0.08);
-    }
-    .icon-circle {
-      width: 65px;
-      height: 65px;
-      background: #f1f5f9;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: #d4a843;
-      margin-bottom: 1.2rem;
-    }
-    .process-step-item {
-      background: white;
-      border-radius: 20px;
-      padding: 1.5rem 1rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-      text-align: center;
-      transition: 0.2s;
-      border: 1px solid #f0f0f0;
-    }
-    .process-step-item:hover {
-      border-color: #d4a843;
-    }
-    .tech-badge {
-      background: white;
-      border-radius: 14px;
-      padding: 0.6rem 1.2rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.03);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin: 0.3rem;
-      border: 1px solid #edf2f7;
-    }
-    .footer {
-      background: #0a1929;
-      color: #cbd5e1;
-    }
-    .footer a {
-      color: #cbd5e1;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      color: #d4a843;
-    }
-    .testimonial-card {
-      background: #f9fafb;
-      border-radius: 24px;
-      padding: 2rem;
-    }
-
-    /* ============ WEBSITE TYPES SECTION ============ */
-    .type-card {
-      border: none;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
-      height: 100%;
-      overflow: hidden;
-    }
-    .type-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 45px rgba(0,0,0,0.08);
-    }
-    .type-card-header {
-      padding: 1.75rem 1.5rem 1.25rem;
-      color: #fff;
-      background: #0a1929;
-    }
-    .type-card-header.gold {
-      background: linear-gradient(135deg, #d4a843 0%, #b88a2e 100%);
-      color: #0a1929;
-    }
-    .type-card-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 0.9rem;
-    }
-    .type-card-header.gold .type-card-icon {
-      background: rgba(10,25,41,0.12);
-      color: #0a1929;
-    }
-    .type-card-label {
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-      opacity: 0.85;
-      text-transform: uppercase;
-    }
-    .type-card-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin: 0.15rem 0 0;
-    }
-    .type-card-body {
-      padding: 1.5rem;
-    }
-    .type-card-body ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-    .type-card-body ul li {
-      padding-left: 1.4rem;
-      position: relative;
-      margin-bottom: 0.6rem;
-      font-size: 0.92rem;
-      color: #475569;
-    }
-    .type-card-body ul li::before {
-      content: '\f00c';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: #d4a843;
-      position: absolute;
-      left: 0;
-      top: 1px;
-      font-size: 0.75rem;
-    }
-    .type-card-price {
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px dashed #e2e8f0;
-      text-align: center;
-    }
-    .type-card-price .price-tag-label {
-      font-size: 0.68rem;
-      letter-spacing: 1px;
-      font-weight: 700;
-      color: #94a3b8;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-    }
-    .type-card-price .price-amount {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #0a1929;
-      line-height: 1.2;
-    }
-    .type-card-price .price-extra {
-      font-size: 0.75rem;
-      color: #b88a2e;
-      font-weight: 600;
-      margin-top: 0.15rem;
-    }
-    .type-card-price .price-note {
-      font-size: 0.72rem;
-      color: #94a3b8;
-      font-style: italic;
-      margin-top: 0.4rem;
-      line-height: 1.3;
-    }
-    .type-pricing-disclaimer {
-      background: #fdf7ea;
-      border: 1px solid #f0e0b8;
-      border-radius: 14px;
-      padding: 1rem 1.5rem;
-      color: #7a5c14;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-    .type-pricing-disclaimer i {
-      color: #d4a843;
-      margin-top: 0.2rem;
-    }
-
-   /* ============ ANIMATED MOCKUP STYLES ============ */
-    .website-mockup {
-      width: 100%;
-      /*max-width: 400px;*/
-      height: 400px;
-      background: linear-gradient(145deg, #e9f0f7 0%, #dce4ee 100%);
-      border-radius: 24px;
-      box-shadow: 
-        0 25px 50px rgba(10, 25, 41, 0.15),
-        inset 0 1px 0 rgba(255,255,255,0.5);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      margin: 0 auto;
-    }
-
-    .browser-window {
-      width: 85%;
-      height: 260px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.12),
-        0 4px 12px rgba(0, 0, 0, 0.06);
-      overflow: hidden;
-      position: relative;
-      transform: perspective(800px) rotateY(-2deg) rotateX(2deg);
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: perspective(800px) rotateY(-2deg) rotateX(2deg) translateY(0px);
-      }
-      50% {
-        transform: perspective(800px) rotateY(1deg) rotateX(-1deg) translateY(-10px);
-      }
-    }
-
-    .browser-window:hover {
-      transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateY(-5px);
-      animation-play-state: paused;
-    }
-
-    .browser-bar {
-      background: #e8ecf1;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      padding: 0 12px;
-      gap: 6px;
-      border-bottom: 1px solid #dce2e8;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
-
-    .dot.red { background: #ff5f57; }
-    .dot.yellow { background: #febc2e; }
-    .dot.green { background: #28c840; }
-
-    .dot:hover {
-      transform: scale(1.3);
-    }
-
-    .address-bar {
-      background: #ffffff;
-      border-radius: 5px;
-      height: 18px;
-      flex: 1;
-      margin-left: 6px;
-      display: flex;
-      align-items: center;
-      padding: 0 8px;
-      font-size: 8px;
-      color: #8899aa;
-      border: 1px solid #dce2e8;
-      gap: 4px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .address-bar::before {
-      content: 'https://www.tektonnova.in';
-      position: absolute;
-      left: 8px;
-      animation: typing 10s steps(20) infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes typing {
-      0%, 90%, 100% { left: 2px; }
-      10%, 80% { left: calc(100% - 120px); }
-    }
-
-    .address-bar i {
-      color: #28c840;
-      font-size: 7px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-
-    .browser-content {
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #ffffff;
-      height: calc(100% - 28px);
-    }
-
-    .mock-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .mock-logo {
-      width: 80px;
-      height: 14px;
-      background: #0a1929;
-      border-radius: 3px;
-      animation: logoGlow 3s infinite;
-    }
-
-    @keyframes logoGlow {
-      0%, 100% { box-shadow: 0 0 0 rgba(10, 25, 41, 0.2); }
-      50% { box-shadow: 0 0 8px rgba(10, 25, 41, 0.4); }
-    }
-
-    .mock-nav {
-      display: flex;
-      gap: 8px;
-    }
-
-    .mock-nav-item {
-      width: 28px;
-      height: 5px;
-      background: #cbd5e1;
-      border-radius: 2px;
-      transition: all 0.3s;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .mock-nav-item:first-child {
-      background: #d4a843;
-      animation: navPulse 2s infinite;
-    }
-
-    @keyframes navPulse {
-      0%, 100% { background: #d4a843; }
-      50% { background: #b88a2e; }
-    }
-
-    .mock-nav-item:hover {
-      height: 7px;
-      background: #0a1929;
-    }
-
-    .mock-hero {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .mock-hero-text {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .mock-heading {
-      height: 12px;
-      background: #1e293b;
-      border-radius: 3px;
-      width: 100%;
-      animation: slideIn 1s ease-out;
-    }
-
-    .mock-heading.short {
-      width: 65%;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes slideIn {
-      from { width: 0; opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .mock-subtext {
-      height: 6px;
-      background: #94a3b8;
-      border-radius: 2px;
-      width: 85%;
-      animation: slideIn 1s ease-out 0.4s backwards;
-    }
-
-    .mock-subtext.shorter {
-      width: 55%;
-      animation-delay: 0.6s;
-    }
-
-    .mock-button {
-      width: 70px;
-      height: 18px;
-      background: #d4a843;
-      border-radius: 15px;
-      margin-top: 2px;
-      animation: buttonPulse 2s infinite;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    @keyframes buttonPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .mock-button:hover {
-      background: #b88a2e;
-      transform: scale(1.1);
-    }
-
-    .mock-hero-image {
-      width: 110px;
-      height: 70px;
-      background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      animation: gradientShift 8s infinite alternate;
-    }
-
-    @keyframes gradientShift {
-      0% { background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%); }
-      100% { background: linear-gradient(135deg, #1a3a5c 0%, #2a4a7c 100%); }
-    }
-
-    .mock-hero-image i {
-      font-size: 22px;
-      color: #d4a843;
-      animation: spinSlow 10s linear infinite;
-    }
-
-    @keyframes spinSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .mock-features {
-      display: flex;
-      gap: 8px;
-    }
-
-    .mock-feature-card {
-      flex: 1;
-      height: 35px;
-      background: #f1f5f9;
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .mock-feature-card:hover {
-      background: #e2e8f0;
-      transform: translateY(-3px);
-    }
-
-    .mock-feature-icon {
-      width: 10px;
-      height: 10px;
-      background: #d4a843;
-      border-radius: 3px;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-2px); }
-    }
-
-    .mock-feature-line {
-      width: 30px;
-      height: 3px;
-      background: #cbd5e1;
-      border-radius: 2px;
-    }
-
-    .decor-circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.12;
-      animation: moveCircles 15s infinite linear;
-    }
-
-    .decor-circle.one {
-      width: 100px;
-      height: 100px;
-      background: #d4a843;
-      top: -20px;
-      right: -20px;
-      animation-name: moveCircle1;
-    }
-
-    .decor-circle.two {
-      width: 60px;
-      height: 60px;
-      background: #0a1929;
-      bottom: 35px;
-      left: 15px;
-      animation-name: moveCircle2;
-    }
-
-    .decor-circle.three {
-      width: 40px;
-      height: 40px;
-      background: #d4a843;
-      bottom: 70px;
-      right: 50px;
-      animation-name: moveCircle3;
-    }
-
-    @keyframes moveCircle1 {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(-20px, 10px) rotate(120deg); }
-      66% { transform: translate(10px, -15px) rotate(240deg); }
-    }
-
-    @keyframes moveCircle2 {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(15px, -10px) rotate(120deg); }
-      66% { transform: translate(-10px, 15px) rotate(240deg); }
-    }
-
-    @keyframes moveCircle3 {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(-15px, -5px) rotate(120deg); }
-      66% { transform: translate(5px, 10px) rotate(240deg); }
-    }
-
-    .floating-element {
-      position: absolute;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.07);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      font-size: 10px;
-      font-weight: 600;
-      color: #1e293b;
-      z-index: 2;
-      animation: floatElement 4s ease-in-out infinite;
-    }
-
-    @keyframes floatElement {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .floating-element.seo {
-      top: 25px;
-      right: 15px;
-      animation-delay: 0.5s;
-    }
-
-    .floating-element.speed {
-      bottom: 35px;
-      left: 10px;
-      animation-delay: 1s;
-    }
-
-    .floating-element i {
-      color: #d4a843;
-      font-size: 11px;
-      animation: iconSpin 4s linear infinite;
-    }
-
-    @keyframes iconSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Progress bar animation */
-    .progress-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #d4a843, #b88a2e, #d4a843);
-      width: 0%;
-      animation: loading 3s ease-in-out infinite;
-      border-radius: 0 0 16px 16px;
-    }
-
-    @keyframes loading {
-      0% { width: 0%; left: 0; }
-      50% { width: 100%; left: 0; }
-      100% { width: 0%; left: 100%; }
-    }
-
-    /* Data flow animation */
-    .data-flow {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .data-dot {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #d4a843;
-      border-radius: 50%;
-      opacity: 0;
-    }
-
-    @media (max-width: 768px) {
-      .hero-section {
-        padding: 4rem 0 2rem;
-      }
-      .website-mockup {
-        height: 340px;
-        max-width: 380px;
-      }
-      .browser-window {
-        height: 220px;
-      }
-      .floating-element {
-        display: none; /* Hide floating elements on mobile */
-      }
-    }
-/* back to top button */
-  #backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    border: none;
-    border-radius: 50%;
-    background: #d4a843;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-  }
-/* pop css for the terms and condition */
- 
-/* Terms Popup */
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-
-  display: none; /* Hidden initially */
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-/* Show popup when active */
-.popup-overlay.active {
-  display: flex;
-}
-
-/* Popup Box */
-.terms-popup {
-  width: 100%;
-  max-width: 850px;
-  max-height: 95vh;
-
-  background: #fff;
-  color: #222;
-
-  border-radius: 12px;
-  padding: 20px 25px;
-
-  box-sizing: border-box;
-
-  overflow: hidden;
-
-  font-size: 13px;
-  line-height: 1.35;
-}
-
-/* Heading */
-.terms-popup h2 {
-  margin: 0 0 12px;
-  text-align: center;
-  font-size: 22px;
-}
-
-/* Sections */
-.terms-section {
-  margin-bottom: 7px;
-}
-
-.terms-section h3 {
-  margin: 0 0 2px;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-.terms-section p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.3;
-}
-
-/* Close Button */
-.close-bottom-btn {
-  display: block;
-  margin: 10px auto 0;
-
-  padding: 8px 25px;
-
-  border: none;
-  border-radius: 6px;
-
-  background: #111;
-  color: #fff;
-
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.close-bottom-btn:hover {
-  background: #333;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-  .popup-overlay {
-    padding: 5px;
-  }
-
-  .terms-popup {
-    max-height: 98vh;
-    padding: 10px 12px;
-    border-radius: 8px;
-  }
-
-  .terms-popup h2 {
-    font-size: 17px;
-    margin-bottom: 7px;
-  }
-
-  .terms-section {
-    margin-bottom: 4px;
-  }
-
-  .terms-section h3 {
-    font-size: 10px;
-    margin-bottom: 1px;
-  }
-
-  .terms-section p {
-    font-size: 9px;
-    line-height: 1.2;
-  }
-
-  .close-bottom-btn {
-    margin-top: 6px;
-    padding: 5px 18px;
-    font-size: 10px;
-  }
-}
-
- </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TEKTON NOVA | Innovative Craftsmen | Web Development</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1929;
+            --gold: #d4a843;
+            --gold-dark: #b88a2e;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --light-gray: #f1f5f9;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 12px rgba(10, 25, 41, 0.08);
+            --shadow-md: 0 20px 35px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 30px 50px rgba(0, 0, 0, 0.12);
+            --radius-sm: 12px;
+            --radius: 20px;
+            --radius-lg: 24px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+        h1,
+        h2,
+        h3,
+        .navbar-brand,
+        .company-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .navbar-logo {
+            width: 47px;
+            height: 42px;
+            border-radius: 6px;
+            display: flow;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(10, 25, 41, 0.2);
+        }
+        .text-gold {
+            color: #d4a843;
+        }
+        .bg-navy {
+            background-color: #0a1929;
+        }
+        .bg-light-gray {
+            background-color: #f1f5f9;
+        }
+        .btn-gold {
+            background-color: #d4a843;
+            color: #0a1929;
+            font-weight: 700;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+        .btn-gold:hover {
+            background-color: #b88a2e;
+            color: #000;
+        }
+        .btn-outline-gold {
+            border: 2px solid #d4a843;
+            color: #d4a843;
+            font-weight: 600;
+            border-radius: 40px;
+            padding: 0.6rem 2rem;
+            transition: 0.3s;
+        }
+        .btn-outline-gold:hover {
+            background-color: #d4a843;
+            color: #0a1929;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: #0a1929 !important;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #334155 !important;
+            margin: 0 0.3rem;
+        }
+        .nav-link:hover {
+            color: #d4a843 !important;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+            padding: 6rem 0 4rem;
+        }
+        .section-padding {
+            padding: 5rem 0;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.08);
+        }
+        .icon-circle {
+            width: 65px;
+            height: 65px;
+            background: #f1f5f9;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #d4a843;
+            margin-bottom: 1.2rem;
+        }
+        .process-step-item {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            transition: 0.2s;
+            border: 1px solid #f0f0f0;
+        }
+        .process-step-item:hover {
+            border-color: #d4a843;
+        }
+        .tech-badge {
+            background: white;
+            border-radius: 14px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.03);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin: 0.3rem;
+            border: 1px solid #edf2f7;
+        }
+        .footer {
+            background: #0a1929;
+            color: #cbd5e1;
+        }
+        .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #d4a843;
+        }
+        .testimonial-card {
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        /* ============ WEBSITE TYPES SECTION ============ */
+        .type-card {
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.08);
+        }
+        .type-card-header {
+            padding: 1.75rem 1.5rem 1.25rem;
+            color: #fff;
+            background: #0a1929;
+        }
+        .type-card-header.gold {
+            background: linear-gradient(135deg, #d4a843 0%, #b88a2e 100%);
+            color: #0a1929;
+        }
+        .type-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.9rem;
+        }
+        .type-card-header.gold .type-card-icon {
+            background: rgba(10, 25, 41, 0.12);
+            color: #0a1929;
+        }
+        .type-card-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+        .type-card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin: 0.15rem 0 0;
+        }
+        .type-card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .type-card-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            flex: 1;
+        }
+        .type-card-body ul li {
+            padding-left: 1.4rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+            font-size: 0.92rem;
+            color: #475569;
+        }
+        .type-card-body ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #d4a843;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.75rem;
+        }
+        .type-card-price {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #e2e8f0;
+            text-align: center;
+        }
+        .type-card-price .price-tag-label {
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+        .type-card-price .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0a1929;
+            line-height: 1.2;
+        }
+        .type-card-price .price-extra {
+            font-size: 0.75rem;
+            color: #b88a2e;
+            font-weight: 600;
+            margin-top: 0.15rem;
+        }
+        .type-card-price .price-note {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 0.4rem;
+            line-height: 1.3;
+        }
+        .type-pricing-disclaimer {
+            background: #fdf7ea;
+            border: 1px solid #f0e0b8;
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            color: #7a5c14;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .type-pricing-disclaimer i {
+            color: #d4a843;
+            margin-top: 0.2rem;
+        }
+        .btn-demo-sm {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.45rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 25px;
+            border: 2px solid #d4a843;
+            background: transparent;
+            color: #d4a843;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            width: 100%;
+            letter-spacing: 0.4px;
+        }
+        .btn-demo-sm:hover {
+            background: #d4a843;
+            color: #0a1929;
+            box-shadow: 0 6px 18px rgba(212, 168, 67, 0.3);
+        }
+        .type-card-header .btn-demo-sm {
+            border-color: rgba(255, 255, 255, 0.7);
+            color: #fff;
+            margin-top: 0.6rem;
+        }
+        .type-card-header .btn-demo-sm:hover {
+            background: #fff;
+            color: #0a1929;
+            border-color: #fff;
+        }
+        .type-card-header.gold .btn-demo-sm {
+            border-color: rgba(10, 25, 41, 0.5);
+            color: #0a1929;
+        }
+        .type-card-header.gold .btn-demo-sm:hover {
+            background: #0a1929;
+            color: #d4a843;
+            border-color: #0a1929;
+        }
+
+        /* ============ ANIMATED MOCKUP STYLES (Hero) ============ */
+        .website-mockup {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(145deg, #e9f0f7 0%, #dce4ee 100%);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(10, 25, 41, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .browser-window {
+            width: 85%;
+            height: 260px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            position: relative;
+            transform: perspective(800px) rotateY(-2deg) rotateX(2deg);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: perspective(800px) rotateY(-2deg) rotateX(2deg) translateY(0px);
+            }
+            50% {
+                transform: perspective(800px) rotateY(1deg) rotateX(-1deg) translateY(-10px);
+            }
+        }
+        .browser-window:hover {
+            transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateY(-5px);
+            animation-play-state: paused;
+        }
+        .browser-bar {
+            background: #e8ecf1;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 6px;
+            border-bottom: 1px solid #dce2e8;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        .dot.red {
+            background: #ff5f57;
+        }
+        .dot.yellow {
+            background: #febc2e;
+        }
+        .dot.green {
+            background: #28c840;
+        }
+        .dot:hover {
+            transform: scale(1.3);
+        }
+        .address-bar {
+            background: #ffffff;
+            border-radius: 5px;
+            height: 18px;
+            flex: 1;
+            margin-left: 6px;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            font-size: 8px;
+            color: #8899aa;
+            border: 1px solid #dce2e8;
+            gap: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .address-bar::before {
+            content: 'https://www.tektonnova.in';
+            position: absolute;
+            left: 8px;
+            animation: typing 10s steps(20) infinite;
+            white-space: nowrap;
+        }
+        @keyframes typing {
+            0%,
+            90%,
+            100% {
+                left: 2px;
+            }
+            10%,
+            80% {
+                left: calc(100% - 120px);
+            }
+        }
+        .address-bar i {
+            color: #28c840;
+            font-size: 7px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+        .browser-content {
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #ffffff;
+            height: calc(100% - 28px);
+        }
+        .mock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mock-logo {
+            width: 80px;
+            height: 14px;
+            background: #0a1929;
+            border-radius: 3px;
+            animation: logoGlow 3s infinite;
+        }
+        @keyframes logoGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 0 rgba(10, 25, 41, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 8px rgba(10, 25, 41, 0.4);
+            }
+        }
+        .mock-nav {
+            display: flex;
+            gap: 8px;
+        }
+        .mock-nav-item {
+            width: 28px;
+            height: 5px;
+            background: #cbd5e1;
+            border-radius: 2px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+        .mock-nav-item:first-child {
+            background: #d4a843;
+            animation: navPulse 2s infinite;
+        }
+        @keyframes navPulse {
+            0%,
+            100% {
+                background: #d4a843;
+            }
+            50% {
+                background: #b88a2e;
+            }
+        }
+        .mock-nav-item:hover {
+            height: 7px;
+            background: #0a1929;
+        }
+        .mock-hero {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .mock-hero-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .mock-heading {
+            height: 12px;
+            background: #1e293b;
+            border-radius: 3px;
+            width: 100%;
+            animation: slideIn 1s ease-out;
+        }
+        .mock-heading.short {
+            width: 65%;
+            animation-delay: 0.2s;
+        }
+        @keyframes slideIn {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .mock-subtext {
+            height: 6px;
+            background: #94a3b8;
+            border-radius: 2px;
+            width: 85%;
+            animation: slideIn 1s ease-out 0.4s backwards;
+        }
+        .mock-subtext.shorter {
+            width: 55%;
+            animation-delay: 0.6s;
+        }
+        .mock-button {
+            width: 70px;
+            height: 18px;
+            background: #d4a843;
+            border-radius: 15px;
+            margin-top: 2px;
+            animation: buttonPulse 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        @keyframes buttonPulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        .mock-button:hover {
+            background: #b88a2e;
+            transform: scale(1.1);
+        }
+        .mock-hero-image {
+            width: 110px;
+            height: 70px;
+            background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            animation: gradientShift 8s infinite alternate;
+        }
+        @keyframes gradientShift {
+            0% {
+                background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%);
+            }
+            100% {
+                background: linear-gradient(135deg, #1a3a5c 0%, #2a4a7c 100%);
+            }
+        }
+        .mock-hero-image i {
+            font-size: 22px;
+            color: #d4a843;
+            animation: spinSlow 10s linear infinite;
+        }
+        @keyframes spinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .mock-features {
+            display: flex;
+            gap: 8px;
+        }
+        .mock-feature-card {
+            flex: 1;
+            height: 35px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .mock-feature-card:hover {
+            background: #e2e8f0;
+            transform: translateY(-3px);
+        }
+        .mock-feature-icon {
+            width: 10px;
+            height: 10px;
+            background: #d4a843;
+            border-radius: 3px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-2px);
+            }
+        }
+        .mock-feature-line {
+            width: 30px;
+            height: 3px;
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+        .decor-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            animation: moveCircles 15s infinite linear;
+        }
+        .decor-circle.one {
+            width: 100px;
+            height: 100px;
+            background: #d4a843;
+            top: -20px;
+            right: -20px;
+            animation-name: moveCircle1;
+        }
+        .decor-circle.two {
+            width: 60px;
+            height: 60px;
+            background: #0a1929;
+            bottom: 35px;
+            left: 15px;
+            animation-name: moveCircle2;
+        }
+        .decor-circle.three {
+            width: 40px;
+            height: 40px;
+            background: #d4a843;
+            bottom: 70px;
+            right: 50px;
+            animation-name: moveCircle3;
+        }
+        @keyframes moveCircle1 {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-20px, 10px) rotate(120deg);
+            }
+            66% {
+                transform: translate(10px, -15px) rotate(240deg);
+            }
+        }
+        @keyframes moveCircle2 {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(15px, -10px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-10px, 15px) rotate(240deg);
+            }
+        }
+        @keyframes moveCircle3 {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-15px, -5px) rotate(120deg);
+            }
+            66% {
+                transform: translate(5px, 10px) rotate(240deg);
+            }
+        }
+        .floating-element {
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #1e293b;
+            z-index: 2;
+            animation: floatElement 4s ease-in-out infinite;
+        }
+        @keyframes floatElement {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        .floating-element.seo {
+            top: 25px;
+            right: 15px;
+            animation-delay: 0.5s;
+        }
+        .floating-element.speed {
+            bottom: 35px;
+            left: 10px;
+            animation-delay: 1s;
+        }
+        .floating-element i {
+            color: #d4a843;
+            font-size: 11px;
+            animation: iconSpin 4s linear infinite;
+        }
+        @keyframes iconSpin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .progress-bar-hero {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d4a843, #b88a2e, #d4a843);
+            width: 0%;
+            animation: loading 3s ease-in-out infinite;
+            border-radius: 0 0 16px 16px;
+        }
+        @keyframes loading {
+            0% {
+                width: 0%;
+                left: 0;
+            }
+            50% {
+                width: 100%;
+                left: 0;
+            }
+            100% {
+                width: 0%;
+                left: 100%;
+            }
+        }
+        .data-flow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .data-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #d4a843;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        /* ============ DEMO MODAL STYLES ============ */
+        .demo-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 25, 41, 0.85);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            backdrop-filter: blur(4px);
+        }
+        .demo-modal-overlay.active {
+            display: flex;
+        }
+        .demo-modal {
+            width: 100%;
+            max-width: 1000px;
+            max-height: 92vh;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes modalIn {
+            from {
+                transform: scale(0.85) translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+        .demo-modal-header {
+            background: var(--navy);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+        .demo-modal-header h4 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .demo-modal-header .demo-step-indicator {
+            font-size: 0.8rem;
+            color: #d4a843;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .demo-modal-close {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .demo-modal-close:hover {
+            background: #fff;
+            color: #0a1929;
+            border-color: #fff;
+        }
+        .demo-modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 420px;
+        }
+        .demo-modal-footer {
+            padding: 0.8rem 1.5rem;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+        .demo-btn {
+            padding: 0.55rem 1.4rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .demo-btn-replay {
+            background: #f1f5f9;
+            color: #475569;
+        }
+        .demo-btn-replay:hover {
+            background: #e2e8f0;
+            color: #0a1929;
+        }
+        .demo-btn-close-bottom {
+            background: #0a1929;
+            color: #fff;
+        }
+        .demo-btn-close-bottom:hover {
+            background: #1a3a5c;
+        }
+        .demo-btn-auto {
+            background: #d4a843;
+            color: #0a1929;
+            font-weight: 700;
+        }
+        .demo-btn-auto:hover {
+            background: #b88a2e;
+        }
+        .demo-btn-auto.paused {
+            background: #94a3b8;
+            color: #fff;
+        }
+
+        /* Demo Scene Shared Elements */
+        .demo-scene {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            animation: sceneFadeIn 0.5s ease;
+        }
+        .demo-scene.active {
+            display: flex;
+        }
+        @keyframes sceneFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .demo-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+        .demo-panel {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 250px;
+            border: 1px solid #edf2f7;
+            position: relative;
+            overflow: hidden;
+        }
+        .demo-panel-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+        .demo-panel.vscode-panel {
+            background: #1e1e2e;
+            color: #cdd6f4;
+            border: 1px solid #313244;
+        }
+        .demo-panel.vscode-panel .demo-panel-label {
+            color: #a6adc8;
+        }
+        .demo-panel.server-panel {
+            background: #0a1929;
+            color: #e2e8f0;
+            border: 1px solid #1a3a5c;
+        }
+        .demo-panel.server-panel .demo-panel-label {
+            color: #94a3b8;
+        }
+        .demo-panel.browser-panel {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+        }
+        .demo-panel.github-panel {
+            background: #f6f8fa;
+            border: 1px solid #d0d7de;
+        }
+
+        /* VS Code mock */
+        .vscode-tabs {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .vscode-tab {
+            padding: 4px 10px;
+            background: #313244;
+            border-radius: 6px 6px 0 0;
+            font-size: 0.7rem;
+            color: #bac2de;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .vscode-tab.active {
+            background: #45475a;
+            color: #f5e0dc;
+            font-weight: 600;
+        }
+        .vscode-tab i {
+            margin-right: 4px;
+            font-size: 0.65rem;
+        }
+        .vscode-content {
+            background: #181825;
+            border-radius: 0 8px 8px 8px;
+            padding: 10px 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            line-height: 1.5;
+            min-height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        .vscode-line {
+            display: flex;
+            gap: 8px;
+        }
+        .vscode-line-num {
+            color: #585b70;
+            min-width: 20px;
+            text-align: right;
+            user-select: none;
+            flex-shrink: 0;
+        }
+        .vscode-line-code {
+            color: #cdd6f4;
+        }
+        .vscode-line-code .tag {
+            color: #89b4fa;
+        }
+        .vscode-line-code .prop {
+            color: #a6e3a1;
+        }
+        .vscode-line-code .val {
+            color: #fab387;
+        }
+        .vscode-line-code .comment {
+            color: #6c7086;
+            font-style: italic;
+        }
+        .vscode-line-code .selector {
+            color: #f5c2e7;
+        }
+        .vscode-line-code .highlight-change {
+            background: rgba(250, 179, 135, 0.3);
+            border-radius: 2px;
+            padding: 0 2px;
+            animation: highlightPulse 1.5s infinite;
+        }
+        @keyframes highlightPulse {
+            0%,
+            100% {
+                background: rgba(250, 179, 135, 0.3);
+            }
+            50% {
+                background: rgba(250, 179, 135, 0.6);
+            }
+        }
+
+        /* Server panel */
+        .server-terminal {
+            background: #020617;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: #34d399;
+            min-height: 80px;
+            line-height: 1.4;
+        }
+        .server-terminal .cmd {
+            color: #f9fafb;
+        }
+        .server-terminal .out {
+            color: #94a3b8;
+        }
+        .server-terminal .success {
+            color: #34d399;
+        }
+        .server-terminal .blink-cursor::after {
+            content: '▌';
+            animation: blink 1s infinite;
+            color: #d4a843;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Progress bar in demo */
+        .demo-progress-wrap {
+            background: #e2e8f0;
+            border-radius: 20px;
+            height: 14px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+            position: relative;
+        }
+        .demo-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4a843, #f0c960, #d4a843);
+            border-radius: 20px;
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+        .demo-progress-fill.running {
+            animation: progressShimmer 1.5s infinite;
+        }
+        @keyframes progressShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .demo-progress-text {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #475569;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        /* Browser mini */
+        .mini-browser {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+        .mini-browser-bar {
+            background: #e8ecf1;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            gap: 5px;
+        }
+        .mini-browser-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+        .mini-browser-dot.r {
+            background: #ff5f57;
+        }
+        .mini-browser-dot.y {
+            background: #febc2e;
+        }
+        .mini-browser-dot.g {
+            background: #28c840;
+        }
+        .mini-browser-url {
+            flex: 1;
+            background: #fff;
+            border-radius: 4px;
+            height: 14px;
+            margin-left: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+            font-size: 7px;
+            color: #8899aa;
+            gap: 3px;
+            overflow: hidden;
+        }
+        .mini-browser-url i {
+            color: #28c840;
+            font-size: 6px;
+        }
+        .mini-browser-body {
+            padding: 12px;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .mini-site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mini-site-logo {
+            width: 50px;
+            height: 10px;
+            background: #0a1929;
+            border-radius: 3px;
+        }
+        .mini-site-nav {
+            display: flex;
+            gap: 5px;
+        }
+        .mini-site-nav span {
+            width: 18px;
+            height: 4px;
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+        .mini-site-hero {
+            height: 30px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #475569;
+            transition: background 0.6s;
+        }
+        .mini-site-hero.color-changed {
+            background: linear-gradient(135deg, #fef3c7, #fde68a) !important;
+            color: #92400e !important;
+        }
+        .mini-site-grid {
+            display: flex;
+            gap: 4px;
+        }
+        .mini-site-card {
+            flex: 1;
+            height: 18px;
+            background: #f8fafc;
+            border-radius: 4px;
+            border: 1px solid #edf2f7;
+        }
+
+        /* Thought bubble */
+        .think-person {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .think-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .think-bubble {
+            background: #fff;
+            border-radius: 16px;
+            padding: 8px 14px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            position: relative;
+            animation: thinkPulse 2s infinite;
+        }
+        .think-bubble::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-right-color: #fff;
+        }
+        @keyframes thinkPulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
+        }
+
+        /* Admin panel mock */
+        .admin-split {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .admin-site-preview {
+            flex: 1;
+            min-width: 180px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .admin-panel-mock {
+            flex: 1;
+            min-width: 180px;
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 10px;
+            color: #e2e8f0;
+            font-size: 0.7rem;
+        }
+        .admin-field {
+            margin-bottom: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .admin-field label {
+            color: #94a3b8;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .admin-field input {
+            background: #334155;
+            border: 1px solid #475569;
+            border-radius: 4px;
+            padding: 4px 6px;
+            color: #f1f5f9;
+            font-size: 0.65rem;
+            transition: all 0.3s;
+        }
+        .admin-field input:focus {
+            border-color: #d4a843;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.2);
+        }
+        .admin-field input.editing {
+            border-color: #d4a843 !important;
+            background: #3b4a62 !important;
+            animation: editGlow 0.8s infinite;
+        }
+        @keyframes editGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 6px rgba(212, 168, 67, 0);
+            }
+        }
+        .admin-save-btn {
+            background: #d4a843;
+            color: #0a1929;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 4px;
+        }
+        .admin-save-btn:hover {
+            background: #f0c960;
+        }
+
+        /* File copy animation */
+        .file-copy-anim {
+            position: absolute;
+            background: #d4a843;
+            color: #0a1929;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            pointer-events: none;
+            z-index: 5;
+            animation: fileFly 1.2s ease-in-out forwards;
+            white-space: nowrap;
+        }
+        @keyframes fileFly {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: translate(var(--fly-x), var(--fly-y)) scale(0.7);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--fly-x), var(--fly-y)) scale(0.3);
+            }
+        }
+        .glow-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            animation: glowBadge 1.5s infinite;
+        }
+        .glow-badge.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .glow-badge.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        @keyframes glowBadge {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(212, 168, 67, 0);
+            }
+        }
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 0.75rem;
+            animation: livePulse 1.5s infinite;
+        }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #16a34a;
+            animation: liveDot 1s infinite;
+        }
+        @keyframes liveDot {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
+            }
+        }
+        @keyframes livePulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: #d4a843;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        .popup-overlay.active {
+            display: flex;
+        }
+        .terms-popup {
+            width: 100%;
+            max-width: 850px;
+            max-height: 95vh;
+            background: #fff;
+            color: #222;
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-size: 13px;
+            line-height: 1.35;
+        }
+        .terms-popup h2 {
+            margin: 0 0 12px;
+            text-align: center;
+            font-size: 22px;
+        }
+        .terms-section {
+            margin-bottom: 7px;
+        }
+        .terms-section h3 {
+            margin: 0 0 2px;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        .terms-section p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        .close-bottom-btn {
+            display: block;
+            margin: 10px auto 0;
+            padding: 8px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #111;
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .close-bottom-btn:hover {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 0 2rem;
+            }
+            .website-mockup {
+                height: 340px;
+                max-width: 380px;
+            }
+            .browser-window {
+                height: 220px;
+            }
+            .floating-element {
+                display: none;
+            }
+            .demo-modal {
+                max-width: 98vw;
+                max-height: 95vh;
+                border-radius: 16px;
+            }
+            .demo-row {
+                flex-direction: column;
+            }
+            .demo-panel {
+                min-width: auto;
+            }
+            .demo-modal-body {
+                padding: 0.8rem;
+                min-height: 350px;
+            }
+            .demo-modal-header h4 {
+                font-size: 1rem;
+            }
+            .admin-split {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 600px) {
+            .popup-overlay {
+                padding: 5px;
+            }
+            .terms-popup {
+                max-height: 98vh;
+                padding: 10px 12px;
+                border-radius: 8px;
+            }
+            .terms-popup h2 {
+                font-size: 17px;
+                margin-bottom: 7px;
+            }
+            .terms-section {
+                margin-bottom: 4px;
+            }
+            .terms-section h3 {
+                font-size: 10px;
+                margin-bottom: 1px;
+            }
+            .terms-section p {
+                font-size: 9px;
+                line-height: 1.2;
+            }
+            .close-bottom-btn {
+                margin-top: 6px;
+                padding: 5px 18px;
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a href="https://tektonnova.in" >
-      <img src="logo.png" alt="logo" class="navbar-logo">
-    </a> &nbsp;&nbsp;
-    <a class="navbar-brand" href="https://tektonnova.in">TEKTON NOVA</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#website-types">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
-        <li class="nav-item"><a class="nav-link" href="#technologies">Technologies</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-2"><a class="btn btn-gold" href="#contact">Free Consultation</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-7">
-        <span class="badge bg-light text-dark mb-3 px-3 py-2 rounded-pill"><i class="fas fa-star text-gold me-1"></i> Innovative Craftsmen</span>
-        <h1 class="display-4 fw-bold" style="font-family: 'Playfair Display', serif;">Let's Build Your Digital Future Website</h1>
-        <p class="lead text-secondary mt-3">We create responsive, fast, secure, and user-friendly websites tailored to your business needs. Years of experience, expert developers, and customer-focused solutions.</p>
-        <div class="mt-4">
-<div class="d-flex flex-column flex-md-row gap-2">
-          <a href="#contact" class="btn btn-gold me-3">Get Your Free Consultation Today</a> 
-
-          <a href="#services" class="btn btn-outline-gold">Our Services</a>
-</div>
-        </div>
-        <div class="mt-4 d-flex align-items-center gap-4">
-          <div><i class="fas fa-check-circle text-gold"></i> 20+ Projects</div>
-          <div><i class="fas fa-check-circle text-gold"></i> 99% Satisfaction</div>
-          <div><i class="fas fa-check-circle text-gold"></i> 24/7 Support</div>
-        </div>
-      </div>
-      <div class="col-lg-5 mt-4 mt-lg-0">
-       
-      <!-- ============ ANIMATED MOCKUP ============ -->
-  <div class="website-mockup">
-    <!-- Decorative circles -->
-    <div class="decor-circle one"></div>
-    <div class="decor-circle two"></div>
-    <div class="decor-circle three"></div>
-
-    <!-- Data flow dots -->
-    <div class="data-flow" id="dataFlow"></div>
-
-    <!-- Floating badges -->
-    <div class="floating-element seo">
-      <i class="fas fa-search"></i> SEO Optimized
-    </div>
-    <div class="floating-element speed">
-      <i class="fas fa-bolt"></i> Fast Loading
-    </div>
-
-    <!-- Progress bar -->
-    <div class="progress-bar"></div>
-
-    <!-- Browser window -->
-    <div class="browser-window">
-      <!-- Browser top bar -->
-      <div class="browser-bar">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-        <div class="address-bar">
-          <i class="fas fa-lock"></i>
-        </div>
-      </div>
-
-      <!-- Browser content -->
-      <div class="browser-content">
-        <!-- Header -->
-        <div class="mock-header">
-          <div class="mock-logo"></div>
-          <div class="mock-nav">
-            <div class="mock-nav-item"></div>
-            <div class="mock-nav-item"></div>
-            <div class="mock-nav-item"></div>
-            <div class="mock-nav-item"></div>
-          </div>
-        </div>
-
-        <!-- Hero -->
-        <div class="mock-hero">
-          <div class="mock-hero-text">
-            <div class="mock-heading"></div>
-            <div class="mock-heading short"></div>
-            <div class="mock-subtext"></div>
-            <div class="mock-subtext shorter"></div>
-            <div class="mock-button"></div>
-          </div>
-          <div class="mock-hero-image">
-            <i class="fas fa-code"></i>
-          </div>
-        </div>
-
-        <!-- Features -->
-        <div class="mock-features">
-          <div class="mock-feature-card">
-            <div class="mock-feature-icon"></div>
-            <div class="mock-feature-line"></div>
-          </div>
-          <div class="mock-feature-card">
-            <div class="mock-feature-icon"></div>
-            <div class="mock-feature-line"></div>
-          </div>
-          <div class="mock-feature-card">
-            <div class="mock-feature-icon"></div>
-            <div class="mock-feature-line"></div>
-          </div>
-          <div class="mock-feature-card">
-            <div class="mock-feature-icon"></div>
-            <div class="mock-feature-line"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ============ END ANIMATED MOCKUP ============ -->
-      </div>
-    </div>
-  </div>
-</section>
-
-<button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-  ↑
-</button>
-
-<!-- About Section -->
-<section id="about" class="section-padding bg-white">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <span class="text-gold fw-semibold">About Tekton Nova</span>
-        <h2 class="display-6 fw-bold mt-2">Crafting Digital Excellence Since 2021</h2>
-        <p class="text-secondary mt-3">We are a full-service web development company dedicated to crafting exceptional digital experiences. Our team of seasoned developers, UI/UX designers, and digital strategists work together to create websites that not only look stunning but perform flawlessly.</p>
-        <p class="text-secondary">With over 5 years of industry experience and 20+ successful projects delivered, we combine cutting-edge technology with a deep understanding of user behavior. Our customer-focused approach means we listen first, strategize second, and execute with transparency.</p>
-        <div class="row mt-4">
-          <div class="col-6"><h4 class="fw-bold">5+</h4><p class="text-secondary">Years Experience</p></div>
-          <div class="col-6"><h4 class="fw-bold">20+</h4><p class="text-secondary">Projects Delivered</p></div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="row g-3">
-          <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-mobile-alt fa-2x text-gold mb-2"></i><h5>Responsive</h5><p class="small text-secondary">Mobile-first design</p></div></div>
-          <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-search fa-2x text-gold mb-2"></i><h5>SEO-Friendly</h5><p class="small text-secondary">Optimized foundation</p></div></div>
-          <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-tachometer-alt fa-2x text-gold mb-2"></i><h5>Fast Loading</h5><p class="small text-secondary">Under 3 seconds</p></div></div>
-          <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-shield-alt fa-2x text-gold mb-2"></i><h5>Secure</h5><p class="small text-secondary">SSL & best practices</p></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  
-<!-- Services Section -->
-<section id="services" class="section-padding bg-light-gray">
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="text-gold fw-semibold">What We Offer</span>
-      <h2 class="display-6 fw-bold mt-2">Our Services</h2>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
-          <h4>Custom Website Development</h4>
-          <p class="text-secondary">Bespoke websites built from scratch using latest technologies. Unique, scalable, high-performance solutions tailored to your business.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-shopping-cart"></i></div>
-          <h4>E-commerce Development</h4>
-          <p class="text-secondary">Robust online stores with secure payments, inventory management, and optimized checkout flows on WooCommerce, Shopify, or custom carts.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fab fa-wordpress"></i></div>
-          <h4>WordPress Development</h4>
-          <p class="text-secondary">Custom themes, advanced plugins, and fully editable websites. Fast, SEO-friendly, and secured WordPress solutions.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-window-maximize"></i></div>
-          <h4>Web Application Development</h4>
-          <p class="text-secondary">Complex apps including portals, dashboards, SaaS platforms using React, Angular, Node.js, and Laravel.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-tools"></i></div>
-          <h4>Maintenance & Support</h4>
-          <p class="text-secondary">Ongoing updates, security patches, backups, and 24/7 technical support to keep your site running smoothly.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-custom p-4">
-          <div class="icon-circle"><i class="fas fa-paint-brush"></i></div>
-          <h4>UI/UX Design</h4>
-          <p class="text-secondary">Conversion-centered design with wireframing, prototyping, and intuitive user journeys that delight visitors.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fa-solid fa-arrows-rotate"></i></div>
-    <h4>Website Recreation & Modernization</h4>
-    <p class="text-secondary">
-      Transform outdated static websites into modern, dynamic, and responsive web applications with enhanced functionality, improved performance, and an engaging user experience.
-    </p>
-  </div>
-</div>
-      <div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-search"></i></div>
-    <h4>SEO Optimization</h4>
-    <p class="text-secondary">Improve your website's search engine rankings with on-page SEO, technical optimization, keyword research, and performance enhancements.</p>
-  </div>
-</div>
-
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-tachometer-alt"></i></div>
-    <h4>Website Speed Optimization</h4>
-    <p class="text-secondary">Boost website performance with code optimization, image compression, caching, and Core Web Vitals improvements for faster loading.</p>
-  </div>
-</div>
-
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-exchange-alt"></i></div>
-    <h4>Website Migration</h4>
-    <p class="text-secondary">Migrate your website between hosting providers, domains, or platforms with zero data loss, minimal downtime, and complete support.</p>
-  </div>
-</div>
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
-    <h4>Responsive Web Design</h4>
-    <p class="text-secondary">
-      Build fully responsive websites that deliver a seamless experience across desktops, tablets, and smartphones with modern, mobile-first design.
-    </p>
-  </div>
-</div>
-
-<div class="col-md-6 col-lg-4">
-  <div class="card-custom p-4">
-    <div class="icon-circle"><i class="fas fa-server"></i></div>
-    <h4>Web Hosting & Deployment</h4>
-    <p class="text-secondary">
-      Reliable website deployment, domain configuration, SSL installation, server setup, and hosting management to ensure your website is secure and always online.
-    </p>
-  </div>
-</div>
-    </div>
-  </div>
-</section>
-
-<!-- Website Types Section -->
-<section id="website-types" class="section-padding bg-white">
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="text-gold fw-semibold">Architecture Options</span>
-      <h2 class="display-6 fw-bold mt-2">Website Types We Build</h2>
-      <p class="text-secondary mt-2 col-lg-8 mx-auto">We match the right architecture to your goals — from a simple static page to a fully dynamic, database-driven platform.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="type-card">
-          <div class="type-card-header gold">
-            <div class="type-card-icon"><i class="fas fa-desktop"></i></div>
-            <div class="type-card-label">Static Site</div>
-            <h4 class="type-card-title">With Server</h4>
-          </div>
-          <div class="type-card-body">
-            <p class="text-secondary small">Plain HTML/CSS/JS files hosted on a traditional web server you own or rent.</p>
-            <ul>
-              <li>You purchase &amp; manage server </li>
-              <li>No database or backend logic </li>
-              <li>Fast, secure, low maintenance</li>
-            </ul>
-            <div class="type-card-price">
-              <div class="price-tag-label">Starting From</div>
-              <div class="price-amount">₹6,000/-</div>
-              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a href="https://tektonnova.in"><img src="logo.png" alt="logo" class="navbar-logo"></a> &nbsp;&nbsp;
+            <a class="navbar-brand" href="https://tektonnova.in">TEKTON NOVA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#website-types">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#technologies">Technologies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-2"><a class="btn btn-gold" href="#contact">Free Consultation</a></li>
+                </ul>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="type-card">
-          <div class="type-card-header gold">
-            <div class="type-card-icon"><i class="fas fa-cloud"></i></div>
-            <div class="type-card-label">Static Site</div>
-            <h4 class="type-card-title">Without Server</h4>
-          </div>
-          <div class="type-card-body">
-            <p class="text-secondary small">Files served via CDN / serverless hosting — no traditional server to manage.</p>
-            <ul>
-              <li>Hosted on Netlify, Vercel,Cloudflare page, GitHub Pages</li>
-              <li>Auto-scaling, near-zero maintenance</li>
-              <li>Often free or very low cost</li>
-            </ul>
-            <div class="type-card-price">
-              <div class="price-tag-label">Starting From</div>
-              <div class="price-amount">₹4,999/-</div>
-              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <span class="badge bg-light text-dark mb-3 px-3 py-2 rounded-pill"><i class="fas fa-star text-gold me-1"></i> Innovative Craftsmen</span>
+                    <h1 class="display-4 fw-bold" style="font-family: 'Playfair Display', serif;">Let's Build Your Digital Future Website</h1>
+                    <p class="lead text-secondary mt-3">We create responsive, fast, secure, and user-friendly websites tailored to your business needs. Years of experience, expert developers, and customer-focused solutions.</p>
+                    <div class="mt-4">
+                        <div class="d-flex flex-column flex-md-row gap-2">
+                            <a href="#contact" class="btn btn-gold me-3">Get Your Free Consultation Today</a>
+                            <a href="#services" class="btn btn-outline-gold">Our Services</a>
+                        </div>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center gap-4">
+                        <div><i class="fas fa-check-circle text-gold"></i> 20+ Projects</div>
+                        <div><i class="fas fa-check-circle text-gold"></i> 100% Satisfaction</div>
+                        <div><i class="fas fa-check-circle text-gold"></i> 24/7 Support</div>
+                    </div>
+                </div> <!-- ============ ANIMATED MOCKUP ============ -->
+                <div class="col-lg-5 mt-4 mt-lg-0">
+                    <div class="website-mockup">
+                        <div class="decor-circle one"></div>
+                        <div class="decor-circle two"></div>
+                        <div class="decor-circle three"></div>
+                        <div class="data-flow" id="dataFlow"></div>
+                        <div class="floating-element seo"><i class="fas fa-search"></i> SEO Optimized</div>
+                        <div class="floating-element speed"><i class="fas fa-bolt"></i> Fast Loading</div>
+                        <div class="progress-bar-hero"></div>
+                        <div class="browser-window">
+                            <div class="browser-bar">
+                                <div class="dot red"></div>
+                                <div class="dot yellow"></div>
+                                <div class="dot green"></div>
+                                <div class="address-bar"><i class="fas fa-lock"></i></div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="mock-header">
+                                    <div class="mock-logo"></div>
+                                    <div class="mock-nav">
+                                        <div class="mock-nav-item"></div>
+                                        <div class="mock-nav-item"></div>
+                                        <div class="mock-nav-item"></div>
+                                        <div class="mock-nav-item"></div>
+                                    </div>
+                                </div>
+                                <div class="mock-hero">
+                                    <div class="mock-hero-text">
+                                        <div class="mock-heading"></div>
+                                        <div class="mock-heading short"></div>
+                                        <div class="mock-subtext"></div>
+                                        <div class="mock-subtext shorter"></div>
+                                        <div class="mock-button"></div>
+                                    </div>
+                                    <div class="mock-hero-image"><i class="fas fa-code"></i></div>
+                                </div>
+                                <div class="mock-features">
+                                    <div class="mock-feature-card"><div class="mock-feature-icon"></div><div class="mock-feature-line"></div></div>
+                                    <div class="mock-feature-card"><div class="mock-feature-icon"></div><div class="mock-feature-line"></div></div>
+                                    <div class="mock-feature-card"><div class="mock-feature-icon"></div><div class="mock-feature-line"></div></div>
+                                    <div class="mock-feature-card"><div class="mock-feature-icon"></div><div class="mock-feature-line"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+<!-- ============  end ANIMATED MOCKUP ============ -->
+ <!-- ============  button top ============ -->
+    <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="text-gold fw-semibold">About Tekton Nova</span>
+                    <h2 class="display-6 fw-bold mt-2">Crafting Digital Excellence Since 2021</h2>
+                        <p class="text-secondary mt-3">We are a full-service web development company dedicated to crafting exceptional digital experiences. Our team of seasoned developers, UI/UX designers, and digital strategists work together to create websites that not only look stunning but perform flawlessly.</p>
+                        <p class="text-secondary">With over 5 years of industry experience and 20+ successful projects delivered, we combine cutting-edge technology with a deep understanding of user behavior. Our customer-focused approach means we listen first, strategize second, and execute with transparency.</p>
+                        <div class="row mt-4">
+                        <div class="col-6"><h4 class="fw-bold">5+</h4><p class="text-secondary">Years Experience</p></div>
+                        <div class="col-6"><h4 class="fw-bold">20+</h4><p class="text-secondary">Projects Delivered</p></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-mobile-alt fa-2x text-gold mb-2"></i><h5>Responsive</h5><p class="small text-secondary">Mobile-first design</p></div></div>
+                        <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-search fa-2x text-gold mb-2"></i><h5>SEO-Friendly</h5><p class="small text-secondary">Optimized foundation</p></div></div>
+                        <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-tachometer-alt fa-2x text-gold mb-2"></i><h5>Fast Loading</h5><p class="small text-secondary">Under 3 seconds</p></div></div>
+                        <div class="col-6"><div class="card-custom p-4 text-center"><i class="fas fa-shield-alt fa-2x text-gold mb-2"></i><h5>Secure</h5><p class="small text-secondary">SSL & best practices</p></div></div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="type-card">
-          <div class="type-card-header gold">
-            <div class="type-card-icon"><i class="fas fa-cogs"></i></div>
-            <div class="type-card-label">SSG</div>
-            <h4 class="type-card-title">Static Site Generation</h4>
-          </div>
-          <div class="type-card-body">
-            <p class="text-secondary small">Pages are pre-built at build time from templates and content, then deployed as static files.</p>
-            <ul>
-              <li>Built with Next.js, Astro, Hugo, Gatsby</li>
-              <li>SEO-friendly + very fast delivery</li>
-              <li>Great for blogs, docs, catalogs</li>
-            </ul>
-            <div class="type-card-price">
-              <div class="price-tag-label">Starting From</div>
-              <div class="price-amount">₹5,000/-</div>
-              <div class="price-extra">+ ₹650 yearly charges</div>
-              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light-gray">
+        <div class="container">
+            <div class="text-center mb-5"><span class="text-gold fw-semibold">What We Offer</span><h2 class="display-6 fw-bold mt-2">Our Services</h2></div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-laptop-code"></i></div><h4>Custom Website Development</h4><p class="text-secondary">Bespoke websites built from scratch using latest technologies. Unique, scalable, high-performance solutions tailored to your business.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-shopping-cart"></i></div><h4>E-commerce Development</h4><p class="text-secondary">Robust online stores with secure payments, inventory management, and optimized checkout flows on WooCommerce, Shopify, or custom carts.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fab fa-wordpress"></i></div><h4>WordPress Development</h4><p class="text-secondary">Custom themes, advanced plugins, and fully editable websites. Fast, SEO-friendly, and secured WordPress solutions.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-window-maximize"></i></div><h4>Web Application Development</h4><p class="text-secondary">Complex apps including portals, dashboards, SaaS platforms using React, Angular, Node.js, and Laravel.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-tools"></i></div><h4>Maintenance & Support</h4><p class="text-secondary">Ongoing updates, security patches, backups, and 24/7 technical support to keep your site running smoothly.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-paint-brush"></i></div><h4>UI/UX Design</h4><p class="text-secondary">Conversion-centered design with wireframing, prototyping, and intuitive user journeys that delight visitors.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fa-solid fa-arrows-rotate"></i></div><h4>Website Recreation & Modernization</h4><p class="text-secondary">  Transform outdated static websites into modern, dynamic, and responsive web applications with enhanced functionality, improved performance, and an engaging user experience.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-search"></i></div><h4>SEO Optimization</h4><p class="text-secondary">Improve your website's search engine rankings with on-page SEO, technical optimization, keyword research, and performance enhancements.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-tachometer-alt"></i></div><h4>Website Speed Optimization</h4><p class="text-secondary">Boost website performance with code optimization, image compression, caching, and Core Web Vitals improvements for faster loading.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-exchange-alt"></i></div><h4>Website Migration</h4><p class="text-secondary">Migrate your website between hosting providers, domains, or platforms with zero data loss, minimal downtime, and complete support.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-mobile-alt"></i></div><h4>Responsive Web Design</h4><p class="text-secondary">Build fully responsive websites that deliver a seamless experience across desktops, tablets, and smartphones with modern, mobile-first design.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="card-custom p-4"><div class="icon-circle"><i class="fas fa-server"></i></div><h4>Web Hosting & Deployment</h4><p class="text-secondary"> Reliable website deployment, domain configuration, SSL installation, server setup, and hosting management to ensure your website is secure and always online.</p></div></div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="type-card">
-          <div class="type-card-header">
-            <div class="type-card-icon"><i class="fas fa-database"></i></div>
-            <div class="type-card-label">Dynamic Site</div>
-            <h4 class="type-card-title">Server Purchase Required</h4>
-          </div>
-          <div class="type-card-body">
-            <p class="text-secondary small">Pages generated on the fly per request, backed by a database and server-side logic.</p>
-            <ul>
-              <li>Requires a purchased/managed server</li>
-              <li>Real-time data &amp; user accounts</li>
-              <li>Ideal for SaaS, portals, e-commerce</li>
-            </ul>
-            <div class="type-card-price">
-              <div class="price-tag-label">Starting From</div>
-              <div class="price-amount">₹12,000/-</div>
-              <div class="price-note">This is only the starting price — cost may increase based on your needs/requirements.</div>
+    </section>
+
+    <!-- Website Types Section -->
+    <section id="website-types" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-gold fw-semibold">Architecture Options</span>
+                <h2 class="display-6 fw-bold mt-2">Website Types We Build</h2>
+                <p class="text-secondary mt-2 col-lg-8 mx-auto">We match the right architecture to your goals — from a simple static page to a fully dynamic, database-driven platform.</p>
             </div>
-          </div>
+            <div class="row g-4">
+                <!-- Static Site With Server -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="type-card">
+                        <div class="type-card-header gold">
+                            <div class="type-card-icon"><i class="fas fa-desktop"></i></div>
+                            <div class="type-card-label">Static Site</div>
+                            <h4 class="type-card-title">With Server</h4>
+                            <button class="btn-demo-sm" onclick="openDemo('demo1')"><i class="fas fa-play-circle"></i> View Demo</button>
+                        </div>
+                        <div class="type-card-body">
+                            <p class="text-secondary small">Plain HTML/CSS/JS files hosted on a traditional web server you own or rent.</p>
+                            <ul>
+                                <li>You purchase & manage server</li>
+                                <li>No database or backend logic</li>
+                                <li>Fast, secure, low maintenance</li>
+                            </ul>
+                            <div class="type-card-price">
+                                <div class="price-tag-label">Starting From</div>
+                                <div class="price-amount">₹6,000/-</div>
+                                <div class="price-note">Starting price — cost may increase based on requirements.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Static Site Without Server -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="type-card">
+                        <div class="type-card-header gold">
+                            <div class="type-card-icon"><i class="fas fa-cloud"></i></div>
+                            <div class="type-card-label">Static Site</div>
+                            <h4 class="type-card-title">Without Server</h4>
+                            <button class="btn-demo-sm" onclick="openDemo('demo2')"><i class="fas fa-play-circle"></i> View Demo</button>
+                        </div>
+                        <div class="type-card-body">
+                            <p class="text-secondary small">Files served via CDN / serverless hosting — no traditional server to manage.</p>
+                            <ul>
+                                <li>Hosted on Netlify, Vercel, GitHub Pages</li>
+                                <li>Auto-scaling, near-zero maintenance</li>
+                                <li>Often free or very low cost</li>
+                            </ul>
+                            <div class="type-card-price">
+                                <div class="price-tag-label">Starting From</div>
+                                <div class="price-amount">₹4,999/-</div>
+                                <div class="price-note">Starting price — cost may increase based on requirements.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SSG -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="type-card">
+                        <div class="type-card-header gold">
+                            <div class="type-card-icon"><i class="fas fa-cogs"></i></div>
+                            <div class="type-card-label">SSG</div>
+                            <h4 class="type-card-title">Static Site Generation</h4>
+                            <button class="btn-demo-sm" onclick="openDemo('demo3')"><i class="fas fa-play-circle"></i> View Demo</button>
+                        </div>
+                        <div class="type-card-body">
+                            <p class="text-secondary small">Pages pre-built at build time from templates and content, deployed as static files.</p>
+                            <ul>
+                                <li>Built with Next.js, Astro, Hugo, Gatsby</li>
+                                <li>SEO-friendly + very fast delivery</li>
+                                <li>Great for blogs, docs, catalogs</li>
+                            </ul>
+                            <div class="type-card-price">
+                                <div class="price-tag-label">Starting From</div>
+                                <div class="price-amount">₹5,000/-</div>
+                                <div class="price-extra">+ ₹650 yearly charges</div>
+                                <div class="price-note">Starting price — cost may increase based on requirements.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dynamic Site -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="type-card">
+                        <div class="type-card-header">
+                            <div class="type-card-icon"><i class="fas fa-database"></i></div>
+                            <div class="type-card-label">Dynamic Site</div>
+                            <h4 class="type-card-title">Server Purchase Required</h4>
+                            <button class="btn-demo-sm" onclick="openDemo('demo4')"><i class="fas fa-play-circle"></i> View Demo</button>
+                        </div>
+                        <div class="type-card-body">
+                            <p class="text-secondary small">Pages generated on the fly per request, backed by a database and server-side logic.</p>
+                            <ul>
+                                <li>Requires a purchased/managed server</li>
+                                <li>Real-time data & user accounts</li>
+                                <li>Ideal for SaaS, portals, e-commerce</li>
+                            </ul>
+                            <div class="type-card-price">
+                                <div class="price-tag-label">Starting From</div>
+                                <div class="price-amount">₹12,000/-</div>
+                                <div class="price-note">Starting price — cost may increase based on requirements.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="type-pricing-disclaimer mt-4">
+                <i class="fas fa-circle-info"></i>
+                <div><strong>Please note:</strong> The prices above are development starting prices only. Domain registration and hosting charges are <strong>not included</strong> and will be arranged/paid separately by the client.</div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="type-pricing-disclaimer mt-4">
-      <i class="fas fa-circle-info"></i>
-      <div>
-        <strong>Please note:</strong> The prices above are development starting prices only. Domain registration and hosting charges are <strong>not included</strong> and will be arranged/paid separately by the client.
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Why Choose Us Extended -->
-<section class="section-padding bg-white">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-5 mb-4 mb-lg-0">
-        <span class="text-gold fw-semibold">Why Tekton Nova</span>
-        <h2 class="display-6 fw-bold mt-2">Reliable Web Solutions That Drive Business Growth</h2>
-        <p class="text-secondary">Every project is backed by a dedicated team, a customized development strategy, transparent communication, rigorous quality assurance, and continuous post-launch support.</p>
-        <a href="#contact" class="btn btn-gold mt-3">Start Your Project</a>
-      </div>
-      <div class="col-lg-7">
-        <div class="row g-3">
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-tags text-gold me-2"></i> Affordable Pricing</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-calendar-check text-gold me-2"></i> On-Time Delivery</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-headset text-gold me-2"></i> 24/7 Technical Support</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-user-tie text-gold me-2"></i> Dedicated Project Manager</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-chart-line text-gold me-2"></i> SEO-Friendly Development</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-graduation-cap text-gold me-2"></i> Post-Launch Training</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-shield-alt text-gold me-2"></i> Secure & Scalable Solutions</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-bolt text-gold me-2"></i> High-Performance Websites</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile-Responsive Design</div></div>
-          <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-sync-alt text-gold me-2"></i> Free Minor Revisions</div></div>
+    <!-- Why Choose Us -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <span class="text-gold fw-semibold">Why Tekton Nova</span>
+                           <h2 class="display-6 fw-bold mt-2">Reliable Web Solutions That Drive Business Growth</h2>
+                            <p class="text-secondary">Every project is backed by a dedicated team, a customized development strategy, transparent communication, rigorous quality assurance, and continuous post-launch support.</p>
+                    <a href="#contact" class="btn btn-gold mt-3">Start Your Project</a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-tags text-gold me-2"></i>Affordable Pricing</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-calendar-check text-gold me-2"></i>On-Time Delivery</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-headset text-gold me-2"></i>24/7 Technical Support</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-user-tie text-gold me-2"></i>Dedicated Project Manager</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-chart-line text-gold me-2"></i>SEO-Friendly Development</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-graduation-cap text-gold me-2"></i>Post-Launch Training</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-shield-alt text-gold me-2"></i>Secure & Scalable Solutions</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-bolt text-gold me-2"></i>High-Performance Websites</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-mobile-alt text-gold me-2"></i>Mobile-Responsive Design</div></div>
+                        <div class="col-6"><div class="border rounded-4 p-3"><i class="fas fa-sync-alt text-gold me-2"></i>Free Minor Revisions</div></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-
-<!-- Process Section -->
+    <!-- Process Section -->
 <section id="process" class="section-padding bg-light-gray">
   <div class="container">
     <div class="text-center mb-5">
       <span class="text-gold fw-semibold">How We Work</span>
-      <h2 class="display-6 fw-bold mt-2">From Idea to Successful Launch</h2>
-      <p class="text-secondary mx-auto" style="max-width: 700px;">
-        We follow a structured development process to ensure every project is delivered
-        on time, meets your business goals, and provides an exceptional user experience.
-      </p>
-    </div>
-
+      <h2 class="display-6 fw-bold mt-2">From Idea to Successful Launch</h2> <p class="text-secondary mx-auto" style="max-width: 700px;"> We follow a structured development process to ensure every project is deliveredon time, meets your business goals, and provides an exceptional user experience. </p></div>
     <div class="row g-3 text-center">
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-comments fa-2x text-gold mb-2"></i>
-          <h6>Discovery</h6>
-          <small class="text-secondary">Understand your goals & requirements</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-pencil-ruler fa-2x text-gold mb-2"></i>
-          <h6>Planning</h6>
-          <small class="text-secondary">Project roadmap & technical strategy</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-palette fa-2x text-gold mb-2"></i>
-          <h6>UI/UX Design</h6>
-          <small class="text-secondary">Modern, responsive interface design</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-code fa-2x text-gold mb-2"></i>
-          <h6>Development</h6>
-          <small class="text-secondary">Clean, scalable & secure coding</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-vial fa-2x text-gold mb-2"></i>
-          <h6>Testing</h6>
-          <small class="text-secondary">Quality assurance & performance testing</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-rocket fa-2x text-gold mb-2"></i>
-          <h6>Deployment</h6>
-          <small class="text-secondary">Launch your website with confidence</small>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 col-lg-1-5">
-        <div class="process-step-item">
-          <i class="fas fa-headset fa-2x text-gold mb-2"></i>
-          <h6>Maintenance</h6>
-          <small class="text-secondary">Continuous support & future updates</small>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 col-lg-1-5">
-  <div class="process-step-item">
-    <i class="fas fa-chart-pie fa-2x text-gold mb-2"></i>
-    <h6>Analysis</h6>
-    <small class="text-secondary">Research, insights & project strategy</small>
-  </div>
-</div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"> <i class="fas fa-comments fa-2x text-gold mb-2"></i> <h6>Discovery</h6><small class="text-secondary">Understand your goals & requirements</small> </div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"> <i class="fas fa-pencil-ruler fa-2x text-gold mb-2"></i><h6>Planning</h6><small class="text-secondary">Project roadmap & technical strategy</small> </div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"> <div class="process-step-item"><i class="fas fa-palette fa-2x text-gold mb-2"></i> <h6>UI/UX Design</h6>  <small class="text-secondary">Modern, responsive interface design</small> </div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"><i class="fas fa-code fa-2x text-gold mb-2"></i><h6>Development</h6><small class="text-secondary">Clean, scalable & secure coding</small> </div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"><i class="fas fa-vial fa-2x text-gold mb-2"></i><h6>Testing</h6><small class="text-secondary">Quality assurance & performance testing</small></div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"><i class="fas fa-rocket fa-2x text-gold mb-2"></i><h6>Deployment</h6><small class="text-secondary">Launch your website with confidence</small></div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"><i class="fas fa-headset fa-2x text-gold mb-2"></i><h6>Maintenance</h6><small class="text-secondary">Continuous support & future updates</small></div></div>
+      <div class="col-6 col-md-3 col-lg-1-5"><div class="process-step-item"> <i class="fas fa-chart-pie fa-2x text-gold mb-2"></i><h6>Analysis</h6> <small class="text-secondary">Research, insights & project strategy</small></div></div>
 
     </div>
   </div>
 </section>
 
-<!-- Technologies Section -->
-<section id="technologies" class="section-padding bg-white">
-  <div class="container">
-    <div class="text-center mb-5"><span class="text-gold fw-semibold">Tech Stack</span><h2 class="display-6 fw-bold mt-2">Technologies We Use</h2></div>
-    <div class="d-flex flex-wrap justify-content-center gap-2">
-      <span class="tech-badge"><i class="fab fa-html5"></i> HTML5</span>
-      <span class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
-      <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
-      <span class="tech-badge"><i class="fab fa-react"></i> React</span>
-      <span class="tech-badge"><i class="fab fa-angular"></i> Angular</span>
-      <span class="tech-badge"><i class="fab fa-vuejs"></i> Vue.js</span>
-      <span class="tech-badge"><i class="fab fa-node-js"></i> Node.js</span>
-      <span class="tech-badge"><i class="fab fa-php"></i> PHP</span>
-      <span class="tech-badge"><i class="fab fa-laravel"></i> Laravel</span>
-      <span class="tech-badge"><i class="fab fa-wordpress"></i> WordPress</span>
-      <span class="tech-badge"><i class="fas fa-database"></i> MySQL</span>
-      <span class="tech-badge"><i class="fas fa-database"></i> PostgreSQL</span>
-      <span class="tech-badge"><i class="fas fa-database"></i> MongoDB</span>
-      <span class="tech-badge"><i class="fas fa-database"></i> SQLite</span>
-      <span class="tech-badge"><i class="fab fa-aws"></i> AWS</span>
-      <span class="tech-badge"><i class="fab fa-docker"></i> Docker</span>
-      <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
-      <span class="tech-badge"><i class="fas fa-leaf"></i> Django</span>
-      <span class="tech-badge"><i class="fas fa-flask"></i> Flask</span>
-      <span class="tech-badge"><i class="fab fa-java"></i> Java</span>
-    </div>
-  </div>
-</section>
+    <!-- Technologies Section -->
+    <section id="technologies" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5"><span class="text-gold fw-semibold">Tech Stack</span><h2 class="display-6 fw-bold mt-2">Technologies We Use</h2></div>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <span class="tech-badge"><i class="fab fa-html5"></i>HTML5</span><span class="tech-badge"><i class="fab fa-css3-alt"></i>CSS3</span><span class="tech-badge"><i class="fab fa-js"></i>JavaScript</span>
+                <span class="tech-badge"><i class="fab fa-react"></i>React</span><span class="tech-badge"><i class="fab fa-angular"></i>Angular</span><span class="tech-badge"><i class="fab fa-vuejs"></i>Vue.js</span>
+                <span class="tech-badge"><i class="fab fa-node-js"></i>Node.js</span><span class="tech-badge"><i class="fab fa-php"></i>PHP</span><span class="tech-badge"><i class="fab fa-laravel"></i>Laravel</span>
+                <span class="tech-badge"><i class="fab fa-wordpress"></i>WordPress</span><span class="tech-badge"><i class="fas fa-database"></i>MySQL</span><span class="tech-badge"><i class="fas fa-database"></i>PostgreSQL</span>
+                <span class="tech-badge"><i class="fas fa-database"></i>MongoDB</span><span class="tech-badge"><i class="fas fa-database"></i>SQLite</span><span class="tech-badge"><i class="fab fa-aws"></i>AWS</span>
+                <span class="tech-badge"><i class="fab fa-docker"></i>Docker</span><span class="tech-badge"><i class="fab fa-python"></i>Python</span><span class="tech-badge"><i class="fas fa-leaf"></i>Django</span>
+                <span class="tech-badge"><i class="fas fa-flask"></i>Flask</span><span class="tech-badge"><i class="fab fa-java"></i>Java</span>
+            </div>
+        </div>
+    </section>
 
-<!-- Testimonials -->
-<section class="section-padding bg-light-gray">
-  <div class="container">
-    <div class="text-center mb-5"><span class="text-gold fw-semibold">Client Feedback</span><h2 class="display-6 fw-bold mt-2">What Our Clients Say</h2></div>
-    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova transformed our outdated website into a modern digital platform."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"The web application streamlined our operations and automated daily processes."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Excellent communication, affordable pricing, and professional service."</p></div></div></div></div>
-        <div class="carousel-item"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Their UI/UX design improved our customer experience significantly."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Fast development, clean coding, and excellent support after launch."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova converted our simple website into a powerful dynamic platform."</p></div></div></div></div>
-        <div class="carousel-item"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"The team understood our requirements perfectly and delivered professionally."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"From design to deployment, the entire process was smooth and professional."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova provided a reliable solution that improved our online presence."</p></div></div></div></div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-    </div>
-  </div>
-</section>
+    <!-- Testimonials -->
+    <section class="section-padding bg-light-gray">
+        <div class="container">
+            <div class="text-center mb-5"><span class="text-gold fw-semibold">Client Feedback</span><h2 class="display-6 fw-bold mt-2">What Our Clients Say</h2></div>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova transformed our outdated website into a modern digital platform."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"The web application streamlined our operations and automated daily processes."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Excellent communication, affordable pricing, and professional service."</p></div></div></div></div>
+                    <div class="carousel-item"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Their UI/UX design improved our customer experience significantly."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Fast development, clean coding, and excellent support after launch."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova converted our simple website into a powerful dynamic platform."</p></div></div></div></div>
+                    <div class="carousel-item"><div class="row g-4"><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"The team understood our requirements perfectly and delivered professionally."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"From design to deployment, the entire process was smooth and professional."</p></div></div><div class="col-md-4"><div class="testimonial-card p-4"><i class="fas fa-quote-right text-gold mb-3"></i><p class="fst-italic">"Tekton Nova provided a reliable solution that improved our online presence."</p></div></div></div></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+            </div>
+        </div>
+    </section>
 
-<!-- term and condition -->
-
-<!-- Button -->
-<div class="text-center mb-5"><span class="text-gold fw-semibold"><button class="btn-gold"onclick="openTerms()">Terms & Conditions</button></div>
-
-
-<!-- Popup -->
-<div id="termsPopup" class="popup-overlay">
+    <!-- Terms Button -->
+    <div class="text-center mb-5"><button class="btn-gold" onclick="openTerms()">Terms & Conditions</button></div>
+    <div id="termsPopup" class="popup-overlay">
   <div class="terms-popup">
-
     <!--<button class="close-btn" onclick="closeTerms()">×</button>-->
-
     <h2>Terms & Conditions</h2>
-
-    <div class="terms-section">
-      <h3>1. General Terms</h3>
-      <p>
-        These are the general terms and conditions. By using this website,
-        you agree to follow the rules and conditions described here.
-      </p>
-</div>
-<div class="terms-section">
-  <h3>2. Project Scope</h3>
-  <p>
-    The project will be completed according to the agreed requirements. Any
-    additional features or changes may incur extra charges.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>3. Payment Terms</h3>
-  <p>
-    A 50% advance payment is required before the project begins. The remaining
-    50% must be paid before the final website is delivered or made live.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>4. Project Timeline</h3>
-  <p>
-    The estimated delivery time will be provided before work starts. Delays
-    caused by the client, such as late content or approvals, may extend the
-    delivery schedule.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>5. Client Responsibilities</h3>
-  <p>
-    The client must provide all required content, images, logos, and other
-    materials on time. The client is responsible for ensuring they have
-    permission to use any provided content.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>6. Revisions</h3>
-  <p>
-    Up to 2–3 rounds of revisions are included. Additional revisions will be
-    charged separately.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>7. Website Ownership</h3>
-  <p>
-    Full ownership of the website will be transferred to the client after full
-    payment is received.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>8. Hosting & Domain</h3>
-  <p>
-    Domain registration and web hosting are not included unless specifically
-    mentioned in the quotation.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>9. Support & Maintenance</h3>
-  <p>
-    Free support is provided for 30 days after project completion for bug fixes.
-    Ongoing maintenance will require a separate agreement.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>10. Cancellation</h3>
-  <p>
-    If the project is cancelled after work has started, the advance payment is
-    non-refundable.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>11. Confidentiality</h3>
-  <p>
-    Both parties agree to keep all project information and business data
-    confidential.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>12. Limitation of Liability</h3>
-  <p>
-    The company is not responsible for losses caused by third-party services,
-    hosting issues, cyberattacks, or client-made changes after project delivery.
-  </p>
-</div>
-
-<div class="terms-section">
-  <h3>13. Acceptance</h3>
-  <p>
-    By approving the quotation or making the advance payment, the client agrees
-    to these Terms & Conditions.
-  </p>
-</div>
-
-    
-    <button class="close-bottom-btn" onclick="closeTerms()">
-      Close
-    </button>
-
-  </div>
-</div>
-
-
-
-
-
-<!-- Contact & CTA Section -->
-<section id="contact" class="section-padding bg-navy text-white">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <h2 class="display-6 fw-bold">Get Your Free Consultation Today!</h2>
-        <p class="mt-3" style="color: #cbd5e1;">Let's Build Your Digital Future Website. Fill out the form or reach us directly.</p>
-        <div class="mt-4">
-          <div class="d-flex align-items-center mb-3"><i class="fas fa-phone-alt text-gold me-3"></i> +91-9600840408</div>
-          <div class="d-flex align-items-center mb-3"><i class="fas fa-envelope text-gold me-3"></i> tektonnova@gmail.com</div>
-          <div class="d-flex align-items-center mb-3"><i class="fas fa-globe text-gold me-3"></i> www.tektonnova.in</div>
-          <div class="d-flex align-items-center"><i class="fas fa-map-marker-alt text-gold me-3"></i> Chennai, India</div>
+<div class="terms-section"><h3>1. General Terms</h3><p> By using this website, you agree to follow the rules and conditions described here. </p></div>
+<div class="terms-section"> <h3>2. Project Scope</h3> <p> The project will be completed according to the agreed requirements. Any additional features or changes may incur extra charges. </p></div>
+<div class="terms-section"><h3>3. Payment Terms</h3><p> A 50% advance payment is required before the project begins. The remaining 50% must be paid before the final website is delivered or made live.</p></div>
+<div class="terms-section"><h3>4. Project Timeline</h3><p>  The estimated delivery time will be provided before work starts. Delays  caused by the client, such as late content or approvals, may extend the  delivery schedule.</p></div>
+<div class="terms-section"><h3>5. Client Responsibilities</h3> <p> The client must provide all required content, images, logos, and other materials on time. The client is responsible for ensuring they have permission to use any provided content.  </p></div>
+<div class="terms-section"><h3>6. Revisions</h3><p> Up to 2–3 rounds of revisions are included. Additional revisions will be charged separately.</p></div>
+<div class="terms-section"><h3>7. Website Ownership</h3><p>Full ownership of the website will be transferred to the client after full payment is received.</p></div>
+<div class="terms-section"><h3>8. Hosting & Domain</h3><p>Domain registration and web hosting are not included unless specificallymentioned in the quotation.</p></div>
+<div class="terms-section"><h3>9. Support & Maintenance</h3><p>Free support is provided for 30 days after project completion for bug fixes.Ongoing maintenance will require a separate agreement.</p></div>
+<div class="terms-section"><h3>10. Cancellation</h3><p>If the project is cancelled after work has started, the advance payment is non-refundable.</p></div>
+<div class="terms-section"><h3>11. Confidentiality</h3><p>Both parties agree to keep all project information and business dataconfidential.</p></div>
+<div class="terms-section"><h3>12. Limitation of Liability</h3><p>The company is not responsible for losses caused by third-party services,hosting issues, cyberattacks, or client-made changes after project delivery.</p></div>
+<div class="terms-section"><h3>13. Acceptance</h3> <p> By approving the quotation or making the advance payment, the client agrees  to these Terms & Conditions.</p></div>
+            <button class="close-bottom-btn" onclick="closeTerms()">Close</button>
         </div>
-        <div class="mt-4 d-flex align-items-center gap-3">
-          <span><i class="fab fa-linkedin-in fa-lg"></i></span>
-          <span><i class="fab fa-twitter fa-lg"></i></span>
-          <span><i class="fab fa-instagram fa-lg"></i></span>
-          <span><i class="fab fa-github fa-lg"></i></span>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="bg-white text-dark p-5 rounded-4 shadow h-100">
-          <h3 class="fw-bold mb-3">Request a Free Quote</h3>
-          <p class="text-secondary mb-4">Tell us about your project requirements, and our team will get back to you with a customized solution and a competitive quote.</p>
-          <a href="https://forms.gle/RFeuM8Gym6zzkYeQ9" target="_blank" class="btn btn-gold btn-lg px-4"><i class="fas fa-file-alt me-2"></i>Fill Out the Quote Form</a>
-          <div class="mt-4"><small class="text-muted"><i class="fas fa-clock me-2"></i>We typically respond within 24 hours.</small></div>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<!-- Footer -->
-<footer class="footer py-4">
-  <div class="container text-center">
-    <p class="mb-1">&copy; 2021 TEKTON NOVA. Innovative Craftsmen. All rights reserved.</p>
-    <small style="color: #94a3b8;">Let's Build Your Digital Future Website</small>
-  </div>
-</footer>
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-navy text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-6 fw-bold">Get Your Free Consultation Today!</h2>
+                    <p class="mt-3" style="color:#cbd5e1;">Let's Build Your Digital Future Website. Fill out the form or reach us directly.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-3"><i class="fas fa-phone-alt text-gold me-3"></i>+91-9600840408</div>
+                        <div class="d-flex align-items-center mb-3"><i class="fas fa-envelope text-gold me-3"></i>tektonnova@gmail.com</div>
+                        <div class="d-flex align-items-center mb-3"><i class="fas fa-globe text-gold me-3"></i>www.tektonnova.in</div>
+                        <div class="d-flex align-items-center"><i class="fas fa-map-marker-alt text-gold me-3"></i>Chennai, India</div>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center gap-3">
+                        <span><i class="fab fa-linkedin-in fa-lg"></i></span><span><i class="fab fa-twitter fa-lg"></i></span><span><i class="fab fa-instagram fa-lg"></i></span><span><i class="fab fa-github fa-lg"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-white text-dark p-5 rounded-4 shadow h-100">
+                         <h3 class="fw-bold mb-3">Request a Free Quote</h3>
+                         <p class="text-secondary mb-4">Tell us about your project requirements, and our team will get back to you with a customized solution and a competitive quote.</p>
+                        <a href="https://forms.gle/RFeuM8Gym6zzkYeQ9" target="_blank" class="btn btn-gold btn-lg px-4"><i class="fas fa-file-alt me-2"></i>Fill Out the Quote Form</a>
+                        <div class="mt-4"><small class="text-muted"><i class="fas fa-clock me-2"></i>We typically respond within 24 hours.</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// terms and condition
- function openTerms() {
-    document.getElementById("termsPopup").style.display = "flex";
-  }
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2021 TEKTON NOVA. Innovative Craftsmen. All rights reserved.</p>
+            <small style="color:#94a3b8;">Let's Build Your Digital Future Website</small>
+        </div>
+    </footer>
 
-  function closeTerms() {
-    document.getElementById("termsPopup").style.display = "none";
-  }
+    <!-- ==================== DEMO MODAL ==================== -->
+    <div class="demo-modal-overlay" id="demoModalOverlay">
+        <div class="demo-modal" id="demoModal">
+            <div class="demo-modal-header">
+                <h4 id="demoModalTitle">Demo</h4>
+                <span class="demo-step-indicator" id="demoStepIndicator">Step 1/5</span>
+                <button class="demo-modal-close" onclick="closeDemo()" title="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="demo-modal-body" id="demoModalBody">
+                <!-- Demo scenes injected dynamically -->
+            </div>
+            <div class="demo-modal-footer">
+                <button class="demo-btn demo-btn-replay" onclick="replayDemo()"><i class="fas fa-redo"></i> Replay</button>
+                <button class="demo-btn demo-btn-auto" id="demoAutoBtn" onclick="toggleAutoPlay()"><i class="fas fa-play"></i> Auto-Play</button>
+                <button class="demo-btn demo-btn-close-bottom" onclick="closeDemo()"><i class="fas fa-times"></i> Close</button>
+            </div>
+        </div>
+    </div>
 
-  // Data flow animation
-  function createDataFlow() {
-    const dataFlow = document.getElementById('dataFlow');
-    if (!dataFlow) return;
-    
-    // Clear existing dots
-    dataFlow.innerHTML = '';
-    
-    // Create new dots
-    for (let i = 0; i < 15; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'data-dot';
-      
-      // Random starting position
-      const startX = Math.random() * 100;
-      const startY = Math.random() * 100;
-      
-      // Random animation duration
-      const duration = 2 + Math.random() * 3;
-      
-      // Random delay
-      const delay = Math.random() * 5;
-      
-      dot.style.left = `${startX}%`;
-      dot.style.top = `${startY}%`;
-      dot.style.animation = `moveDataDot ${duration}s linear ${delay}s infinite`;
-      
-      dataFlow.appendChild(dot);
-    }
-  }
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+        // ============ TERMS & BACK TO TOP ============
+        function openTerms() { document.getElementById("termsPopup").style.display = "flex"; }
 
-  // CSS for data dot animation
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes moveDataDot {
-      0% {
-        transform: translate(0, 0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.8;
-      }
-      90% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
-        opacity: 0;
-      }
-    }
-  `;
-  document.head.appendChild(style);
+        function closeTerms() { document.getElementById("termsPopup").style.display = "none"; }
 
-  // Interactive features
-  document.addEventListener('DOMContentLoaded', function() {
-    createDataFlow();
-    
-    // Make mock features interactive
-    const featureCards = document.querySelectorAll('.mock-feature-card');
-    featureCards.forEach(card => {
-      card.addEventListener('click', function() {
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          this.style.transform = 'translateY(-3px)';
-        }, 150);
-      });
-    });
-    
-    // Make mock button interactive
-    const mockButton = document.querySelector('.mock-button');
-    if (mockButton) {
-      mockButton.addEventListener('click', function() {
-        this.style.animation = 'none';
-        this.style.transform = 'scale(1.2)';
-        this.style.backgroundColor = '#0a1929';
-        this.style.color = 'white';
-        
-        setTimeout(() => {
-          this.style.animation = 'buttonPulse 2s infinite';
-          this.style.transform = 'scale(1)';
-          this.style.backgroundColor = '#d4a843';
-        }, 300);
-      });
-    }
-    
-    // Add typing animation to address bar
-    const addressBar = document.querySelector('.address-bar');
-    if (addressBar) {
-      setInterval(() => {
-        addressBar.style.animation = 'none';
-        setTimeout(() => {
-          addressBar.style.animation = 'typing 3s steps(20) infinite';
-        }, 10);
-      }, 3000);
-    }
-    
-    // Browser window interaction
-    const browserWindow = document.querySelector('.browser-window');
-    if (browserWindow) {
-      browserWindow.addEventListener('mouseenter', function() {
-        // Add subtle shake to dots
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach(dot => {
-          dot.style.transform = 'translateX(2px)';
-          setTimeout(() => {
-            dot.style.transform = 'translateX(-2px)';
-          }, 100);
-          setTimeout(() => {
-            dot.style.transform = 'translateX(0)';
-          }, 200);
+        // Data flow animation for hero
+        function createDataFlow() {
+            const dataFlow = document.getElementById('dataFlow');
+            if (!dataFlow) return;
+            dataFlow.innerHTML = '';
+            for (let i = 0; i < 15; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'data-dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 100 + '%';
+                dot.style.animation = `moveDataDot ${2+Math.random()*3}s linear ${Math.random()*5}s infinite`;
+                dataFlow.appendChild(dot);
+            }
+        }
+        const dataDotStyle = document.createElement('style');
+        dataDotStyle.textContent = `@keyframes moveDataDot{0%{transform:translate(0,0);opacity:0;}10%{opacity:0.8;}90%{opacity:0.8;}100%{transform:translate(${Math.random()*100-50}px,${Math.random()*100-50}px);opacity:0;}}`;
+        document.head.appendChild(dataDotStyle);
+        document.addEventListener('DOMContentLoaded', function() {
+            createDataFlow();
+            setInterval(createDataFlow, 8000);
+            const mockButton = document.querySelector('.mock-button');
+            if (mockButton) {
+                mockButton.addEventListener('click', function() {
+                    this.style.animation = 'none';
+                    this.style.transform = 'scale(1.2)';
+                    this.style.backgroundColor = '#0a1929';
+                    setTimeout(() => { this.style.animation = 'buttonPulse 2s infinite';
+                        this.style.transform = 'scale(1)';
+                        this.style.backgroundColor = '#d4a843'; }, 300);
+                });
+            }
         });
-      });
-    }
-  });
 
-  // Recreate data flow periodically
-  setInterval(createDataFlow, 8000);
-</script>
+        // ============ DEMO MODAL SYSTEM ============
+        let currentDemo = null;
+        let demoSteps = [];
+        let currentStepIndex = 0;
+        let autoPlayInterval = null;
+        let isAutoPlaying = true;
+
+        function openDemo(demoId) {
+            currentDemo = demoId;
+            currentStepIndex = 0;
+            isAutoPlaying = true;
+            document.getElementById('demoModalOverlay').classList.add('active');
+            document.getElementById('demoAutoBtn').innerHTML = '<i class="fas fa-pause"></i> Pause';
+            document.getElementById('demoAutoBtn').classList.remove('paused');
+            loadDemoScene(demoId);
+            updateAutoPlay();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemo() {
+            document.getElementById('demoModalOverlay').classList.remove('active');
+            stopAutoPlay();
+            currentDemo = null;
+            demoSteps = [];
+            currentStepIndex = 0;
+            document.body.style.overflow = '';
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) { clearInterval(autoPlayInterval);
+                autoPlayInterval = null; }
+        }
+
+        function updateAutoPlay() {
+            stopAutoPlay();
+            if (isAutoPlaying && demoSteps.length > 0) {
+                autoPlayInterval = setInterval(() => {
+                    if (currentStepIndex < demoSteps.length - 1) {
+                        currentStepIndex++;
+                        runStep(currentStepIndex);
+                    } else {
+                        stopAutoPlay();
+                        document.getElementById('demoAutoBtn').innerHTML =
+                            '<i class="fas fa-play"></i> Auto-Play';
+                        document.getElementById('demoAutoBtn').classList.add('paused');
+                        isAutoPlaying = false;
+                    }
+                }, 2200);
+            }
+        }
+
+        function toggleAutoPlay() {
+            isAutoPlaying = !isAutoPlaying;
+            const btn = document.getElementById('demoAutoBtn');
+            if (isAutoPlaying) {
+                btn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                btn.classList.remove('paused');
+                if (currentStepIndex >= demoSteps.length - 1) { currentStepIndex = 0;
+                    runStep(0); }
+                updateAutoPlay();
+            } else {
+                btn.innerHTML = '<i class="fas fa-play"></i> Auto-Play';
+                btn.classList.add('paused');
+                stopAutoPlay();
+            }
+        }
+
+        function replayDemo() {
+            stopAutoPlay();
+            currentStepIndex = 0;
+            isAutoPlaying = true;
+            document.getElementById('demoAutoBtn').innerHTML = '<i class="fas fa-pause"></i> Pause';
+            document.getElementById('demoAutoBtn').classList.remove('paused');
+            if (currentDemo) {
+                loadDemoScene(currentDemo);
+                updateAutoPlay();
+            }
+        }
+
+        function runStep(index) {
+            if (index < 0 || index >= demoSteps.length) return;
+            currentStepIndex = index;
+            demoSteps[index]();
+            document.getElementById('demoStepIndicator').textContent = `Step ${index+1}/${demoSteps.length}`;
+            // Update progress bar if present
+            const progFill = document.getElementById('demoProgressFill');
+            if (progFill) {
+                progFill.style.width = ((index + 1) / demoSteps.length * 100) + '%';
+            }
+        }
+
+        function loadDemoScene(demoId) {
+            stopAutoPlay();
+            const body = document.getElementById('demoModalBody');
+            demoSteps = [];
+            currentStepIndex = 0;
+            let html = '';
+            let title = '';
+
+            switch (demoId) {
+                case 'demo1':
+                    title = 'Static Site — With Server';
+                    html = buildDemo1HTML();
+                    break;
+                case 'demo2':
+                    title = 'Static Site — Without Server (GitHub Pages)';
+                    html = buildDemo2HTML();
+                    break;
+                case 'demo3':
+                    title = 'SSG — Static Site Generation';
+                    html = buildDemo3HTML();
+                    break;
+                case 'demo4':
+                    title = 'Dynamic Site — Server Purchase Required';
+                    html = buildDemo4HTML();
+                    break;
+                default:
+                    title = 'Demo';
+                    html = '<p>Select a demo to view.</p>';
+            }
+            document.getElementById('demoModalTitle').textContent = title;
+            body.innerHTML = html;
+            document.getElementById('demoStepIndicator').textContent = 'Step 1/?';
+
+            // Setup steps after DOM is updated
+            setTimeout(() => {
+                setupDemoSteps(demoId);
+                if (demoSteps.length > 0) {
+                    document.getElementById('demoStepIndicator').textContent =
+                        `Step 1/${demoSteps.length}`;
+                    runStep(0);
+                    updateAutoPlay();
+                }
+            }, 150);
+        }
+
+        function setupDemoSteps(demoId) {
+            demoSteps = [];
+            switch (demoId) {
+                case 'demo1':
+                    setupDemo1Steps();
+                    break;
+                case 'demo2':
+                    setupDemo2Steps();
+                    break;
+                case 'demo3':
+                    setupDemo3Steps();
+                    break;
+                case 'demo4':
+                    setupDemo4Steps();
+                    break;
+            }
+        }
+
+        // ============ DEMO 1: Static Site With Server ============
+        function buildDemo1HTML() {
+            return `
+            <div class="demo-row">
+              <div class="demo-panel vscode-panel" id="d1-vscode">
+                <div class="demo-panel-label"><i class="fas fa-code"></i> VS Code — Your Files</div>
+                <div class="vscode-tabs">
+                  <div class="vscode-tab active"><i class="fab fa-html5"></i> index.html</div>
+                  <div class="vscode-tab"><i class="fab fa-css3-alt"></i> style.css</div>
+                  <div class="vscode-tab"><i class="fab fa-js"></i> script.js</div>
+                </div>
+                <div class="vscode-content" id="d1-code">
+                  <div class="vscode-line"><span class="vscode-line-num">1</span><span class="vscode-line-code"><span class="tag">&lt;!DOCTYPE html&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">2</span><span class="vscode-line-code"><span class="tag">&lt;html&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">3</span><span class="vscode-line-code"><span class="tag">&lt;head&gt;</span>...<span class="tag">&lt;/head&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">4</span><span class="vscode-line-code"><span class="tag">&lt;body&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">5</span><span class="vscode-line-code">  <span class="tag">&lt;h1&gt;</span>Hello World<span class="tag">&lt;/h1&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">6</span><span class="vscode-line-code"><span class="tag">&lt;/body&gt;</span></span></div>
+                </div>
+              </div>
+              <div class="demo-panel server-panel" id="d1-server">
+                <div class="demo-panel-label"><i class="fas fa-server"></i> Your Server (cPanel / Terminal)</div>
+                <div class="server-terminal" id="d1-terminal">
+                  <div class="cmd">$ ssh user@yourserver.com</div>
+                  <div class="out">Connected.</div>
+                  <div class="cmd blink-cursor">$ _</div>
+                </div>
+                <div class="demo-progress-wrap mt-3" style="display:none;" id="d1-progress-wrap">
+                  <div class="demo-progress-fill running" id="demoProgressFill" style="width:0%;"></div>
+                </div>
+                <div class="demo-progress-text" id="d1-progress-text"></div>
+                <div id="d1-live-badge" style="display:none;text-align:center;margin-top:8px;">
+                  <span class="live-indicator"><span class="live-dot"></span> Site is LIVE!</span>
+                </div>
+              </div>
+            </div>
+            <div class="demo-row" id="d1-browser-row" style="display:none;">
+              <div class="demo-panel browser-panel">
+                <div class="demo-panel-label"><i class="fas fa-globe"></i> Live Website — yourdomain.com</div>
+                <div class="mini-browser">
+                  <div class="mini-browser-bar">
+                    <div class="mini-browser-dot r"></div><div class="mini-browser-dot y"></div><div class="mini-browser-dot g"></div>
+                    <div class="mini-browser-url"><i class="fas fa-lock"></i> yourdomain.com</div>
+                  </div>
+                  <div class="mini-browser-body">
+                    <div class="mini-site-header"><div class="mini-site-logo"></div><div class="mini-site-nav"><span></span><span></span><span></span></div></div>
+                    <div class="mini-site-hero">🎉 Your Website is Live!</div>
+                    <div class="mini-site-grid"><div class="mini-site-card"></div><div class="mini-site-card"></div><div class="mini-site-card"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        }
+
+        function setupDemo1Steps() {
+            demoSteps = [
+                function() {
+                    resetD1();
+                    document.getElementById('d1-terminal').innerHTML =
+                        '<div class="cmd">$ ssh user@yourserver.com</div><div class="out">Connected.</div><div class="cmd blink-cursor">$ _</div>';
+                    document.getElementById('d1-progress-wrap').style.display = 'none';
+                    document.getElementById('d1-progress-text').textContent = '';
+                    document.getElementById('d1-live-badge').style.display = 'none';
+                    document.getElementById('d1-browser-row').style.display = 'none';
+                },
+                function() {
+                    document.getElementById('d1-terminal').innerHTML =
+                        '<div class="cmd">$ ssh user@yourserver.com</div><div class="out">Connected.</div><div class="cmd">$ scp -r ./build/* user@server:/var/www/html/</div><div class="out">Copying files...</div><div class="cmd blink-cursor">$ _</div>';
+                    spawnFileCopyAnimation('d1-vscode', 'd1-server');
+                },
+                function() {
+                    document.getElementById('d1-progress-wrap').style.display = 'block';
+                    document.getElementById('demoProgressFill').style.width = '45%';
+                    document.getElementById('d1-progress-text').textContent =
+                        'Uploading files to server... 45%';
+                    document.getElementById('d1-terminal').innerHTML =
+                        '<div class="cmd">$ scp -r ./build/* user@server:/var/www/html/</div><div class="out">index.html ✅</div><div class="out">style.css ✅</div><div class="out">script.js ✅</div><div class="cmd blink-cursor">$ _</div>';
+                },
+                function() {
+                    document.getElementById('demoProgressFill').style.width = '85%';
+                    document.getElementById('d1-progress-text').textContent =
+                    'Starting web server... 85%';
+                    document.getElementById('d1-terminal').innerHTML =
+                        '<div class="cmd">$ sudo systemctl restart nginx</div><div class="out">● nginx.service - A high performance web server</div><div class="out">   Active: active (running)</div><div class="success">✅ Server started successfully!</div><div class="cmd blink-cursor">$ _</div>';
+                },
+                function() {
+                    document.getElementById('demoProgressFill').style.width = '100%';
+                    document.getElementById('d1-progress-text').textContent =
+                    'Deployment complete! 100%';
+                    document.getElementById('d1-live-badge').style.display = 'block';
+                    document.getElementById('d1-browser-row').style.display = 'flex';
+                    document.getElementById('d1-terminal').innerHTML =
+                        '<div class="success">✅ All files deployed!</div><div class="out">Site is now live at:</div><div class="success">🌐 https://yourdomain.com</div><div class="cmd blink-cursor">$ _</div>';
+                }
+            ];
+        }
+
+        function resetD1() {
+            document.getElementById('demoProgressFill').style.width = '0%';
+            document.getElementById('d1-progress-wrap').style.display = 'none';
+            document.getElementById('d1-progress-text').textContent = '';
+            document.getElementById('d1-live-badge').style.display = 'none';
+            document.getElementById('d1-browser-row').style.display = 'none';
+            document.getElementById('d1-terminal').innerHTML =
+                '<div class="cmd">$ ssh user@yourserver.com</div><div class="out">Connected.</div><div class="cmd blink-cursor">$ _</div>';
+        }
+
+        // ============ DEMO 2: Static Site Without Server ============
+        function buildDemo2HTML() {
+            return `
+            <div class="demo-row">
+              <div class="demo-panel vscode-panel" id="d2-vscode">
+                <div class="demo-panel-label"><i class="fas fa-code"></i> VS Code — Local Project</div>
+                <div class="vscode-tabs">
+                  <div class="vscode-tab active"><i class="fab fa-html5"></i> index.html</div>
+                  <div class="vscode-tab"><i class="fab fa-css3-alt"></i> style.css</div>
+                </div>
+                <div class="vscode-content">
+                  <div class="vscode-line"><span class="vscode-line-num">1</span><span class="vscode-line-code"><span class="tag">&lt;!DOCTYPE html&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">2</span><span class="vscode-line-code"><span class="tag">&lt;html&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">3</span><span class="vscode-line-code"><span class="tag">&lt;head&gt;</span>...<span class="tag">&lt;/head&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">4</span><span class="vscode-line-code"><span class="tag">&lt;body&gt;</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">5</span><span class="vscode-line-code">  <span class="tag">&lt;h1&gt;</span>My Portfolio<span class="tag">&lt;/h1&gt;</span></span></div>
+                </div>
+              </div>
+              <div class="demo-panel github-panel" id="d2-github">
+                <div class="demo-panel-label"><i class="fab fa-github"></i> GitHub Pages</div>
+                <div style="text-align:center;padding:10px;">
+                  <i class="fab fa-github" style="font-size:2rem;color:#24292f;"></i>
+                  <p style="font-size:0.75rem;color:#57606a;margin-top:6px;">username.github.io/repo</p>
+                </div>
+                <div class="demo-progress-wrap mt-2" id="d2-progress-wrap" style="display:none;">
+                  <div class="demo-progress-fill running" id="demoProgressFill" style="width:0%;"></div>
+                </div>
+                <div class="demo-progress-text" id="d2-progress-text"></div>
+                <div id="d2-live-badge" style="display:none;text-align:center;margin-top:6px;">
+                  <span class="live-indicator"><span class="live-dot"></span> Live on GitHub Pages!</span>
+                </div>
+              </div>
+            </div>
+            <div class="demo-row" id="d2-browser-row" style="display:none;">
+              <div class="demo-panel browser-panel">
+                <div class="demo-panel-label"><i class="fas fa-globe"></i> Live — username.github.io/repo</div>
+                <div class="mini-browser">
+                  <div class="mini-browser-bar"><div class="mini-browser-dot r"></div><div class="mini-browser-dot y"></div><div class="mini-browser-dot g"></div><div class="mini-browser-url"><i class="fas fa-lock"></i> username.github.io</div></div>
+                  <div class="mini-browser-body">
+                    <div class="mini-site-header"><div class="mini-site-logo"></div><div class="mini-site-nav"><span></span><span></span></div></div>
+                    <div class="mini-site-hero">✨ Portfolio Live!</div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        }
+
+        function setupDemo2Steps() {
+            demoSteps = [
+                function() {
+                    document.getElementById('d2-progress-wrap').style.display = 'none';
+                    document.getElementById('d2-progress-text').textContent = '';
+                    document.getElementById('d2-live-badge').style.display = 'none';
+                    document.getElementById('d2-browser-row').style.display = 'none';
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '0%';
+                },
+                function() {
+                    document.getElementById('d2-progress-wrap').style.display = 'block';
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '30%';
+                    document.getElementById('d2-progress-text').textContent =
+                        'Pushing to GitHub... 30%';
+                    spawnFileCopyAnimation('d2-vscode', 'd2-github');
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '65%';
+                    document.getElementById('d2-progress-text').textContent =
+                        'GitHub Pages building... 65%';
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '90%';
+                    document.getElementById('d2-progress-text').textContent =
+                        'Deploying to CDN... 90%';
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '100%';
+                    document.getElementById('d2-progress-text').textContent =
+                    'Deployed! 100%';
+                    document.getElementById('d2-live-badge').style.display = 'block';
+                    document.getElementById('d2-browser-row').style.display = 'flex';
+                }
+            ];
+        }
+
+        // ============ DEMO 3: SSG ============
+        function buildDemo3HTML() {
+            return `
+            <div class="demo-row">
+              <div class="demo-panel vscode-panel" id="d3-vscode">
+                <div class="demo-panel-label"><i class="fas fa-code"></i> VS Code — Next.js / Astro Project</div>
+                <div class="vscode-tabs">
+                  <div class="vscode-tab active"><i class="fas fa-cog"></i> variables.css</div>
+                  <div class="vscode-tab"><i class="fab fa-js"></i> index.astro</div>
+                </div>
+                <div class="vscode-content" id="d3-code">
+                  <div class="vscode-line"><span class="vscode-line-num">1</span><span class="vscode-line-code"><span class="selector">:root</span> {</span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">2</span><span class="vscode-line-code">  <span class="prop">--primary</span>: <span class="val">#0a1929</span>;</span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">3</span><span class="vscode-line-code">  <span class="prop">--accent</span>: <span class="val">#d4a843</span>;</span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">4</span><span class="vscode-line-code">  <span class="prop">--bg</span>: <span class="val">#ffffff</span>;</span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">5</span><span class="vscode-line-code">}</span></div>
+                </div>
+              </div>
+              <div class="demo-panel" id="d3-think" style="background:#fffbe6;border:2px dashed #d4a843;">
+                <div class="think-person">
+                  <div class="think-avatar">🧑‍💻</div>
+                  <div class="think-bubble" id="d3-think-bubble">"Need a change, right?"</div>
+                </div>
+                <p style="font-size:0.7rem;color:#92400e;margin-top:8px;text-align:center;">Client wants a <strong>color update</strong></p>
+              </div>
+            </div>
+            <div class="demo-row" id="d3-edit-row" style="display:none;">
+              <div class="demo-panel vscode-panel">
+                <div class="demo-panel-label"><i class="fas fa-edit"></i> Editing variables.css</div>
+                <div class="vscode-content" id="d3-code-edited">
+                  <div class="vscode-line"><span class="vscode-line-num">2</span><span class="vscode-line-code">  <span class="prop">--primary</span>: <span class="val highlight-change">#1a3a5c</span>; <span class="comment">// changed</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">3</span><span class="vscode-line-code">  <span class="prop">--accent</span>: <span class="val highlight-change">#e8a317</span>; <span class="comment">// changed</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">4</span><span class="vscode-line-code">  <span class="prop">--bg</span>: <span class="val highlight-change">#fefce8</span>; <span class="comment">// warmer bg</span></span></div>
+                </div>
+              </div>
+              <div class="demo-panel github-panel" id="d3-github">
+                <div class="demo-panel-label"><i class="fab fa-github"></i> Redeploy</div>
+                <div class="demo-progress-wrap mt-2" id="d3-progress-wrap" style="display:none;">
+                  <div class="demo-progress-fill running" id="demoProgressFill" style="width:0%;"></div>
+                </div>
+                <div class="demo-progress-text" id="d3-progress-text"></div>
+                <div id="d3-live-badge" style="display:none;text-align:center;margin-top:6px;">
+                  <span class="live-indicator"><span class="live-dot"></span> Updated Site Live!</span>
+                </div>
+              </div>
+            </div>
+            <div class="demo-row" id="d3-browser-row" style="display:none;">
+              <div class="demo-panel browser-panel">
+                <div class="demo-panel-label"><i class="fas fa-globe"></i> Live Site — With New Colors!</div>
+                <div class="mini-browser">
+                  <div class="mini-browser-bar"><div class="mini-browser-dot r"></div><div class="mini-browser-dot y"></div><div class="mini-browser-dot g"></div><div class="mini-browser-url"><i class="fas fa-lock"></i> yoursite.com</div></div>
+                  <div class="mini-browser-body">
+                    <div class="mini-site-hero color-changed" id="d3-hero">🎨 Fresh New Look!</div>
+                    <div class="mini-site-grid"><div class="mini-site-card" style="background:#fef3c7;"></div><div class="mini-site-card" style="background:#fde68a;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        }
+
+        function setupDemo3Steps() {
+            demoSteps = [
+                function() {
+                    document.getElementById('d3-edit-row').style.display = 'none';
+                    document.getElementById('d3-browser-row').style.display = 'none';
+                    document.getElementById('d3-think-bubble').textContent = '"Need a change, right?"';
+                    document.getElementById('d3-think').style.display = 'flex';
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '0%';
+                    document.getElementById('d3-progress-wrap').style.display = 'none';
+                    document.getElementById('d3-progress-text').textContent = '';
+                    document.getElementById('d3-live-badge').style.display = 'none';
+                },
+                function() {
+                    document.getElementById('d3-think-bubble').textContent =
+                        '"Yes! Let\'s update the colors..."';
+                    document.getElementById('d3-edit-row').style.display = 'flex';
+                },
+                function() {
+                    document.getElementById('d3-think-bubble').textContent =
+                    '"Colors changed! Rebuilding..."';
+                    document.getElementById('d3-progress-wrap').style.display = 'block';
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '40%';
+                    document.getElementById('d3-progress-text').textContent =
+                        'Rebuilding static pages... 40%';
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '75%';
+                    document.getElementById('d3-progress-text').textContent =
+                        'Redeploying to CDN... 75%';
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '100%';
+                    document.getElementById('d3-progress-text').textContent =
+                    'Deployed with new colors! 100%';
+                    document.getElementById('d3-live-badge').style.display = 'block';
+                    document.getElementById('d3-browser-row').style.display = 'flex';
+                    document.getElementById('d3-think-bubble').textContent =
+                    '"Looks amazing! 🎉"';
+                }
+            ];
+        }
+
+        // ============ DEMO 4: Dynamic Site With Server ============
+        function buildDemo4HTML() {
+            return `
+            <div class="demo-row">
+              <div class="demo-panel vscode-panel" id="d4-vscode">
+                <div class="demo-panel-label"><i class="fas fa-code"></i> VS Code — PHP/Laravel Project</div>
+                <div class="vscode-tabs">
+                  <div class="vscode-tab active"><i class="fab fa-php"></i> index.php</div>
+                  <div class="vscode-tab"><i class="fas fa-database"></i> database.sql</div>
+                </div>
+                <div class="vscode-content">
+                  <div class="vscode-line"><span class="vscode-line-num">1</span><span class="vscode-line-code"><span class="tag">&lt;?php</span></span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">2</span><span class="vscode-line-code"><span class="prop">$db</span> = <span class="val">new PDO(...)</span>;</span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">3</span><span class="vscode-line-code"><span class="prop">$posts</span> = <span class="val">$db->query("SELECT * FROM posts")</span>;</span></div>
+                  <div class="vscode-line"><span class="vscode-line-num">4</span><span class="vscode-line-code"><span class="tag">?&gt;</span></span></div>
+                </div>
+              </div>
+              <div class="demo-panel server-panel" id="d4-server">
+                <div class="demo-panel-label"><i class="fas fa-server"></i> Server + Database Setup</div>
+                <div class="server-terminal" id="d4-terminal">
+                  <div class="cmd">$ ssh user@server.com</div>
+                  <div class="out">Connected.</div>
+                  <div class="cmd">$ mysql -u root -p < database.sql</div>
+                  <div class="out">Importing database...</div>
+                  <div class="cmd blink-cursor">$ _</div>
+                </div>
+                <div class="demo-progress-wrap mt-2" id="d4-progress-wrap" style="display:none;">
+                  <div class="demo-progress-fill running" id="demoProgressFill" style="width:0%;"></div>
+                </div>
+                <div class="demo-progress-text" id="d4-progress-text"></div>
+                <div id="d4-live-badge" style="display:none;text-align:center;margin-top:6px;">
+                  <span class="live-indicator"><span class="live-dot"></span> Dynamic Site LIVE!</span>
+                </div>
+              </div>
+            </div>
+            <div class="demo-row" id="d4-admin-row" style="display:none;">
+              <div class="demo-panel" style="background:#fff;">
+                <div class="demo-panel-label"><i class="fas fa-globe"></i> demo.com/admin — Admin Panel</div>
+                <div class="admin-split">
+                  <div class="admin-site-preview">
+                    <div class="mini-browser-bar" style="border-radius:0;"><div class="mini-browser-dot r"></div><div class="mini-browser-dot y"></div><div class="mini-browser-dot g"></div><div class="mini-browser-url" style="font-size:7px;">demo.com</div></div>
+                    <div class="mini-browser-body">
+                      <div class="mini-site-hero" id="d4-site-hero">Welcome to Our Site</div>
+                      <p style="font-size:0.6rem;color:#475569;" id="d4-site-text">This is editable content.</p>
+                    </div>
+                  </div>
+                  <div class="admin-panel-mock">
+                    <div style="font-weight:700;color:#d4a843;margin-bottom:6px;">⚙️ Admin Panel</div>
+                    <div class="admin-field"><label>Hero Title</label><input type="text" value="Welcome to Our Site" id="d4-admin-title" class="editing"></div>
+                    <div class="admin-field"><label>Description</label><input type="text" value="This is editable content." id="d4-admin-desc" class="editing"></div>
+                    <button class="admin-save-btn" id="d4-save-btn">💾 Save Changes</button>
+                    <p style="font-size:0.55rem;color:#94a3b8;margin-top:4px;">Changes reflect instantly on the live site!</p>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        }
+
+        function setupDemo4Steps() {
+            demoSteps = [
+                function() {
+                    document.getElementById('d4-admin-row').style.display = 'none';
+                    document.getElementById('d4-progress-wrap').style.display = 'none';
+                    document.getElementById('d4-progress-text').textContent = '';
+                    document.getElementById('d4-live-badge').style.display = 'none';
+                    document.getElementById('d4-terminal').innerHTML =
+                        '<div class="cmd">$ ssh user@server.com</div><div class="out">Connected.</div><div class="cmd blink-cursor">$ _</div>';
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '0%';
+                },
+                function() {
+                    document.getElementById('d4-terminal').innerHTML =
+                        '<div class="cmd">$ scp -r ./app/* user@server:/var/www/demo/</div><div class="out">Copying PHP files...</div><div class="cmd blink-cursor">$ _</div>';
+                    spawnFileCopyAnimation('d4-vscode', 'd4-server');
+                },
+                function() {
+                    document.getElementById('d4-progress-wrap').style.display = 'block';
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '50%';
+                    document.getElementById('d4-progress-text').textContent =
+                        'Importing database... 50%';
+                    document.getElementById('d4-terminal').innerHTML =
+                        '<div class="cmd">$ mysql -u root -p < database.sql</div><div class="out">Tables created: users, posts, settings ✅</div><div class="success">Database imported!</div><div class="cmd blink-cursor">$ _</div>';
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '85%';
+                    document.getElementById('d4-progress-text').textContent =
+                        'Starting application server... 85%';
+                    document.getElementById('d4-terminal').innerHTML =
+                        '<div class="cmd">$ sudo systemctl restart php-fpm nginx</div><div class="success">✅ Server running!</div><div class="out">🌐 https://demo.com/admin</div><div class="cmd blink-cursor">$ _</div>';
+                },
+                function() {
+                    if (document.getElementById('demoProgressFill')) document.getElementById(
+                        'demoProgressFill').style.width = '100%';
+                    document.getElementById('d4-progress-text').textContent =
+                    'Dynamic site is LIVE! 100%';
+                    document.getElementById('d4-live-badge').style.display = 'block';
+                    document.getElementById('d4-admin-row').style.display = 'flex';
+                    // Trigger admin edit simulation
+                    setTimeout(simulateAdminEdit, 1800);
+                }
+            ];
+        }
+
+        function simulateAdminEdit() {
+            const titleInput = document.getElementById('d4-admin-title');
+            const descInput = document.getElementById('d4-admin-desc');
+            const siteHero = document.getElementById('d4-site-hero');
+            const siteText = document.getElementById('d4-site-text');
+            if (titleInput && siteHero) {
+                titleInput.value = '✨ Updated Dynamic Site!';
+                titleInput.classList.add('editing');
+                setTimeout(() => {
+                    siteHero.textContent = '✨ Updated Dynamic Site!';
+                    siteHero.classList.add('color-changed');
+                    titleInput.classList.remove('editing');
+                }, 600);
+            }
+            if (descInput && siteText) {
+                descInput.value = 'Content updated instantly via admin panel.';
+                descInput.classList.add('editing');
+                setTimeout(() => {
+                    siteText.textContent = 'Content updated instantly via admin panel.';
+                    descInput.classList.remove('editing');
+                }, 600);
+            }
+            const saveBtn = document.getElementById('d4-save-btn');
+            if (saveBtn) {
+                saveBtn.style.background = '#28c840';
+                saveBtn.textContent = '✅ Saved!';
+                setTimeout(() => { saveBtn.style.background = '#d4a843';
+                    saveBtn.textContent = '💾 Save Changes'; }, 1500);
+            }
+        }
+
+        // ============ FILE COPY ANIMATION ============
+        function spawnFileCopyAnimation(sourceId, targetId) {
+            const source = document.getElementById(sourceId);
+            const target = document.getElementById(targetId);
+            if (!source || !target) return;
+            const sRect = source.getBoundingClientRect();
+            const tRect = target.getBoundingClientRect();
+            const flyX = tRect.left + tRect.width / 2 - (sRect.left + sRect.width / 2);
+            const flyY = tRect.top + tRect.height / 2 - (sRect.top + sRect.height / 2);
+            const animEl = document.createElement('div');
+            animEl.className = 'file-copy-anim';
+            animEl.textContent = '📄 file';
+            animEl.style.position = 'fixed';
+            animEl.style.left = (sRect.left + sRect.width / 2 - 25) + 'px';
+            animEl.style.top = (sRect.top + sRect.height / 2 - 10) + 'px';
+            animEl.style.setProperty('--fly-x', flyX + 'px');
+            animEl.style.setProperty('--fly-y', flyY + 'px');
+            animEl.style.zIndex = '10001';
+            document.body.appendChild(animEl);
+            setTimeout(() => { if (animEl.parentNode) animEl.parentNode.removeChild(animEl); }, 1300);
+        }
+
+        // ============ OVERLAY CLICK TO CLOSE ============
+        document.getElementById('demoModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeDemo();
+        });
+
+        // ============ KEYBOARD ESC TO CLOSE ============
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('demoModalOverlay').classList.contains(
+                    'active')) {
+                closeDemo();
+            }
+        });
+    </script>
 </body>
 </html>
