@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil FM Radio</title>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<style>
+:root {
+  --bg: #080f1c;
+  --panel: #101d2e;
+  --card: #15263b;
+  --blue: #0284c7;
+  --cyan: #38bdf8;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --green: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 50% 0%, #123251 0%, transparent 45%),
+    var(--bg);
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 20px auto;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: #123b59;
+  color: var(--cyan);
+  font-size: 23px;
+}
+
+.brand h1 {
+  font-size: 21px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.online {
+  color: var(--green);
+  font-size: 11px;
+  border: 1px solid #166534;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #14532d22;
+}
+
+/* MAIN PLAYER */
+
+.player {
+  background: linear-gradient(160deg, #132840, #0d1828);
+  border: 1px solid #243d58;
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 20px 50px #0005;
+}
+
+.artwork {
+  width: 180px;
+  height: 180px;
+  margin: 5px auto 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle, #16476a, #0b2139 65%, #081421);
+  border: 7px solid #1e4261;
+  box-shadow: 0 0 35px #0284c744;
+  font-size: 75px;
+  position: relative;
+}
+
+.artwork.playing {
+  animation: rotate 12s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.live {
+  display: inline-block;
+  padding: 6px 13px;
+  background: #14532d;
+  color: #86efac;
+  border-radius: 20px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.song-name {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.controls button {
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  font-size: 25px;
+}
+
+.controls .play {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  font-size: 27px;
+  box-shadow: 0 5px 25px #0284c755;
+}
+
+.controls button:active {
+  transform: scale(.94);
+}
+
+/* VOLUME */
+
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.volume input {
+  flex: 1;
+  accent-color: var(--cyan);
+  cursor: pointer;
+}
+
+/* STATIONS */
+
+.section-title {
+  margin: 28px 0 15px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #cbd5e1;
+}
+
+.station {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  gap: 13px;
+  margin-bottom: 11px;
+  background: var(--panel);
+  border: 1px solid #1e344b;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.station:hover {
+  background: #19314a;
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.station.active {
+  background: #123451;
+  border-color: var(--cyan);
+}
+
+.station-icon {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  background: #1b3652;
+  border-radius: 12px;
+  font-size: 22px;
+}
+
+.station-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.station-info h3 {
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.station-info p {
+  color: var(--muted);
+  font-size: 11px;
+  margin: 0;
+}
+
+.station-play {
+  border: none;
+  background: #123e60;
+  color: var(--cyan);
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.station.active .station-play {
+  background: var(--blue);
+  color: white;
+}
+
+/* STATUS */
+
+.message {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 20px;
+  min-height: 30px;
+}
+
+.footer {
+  text-align: center;
+  color: #64748b;
+  font-size: 11px;
+  margin: 25px 0;
+  letter-spacing: 1px;
+}
+
+@media(max-width:400px) {
+  body { padding: 12px; }
+  .player { padding: 20px; }
+  .artwork { width: 150px; height: 150px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">📻</div>
+      <div>
+        <h1>TAMIL FM</h1>
+        <p>YOUR MUSIC STATION</p>
+      </div>
+    </div>
+    <div class="online">● ONLINE</div>
+  </header>
+
+  <main class="player">
+
+    <div class="artwork" id="artwork">🎧</div>
+
+    <div class="live" id="liveStatus">● READY TO PLAY</div>
+
+    <h2 class="song-name" id="currentName">
+      Welcome to Tamil FM
+    </h2>
+
+    <p class="subtitle" id="subtitle">
+      Select your favourite station
+    </p>
+
+    <div class="controls">
+      <button onclick="previous()" aria-label="Previous">⏮</button>
+      <button class="play" id="playButton"
+        onclick="togglePlay()" aria-label="Play">▶</button>
+      <button onclick="next()" aria-label="Next">⏭</button>
+    </div>
+
+    <div class="volume">
+      <span>🔉</span>
+      <input type="range" id="volume"
+        min="0" max="1" step="0.01" value="0.8">
+      <span>🔊</span>
+    </div>
+
+  </main>
+
+  <h3 class="section-title">SELECT YOUR STATION</h3>
+
+  <div id="stations"></div>
+
+  <div class="message" id="message">
+    Enjoy your favourite Tamil music.
+  </div>
+
+  <footer class="footer">
+    TAMIL FM • MUSIC NEVER STOPS ❤️
+  </footer>
+
+</div>
+
+<audio id="audio"></audio>
+
+<script>
+
+const stations = [
+  {
+    name: "VB Tamil",
+    icon: "📻",
+    url: "https://d1cvqgmbcpg5yn.cloudfront.net/f893db91dedcb4ab/f893db91dedcb4ab.m3u8",
+    type: "hls"
+  },
+  {
+    name: "Harris Jayaraj Songs FM",
+    icon: "🎼",
+    url: "https://stream-286.surfernetwork.com/0bhsthssutzuv",
+    type: "audio"
+  },
+  {
+    name: "MS Viswanathan FM",
+    icon: "🎹",
+    url: "https://stream-280.surfernetwork.com/x7wc1xgllvsvv",
+    type: "audio"
+  },
+  {
+    name: "SPB Song FM",
+    icon: "🎶",
+    url: "https://stream.zeno.fm/u0ze9rfzyp8uv",
+    type: "audio"
+  },
+  
+  {
+    name: "U1 Song FM",
+    icon: "🎶",
+    url: "https://stream.zeno.fm/vq11bs69bxhvv",
+    type: "audio"
+  },
+  {
+    name: "AR Rahman Song FM",
+    icon: "🎶",
+    url: "https://stream.zeno.fm/j3cntml3iulvv",
+    type: "audio"
+  },
+
+  {
+    name: "Tamil Song FM",
+    icon: "🎶",
+    url: "https://stream-288.surfernetwork.com/ex1yqu2gsh1tv",
+    type: "audio"
+  }
+
+];
+
+const audio = document.getElementById("audio");
+const playButton = document.getElementById("playButton");
+const artwork = document.getElementById("artwork");
+const message = document.getElementById("message");
+
+let current = -1;
+let hls = null;
+
+function renderStations() {
+  document.getElementById("stations").innerHTML =
+    stations.map((s, i) => `
+      <div class="station ${current === i ? 'active' : ''}"
+           onclick="playStation(${i})">
+
+        <div class="station-icon">${s.icon}</div>
+
+        <div class="station-info">
+          <h3>${s.name}</h3>
+          <p>${current === i && !audio.paused
+            ? '● NOW PLAYING'
+            : 'Tamil Radio Station'}</p>
+        </div>
+
+        <button class="station-play">
+          ${current === i && !audio.paused ? 'Ⅱ' : '▶'}
+        </button>
+
+      </div>
+    `).join("");
+}
+
+function stopStream() {
+  audio.pause();
+  audio.removeAttribute("src");
+  audio.load();
+
+  if (hls) {
+    hls.destroy();
+    hls = null;
+  }
+
+  artwork.classList.remove("playing");
+}
+
+async function playStation(index) {
+  current = index;
+  const station = stations[index];
+
+  stopStream();
+
+  document.getElementById("currentName").textContent =
+    station.name;
+
+  document.getElementById("subtitle").textContent =
+    "Tamil FM Radio • Streaming";
+
+  document.getElementById("liveStatus").textContent =
+    "● CONNECTING";
+
+  playButton.textContent = "⏳";
+  message.textContent = "Connecting to " + station.name;
+
+  renderStations();
+
+  if (station.type === "hls") {
+
+    if (audio.canPlayType("application/vnd.apple.mpegurl")) {
+      audio.src = station.url;
+
+    } else if (window.Hls && Hls.isSupported()) {
+      hls = new Hls();
+      hls.loadSource(station.url);
+      hls.attachMedia(audio);
+
+    } else {
+      showError("HLS is not supported by this browser.");
+      return;
+    }
+
+  } else {
+    audio.src = station.url;
+  }
+
+  try {
+    await audio.play();
+  } catch (error) {
+    showError("Unable to play. Check the stream or token.");
+  }
+}
+
+function showError(text) {
+  playButton.textContent = "▶";
+  document.getElementById("liveStatus").textContent =
+    "● STREAM ERROR";
+  message.textContent = text;
+  artwork.classList.remove("playing");
+  renderStations();
+}
+
+function togglePlay() {
+
+  if (current === -1) {
+    playStation(0);
+    return;
+  }
+
+  if (audio.paused) {
+    audio.play().catch(() => {
+      showError("Playback failed. Check stream availability.");
+    });
+  } else {
+    audio.pause();
+  }
+}
+
+function next() {
+  playStation((current + 1) % stations.length);
+}
+
+function previous() {
+  playStation(
+    (current - 1 + stations.length) % stations.length
+  );
+}
+
+audio.addEventListener("playing", () => {
+  playButton.textContent = "Ⅱ";
+  document.getElementById("liveStatus").textContent =
+    "● LIVE NOW";
+
+  artwork.classList.add("playing");
+  message.textContent =
+    "Now playing: " + stations[current].name;
+
+  renderStations();
+});
+
+audio.addEventListener("pause", () => {
+  playButton.textContent = "▶";
+
+  if (current !== -1) {
+    document.getElementById("liveStatus").textContent =
+      "● PAUSED";
+  }
+
+  artwork.classList.remove("playing");
+  renderStations();
+});
+
+audio.addEventListener("error", () => {
+  showError("Stream unavailable or authorization expired.");
+});
+
+document.getElementById("volume").addEventListener(
+  "input", event => {
+    audio.volume = Number(event.target.value);
+  }
+);
+
+audio.volume = 0.8;
+
+renderStations();
+
+</script>
+
+</body>
+</html>
