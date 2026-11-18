@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,42 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tamil FM Radio</title>
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<!-- Pin the version: @latest can break the page overnight -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
 
 <style>
 :root {
   --bg: #080f1c;
   --panel: #101d2e;
-  --card: #15263b;
   --blue: #0284c7;
   --cyan: #38bdf8;
   --text: #f1f5f9;
   --muted: #94a3b8;
   --green: #22c55e;
+  --hue: 200;
+  --accent: hsl(var(--hue) 85% 62%);
+  --accent-rgb: 56, 189, 248;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   min-height: 100vh;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at 50% 0%, #123251 0%, transparent 45%),
     var(--bg);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* drifting ambience */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 700ms ease;
+}
+body::before {
+  width: 340px; height: 340px;
+  left: -130px; top: -90px;
+  background: hsl(var(--hue) 80% 45% / .34);
+  animation: drift1 20s ease-in-out infinite;
+}
+body::after {
+  width: 300px; height: 300px;
+  right: -110px; top: 160px;
+  background: hsl(calc(var(--hue) + 55) 80% 45% / .26);
+  animation: drift2 26s ease-in-out infinite;
+}
+@keyframes drift1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(40px, 30px) scale(1.15); }
+}
+@keyframes drift2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(-35px, 40px) scale(1.1); }
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 480px;
   margin: 20px auto;
 }
 
-/* HEADER */
+/* ---------------- HEADER ---------------- */
 
 .header {
   display: flex;
@@ -49,36 +86,19 @@ body {
   justify-content: space-between;
   margin-bottom: 25px;
 }
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
+.brand { display: flex; align-items: center; gap: 12px; }
 .logo {
-  width: 45px;
-  height: 45px;
+  width: 45px; height: 45px;
   border-radius: 13px;
-  display: grid;
-  place-items: center;
+  display: grid; place-items: center;
   background: #123b59;
   color: var(--cyan);
   font-size: 23px;
+  transition: box-shadow 500ms, background 500ms;
 }
-
-.brand h1 {
-  font-size: 21px;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.brand p {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-}
-
+body.is-live .logo { box-shadow: 0 0 22px var(--accent-soft); }
+.brand h1 { font-size: 21px; margin: 0; letter-spacing: 1px; }
+.brand p  { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
 .online {
   color: var(--green);
   font-size: 11px;
@@ -88,62 +108,185 @@ body {
   background: #14532d22;
 }
 
-/* MAIN PLAYER */
+/* ---------------- PLAYER CARD ---------------- */
 
 .player {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(160deg, #132840, #0d1828);
   border: 1px solid #243d58;
   border-radius: 25px;
   padding: 25px;
   text-align: center;
   box-shadow: 0 20px 50px #0005;
+  transition:
+    border-color 600ms ease,
+    box-shadow 600ms ease;
 }
+
+/* soft top light that reacts to the current station */
+.player::before {
+  content: "";
+  position: absolute;
+  inset: -60% 20% 60% 20%;
+  background: radial-gradient(circle, hsl(var(--hue) 85% 60% / .28), transparent 70%);
+  opacity: 0;
+  transition: opacity 700ms ease;
+  pointer-events: none;
+}
+.player.active { border-color: hsl(var(--hue) 65% 55% / .5); }
+.player.active::before { opacity: 1; }
+.player.active {
+  box-shadow:
+    0 20px 50px #0006,
+    0 0 70px hsl(var(--hue) 80% 50% / .16);
+}
+
+/* one-shot ring pulse when the card takes focus */
+.player.flash { animation: cardPulse 1s cubic-bezier(.2,.7,.3,1); }
+@keyframes cardPulse {
+  0%   { transform: scale(1);
+         box-shadow: 0 20px 50px #0005, 0 0 0 0 hsl(var(--hue) 90% 60% / .55); }
+  45%  { transform: scale(1.014);
+         box-shadow: 0 26px 60px #0007, 0 0 0 14px hsl(var(--hue) 90% 60% / 0); }
+  100% { transform: scale(1);
+         box-shadow: 0 20px 50px #0005, 0 0 0 0 hsl(var(--hue) 90% 60% / 0); }
+}
+
+/* ---------------- ARTWORK ---------------- */
 
 .artwork {
-  width: 180px;
-  height: 180px;
+  position: relative;
+  width: 180px; height: 180px;
   margin: 5px auto 22px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle, #16476a, #0b2139 65%, #081421);
-  border: 7px solid #1e4261;
-  box-shadow: 0 0 35px #0284c744;
+  display: grid; place-items: center;
+  background: radial-gradient(circle, #16476a, #0b2139 65%, #081421);
+  border: 7px solid hsl(var(--hue) 55% 40% / .75);
+  box-shadow: 0 0 35px hsl(var(--hue) 80% 50% / .35);
   font-size: 75px;
-  position: relative;
+  transition: border-color 600ms ease, box-shadow 600ms ease;
+  animation: spin 14s linear infinite;
+  animation-play-state: paused;
 }
-
-.artwork.playing {
-  animation: rotate 12s linear infinite;
+.artwork::after {            /* sheen sweep */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 55%, #ffffff1f 70%, transparent 85%);
+  pointer-events: none;
 }
+.artwork.playing { animation-play-state: running; }
 
-@keyframes rotate {
+.artwork .emoji {
+  display: block;
+  animation: spin 14s linear infinite reverse;
+  animation-play-state: paused;
+}
+.artwork.playing .emoji { animation-play-state: running; }
+
+@keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
+
+/* ---------------- LIVE BADGE ---------------- */
 
 .live {
-  display: inline-block;
-  padding: 6px 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px 6px 11px;
   background: #14532d;
   color: #86efac;
   border-radius: 20px;
   font-size: 10px;
   letter-spacing: 1px;
   margin-bottom: 12px;
+  transition: background 400ms, color 400ms;
 }
+.live .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: 0 0 auto;
+}
+.live.is-live .dot { animation: blip 1.4s ease-in-out infinite; }
+@keyframes blip {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: .35; transform: scale(1.5); }
+}
+.live.is-connecting { background: #78350f; color: #fcd34d; }
+.live.is-paused     { background: #1e293b; color: #cbd5e1; }
+.live.is-error      { background: #7f1d1d; color: #fca5a5; }
+
+/* mini equalizer */
+.eq {
+  display: none;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+.live.is-live .eq { display: inline-flex; }
+.eq i {
+  width: 2px;
+  height: 3px;
+  border-radius: 1px;
+  background: currentColor;
+  animation: bar 900ms ease-in-out infinite;
+}
+.eq i:nth-child(1) { animation-delay: 0ms; }
+.eq i:nth-child(2) { animation-delay: 140ms; }
+.eq i:nth-child(3) { animation-delay: 280ms; }
+.eq i:nth-child(4) { animation-delay: 420ms; }
+@keyframes bar {
+  0%,100% { height: 3px; }
+  50%     { height: 10px; }
+}
+
+/* ---------------- TEXT ---------------- */
 
 .song-name {
   font-size: 22px;
   margin: 5px 0;
+  transition: opacity 220ms ease, transform 220ms ease;
 }
+.song-name.swap { opacity: 0; transform: translateY(6px); }
 
 .subtitle {
   color: var(--muted);
   font-size: 12px;
-  margin-bottom: 25px;
+  margin: 0 0 25px;
 }
+
+/* thin shimmer bar while connecting */
+.loadbar {
+  height: 3px;
+  width: 130px;
+  margin: -12px auto 22px;
+  border-radius: 3px;
+  background: #1e344b;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.loadbar.on { opacity: 1; }
+.loadbar::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: slide 1.1s ease-in-out infinite;
+}
+@keyframes slide {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(350%); }
+}
+
+/* ---------------- CONTROLS ---------------- */
 
 .controls {
   display: flex;
@@ -151,29 +294,54 @@ body {
   align-items: center;
   gap: 28px;
 }
-
 .controls button {
   border: none;
   cursor: pointer;
   color: white;
   background: transparent;
-  font-size: 25px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  touch-action: manipulation;
+  transition: transform 120ms ease, color 200ms ease;
 }
+.controls button:active { transform: scale(.9); }
+.controls button svg { width: 26px; height: 26px; fill: currentColor; }
+.controls button:hover { color: var(--cyan); }
 
-.controls .play {
-  width: 68px;
-  height: 68px;
+.play {
+  position: relative;
+  width: 68px; height: 68px;
   border-radius: 50%;
+  overflow: hidden;
   background: linear-gradient(135deg, #0284c7, #0ea5e9);
-  font-size: 27px;
   box-shadow: 0 5px 25px #0284c755;
+  transition: box-shadow 400ms, transform 120ms, background 400ms;
 }
-
-.controls button:active {
-  transform: scale(.94);
+.play svg { width: 28px; height: 28px; }
+.player.active .play {
+  background: linear-gradient(135deg, hsl(var(--hue) 75% 45%), hsl(var(--hue) 85% 60%));
+  box-shadow: 0 5px 28px hsl(var(--hue) 85% 55% / .5);
 }
+.play .ic-pause { display: none; }
+.play.is-playing .ic-play  { display: none; }
+.play.is-playing .ic-pause { display: block; }
 
-/* VOLUME */
+/* spinner ring while connecting */
+.play .ring {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px solid #ffffff33;
+  border-top-color: #fff;
+  display: none;
+  animation: spin 800ms linear infinite;
+}
+.play.is-loading { background: #1e344b; box-shadow: none; }
+.play.is-loading svg   { display: none; }
+.play.is-loading .ring { display: block; }
+
+/* ---------------- VOLUME ---------------- */
 
 .volume {
   display: flex;
@@ -183,14 +351,36 @@ body {
   color: var(--muted);
   font-size: 15px;
 }
+.volume svg { width: 18px; height: 18px; fill: currentColor; flex: 0 0 auto; }
 
 .volume input {
   flex: 1;
-  accent-color: var(--cyan);
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 5px;
+  background: #1e344b;
+  cursor: pointer;
+  outline: none;
+}
+.volume input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--cyan);
+  border: none;
+  box-shadow: 0 0 10px var(--accent-soft);
+  cursor: pointer;
+}
+.volume input::-moz-range-thumb {
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--cyan);
+  border: none;
   cursor: pointer;
 }
 
-/* STATIONS */
+/* ---------------- STATION LIST ---------------- */
 
 .section-title {
   margin: 28px 0 15px;
@@ -200,6 +390,8 @@ body {
 }
 
 .station {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   padding: 15px;
@@ -209,63 +401,81 @@ body {
   border: 1px solid #1e344b;
   border-radius: 15px;
   cursor: pointer;
-  transition: .2s;
+  touch-action: manipulation;
+  transition: background 250ms, border-color 250ms, transform 180ms;
 }
-
 .station:hover {
   background: #19314a;
   border-color: var(--cyan);
   transform: translateY(-2px);
 }
-
+.station:active { transform: scale(.985); }
 .station.active {
   background: #123451;
-  border-color: var(--cyan);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px hsl(var(--hue) 80% 55% / .35);
+}
+
+/* staggered entrance, first paint only */
+.stations-first .station { animation: riseIn .45s cubic-bezier(.2,.7,.3,1) both; }
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .station-icon {
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
+  width: 45px; height: 45px;
+  display: grid; place-items: center;
   background: #1b3652;
   border-radius: 12px;
   font-size: 22px;
+  flex: 0 0 auto;
+  transition: background 300ms, transform 300ms;
+}
+.station.active .station-icon {
+  background: hsl(var(--hue) 60% 30%);
+  transform: scale(1.06);
 }
 
-.station-info {
-  flex: 1;
-  min-width: 0;
-}
-
+.station-info { flex: 1; min-width: 0; }
 .station-info h3 {
   font-size: 14px;
   margin: 0 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-.station-info p {
-  color: var(--muted);
-  font-size: 11px;
-  margin: 0;
-}
+.station-info p { color: var(--muted); font-size: 11px; margin: 0; }
+.station.active .station-info p { color: var(--accent); }
 
 .station-play {
   border: none;
   background: #123e60;
   color: var(--cyan);
-  width: 37px;
-  height: 37px;
+  width: 37px; height: 37px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 15px;
+  display: grid; place-items: center;
+  flex: 0 0 auto;
+  transition: background 250ms, color 250ms, transform 150ms;
+}
+.station-play svg { width: 15px; height: 15px; fill: currentColor; }
+.station.active .station-play { background: var(--blue); color: #fff; }
+
+/* ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff2e;
+  transform: scale(0);
+  animation: rip 600ms ease-out forwards;
+  pointer-events: none;
+}
+@keyframes rip {
+  to { transform: scale(1); opacity: 0; }
 }
 
-.station.active .station-play {
-  background: var(--blue);
-  color: white;
-}
-
-/* STATUS */
+/* ---------------- STATUS + FOOTER ---------------- */
 
 .message {
   text-align: center;
@@ -273,7 +483,9 @@ body {
   color: var(--muted);
   margin-top: 20px;
   min-height: 30px;
+  transition: color 300ms;
 }
+.message.error { color: #fca5a5; }
 
 .footer {
   text-align: center;
@@ -283,10 +495,19 @@ body {
   letter-spacing: 1px;
 }
 
-@media(max-width:400px) {
+@media (max-width: 400px) {
   body { padding: 12px; }
   .player { padding: 20px; }
-  .artwork { width: 150px; height: 150px; }
+  .artwork { width: 150px; height: 150px; font-size: 62px; }
+  .controls { gap: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
 }
 </style>
 </head>
@@ -306,32 +527,43 @@ body {
     <div class="online">● ONLINE</div>
   </header>
 
-  <main class="player">
+  <main class="player" id="playerCard">
 
-    <div class="artwork" id="artwork">🎧</div>
+    <div class="artwork" id="artwork"><span class="emoji">🎧</span></div>
 
-    <div class="live" id="liveStatus">● READY TO PLAY</div>
+    <div class="live is-ready" id="liveBadge">
+      <span class="dot"></span>
+      <span id="liveStatus">READY TO PLAY</span>
+      <span class="eq"><i></i><i></i><i></i><i></i></span>
+    </div>
 
-    <h2 class="song-name" id="currentName">
-      Welcome to Tamil FM
-    </h2>
+    <h2 class="song-name" id="currentName">Welcome to Tamil FM</h2>
 
-    <p class="subtitle" id="subtitle">
-      Select your favourite station
-    </p>
+    <p class="subtitle" id="subtitle">Select your favourite station</p>
+
+    <div class="loadbar" id="loadbar"></div>
 
     <div class="controls">
-      <button onclick="previous()" aria-label="Previous">⏮</button>
-      <button class="play" id="playButton"
-        onclick="togglePlay()" aria-label="Play">▶</button>
-      <button onclick="next()" aria-label="Next">⏭</button>
+      <button type="button" onclick="step(-1)" aria-label="Previous station">
+        <svg viewBox="0 0 24 24"><path d="M6 6h2.2v12H6zM20 6v12L9.6 12z"/></svg>
+      </button>
+
+      <button type="button" class="play" id="playButton"
+              onclick="togglePlay(event)" aria-label="Play">
+        <svg class="ic-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="ic-pause" viewBox="0 0 24 24"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z"/></svg>
+        <span class="ring"></span>
+      </button>
+
+      <button type="button" onclick="step(1)" aria-label="Next station">
+        <svg viewBox="0 0 24 24"><path d="M15.8 6H18v12h-2.2zM4 6v12l10.4-6z"/></svg>
+      </button>
     </div>
 
     <div class="volume">
-      <span>🔉</span>
-      <input type="range" id="volume"
-        min="0" max="1" step="0.01" value="0.8">
-      <span>🔊</span>
+      <svg viewBox="0 0 24 24"><path d="M4 9v6h3.5L12 19V5L7.5 9z"/></svg>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+      <svg viewBox="0 0 24 24"><path d="M4 9v6h3.5L12 19V5L7.5 9zM15.5 8.5a4.5 4.5 0 0 1 0 7v-1.6a3 3 0 0 0 0-3.8zm0-3.6a8 8 0 0 1 0 14.2v-1.6a6.4 6.4 0 0 0 0-11z"/></svg>
     </div>
 
   </main>
@@ -340,7 +572,7 @@ body {
 
   <div id="stations"></div>
 
-  <div class="message" id="message">
+  <div class="message" id="message" role="status" aria-live="polite">
     Enjoy your favourite Tamil music.
   </div>
 
@@ -354,127 +586,223 @@ body {
 
 <script>
 
+/* hue drives the accent colour of the whole page */
 const stations = [
-  {
-    name: "VB Tamil",
-    icon: "📻",
+  { name: "VB Tamil FM-100.5",               icon: "📻", hue: 205,
     url: "https://d1cvqgmbcpg5yn.cloudfront.net/f893db91dedcb4ab/f893db91dedcb4ab.m3u8",
-    type: "hls"
-  },
-  {
-    name: "Harris Jayaraj Songs FM",
-    icon: "🎼",
-    url: "https://stream-286.surfernetwork.com/0bhsthssutzuv",
-    type: "audio"
-  },
-  {
-    name: "MS Viswanathan FM",
-    icon: "🎹",
-    url: "https://stream-280.surfernetwork.com/x7wc1xgllvsvv",
-    type: "audio"
-  },
-  {
-    name: "SPB Song FM",
-    icon: "🎶",
-    url: "https://stream.zeno.fm/u0ze9rfzyp8uv",
-    type: "audio"
-  },
-  
-  {
-    name: "U1 Song FM",
-    icon: "🎶",
-    url: "https://stream.zeno.fm/vq11bs69bxhvv",
-    type: "audio"
-  },
-  {
-    name: "AR Rahman Song FM",
-    icon: "🎶",
-    url: "https://stream.zeno.fm/j3cntml3iulvv",
-    type: "audio"
-  },
+    type: "hls" },
+  { name: "Harris Jayaraj Songs FM", icon: "🎼", hue: 282,
+    url: "https://stream-286.surfernetwork.com/0bhsthssutzuv", type: "audio" },
+  { name: "MS Viswanathan FM",       icon: "🎹", hue: 168,
+    url: "https://stream-280.surfernetwork.com/x7wc1xgllvsvv", type: "audio" },
+  { name: "SPB Song FM",             icon: "🎶", hue: 28,
+    url: "https://stream.zeno.fm/u0ze9rfzyp8uv", type: "audio" },
+  { name: "U1 Song FM",              icon: "🎶", hue: 322,
+    url: "https://stream.zeno.fm/vq11bs69bxhvv", type: "audio" },
+  { name: "AR Rahman Song FM",       icon: "🎶", hue: 145,
+    url: "https://stream.zeno.fm/j3cntml3iulvv", type: "audio" },
+  { name: "Tamil Song FM",           icon: "🎶", hue: 200,
+    url: "https://stream-288.surfernetwork.com/ex1yqu2gsh1tv", type: "audio" },
+     { name: "Suryan FM-93.5",           icon: "🎶", hue: 200,
+    url: "https://radios.crabdance.com:8002/2", type: "audio" },
+     { name: "Hello FM-106.4",           icon: "🎶", hue: 200,
+    url: "https://radios.crabdance.com:8002/3", type: "audio" },
 
-  {
-    name: "Tamil Song FM",
-    icon: "🎶",
-    url: "https://stream-288.surfernetwork.com/ex1yqu2gsh1tv",
-    type: "audio"
-  }
+     { name: "Telugu Song FM",           icon: "🎶", hue: 200,
+    url: "https://stream.zeno.fm/jpazsptqrpsvv", type: "audio" }
+
+
 
 ];
 
-const audio = document.getElementById("audio");
-const playButton = document.getElementById("playButton");
-const artwork = document.getElementById("artwork");
-const message = document.getElementById("message");
+const audio        = document.getElementById("audio");
+const playerCard   = document.getElementById("playerCard");
+const artwork      = document.getElementById("artwork");
+const playButton   = document.getElementById("playButton");
+const liveBadge    = document.getElementById("liveBadge");
+const liveStatus   = document.getElementById("liveStatus");
+const currentName  = document.getElementById("currentName");
+const subtitle     = document.getElementById("subtitle");
+const loadbar      = document.getElementById("loadbar");
+const message      = document.getElementById("message");
+const volumeSlider = document.getElementById("volume");
+const stationList  = document.getElementById("stations");
 
-let current = -1;
-let hls = null;
+let current      = -1;
+let hls          = null;
+let isPlaying    = false;
+let srcToken     = 0;
+let connectTimer = null;
+let hlsRetries   = 0;
+let ignorePauseUntil = 0;
+let firstRender  = true;
+
+/* ---------------- RENDER ---------------- */
 
 function renderStations() {
-  document.getElementById("stations").innerHTML =
-    stations.map((s, i) => `
-      <div class="station ${current === i ? 'active' : ''}"
-           onclick="playStation(${i})">
-
+  stationList.innerHTML = stations.map((s, i) => {
+    const active  = i === current;
+    const playing = active && isPlaying;
+    return `
+      <div class="station ${active ? "active" : ""}"
+           onclick="playStation(${i}, event)">
         <div class="station-icon">${s.icon}</div>
-
         <div class="station-info">
           <h3>${s.name}</h3>
-          <p>${current === i && !audio.paused
-            ? '● NOW PLAYING'
-            : 'Tamil Radio Station'}</p>
+          <p>${playing ? "● NOW PLAYING" : "Tamil Radio Station"}</p>
         </div>
-
-        <button class="station-play">
-          ${current === i && !audio.paused ? 'Ⅱ' : '▶'}
+        <button type="button" class="station-play"
+                aria-label="${playing ? "Pause" : "Play"} ${s.name}">
+          ${playing
+            ? '<svg viewBox="0 0 24 24"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z"/></svg>'
+            : '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>'}
         </button>
+      </div>`;
+  }).join("");
 
-      </div>
-    `).join("");
+  if (firstRender) {
+    [...stationList.children].forEach((el, i) => {
+      el.style.animationDelay = (i * 55) + "ms";
+    });
+    stationList.classList.add("stations-first");
+    firstRender = false;
+    setTimeout(() => stationList.classList.remove("stations-first"), 900);
+  }
 }
 
+function setTheme(hue) {
+  document.documentElement.style.setProperty("--hue", hue);
+}
+
+function setStatus(state, text) {
+  liveBadge.className = "live is-" + state;
+  liveStatus.textContent = text;
+}
+
+function setSongName(text) {
+  currentName.classList.add("swap");
+  setTimeout(() => {
+    currentName.textContent = text;
+    currentName.classList.remove("swap");
+  }, 200);
+}
+
+function flashCard() {
+  playerCard.classList.remove("flash");
+  void playerCard.offsetWidth;
+  playerCard.classList.add("flash");
+}
+
+/* bring the player into view + pulse it */
+function focusPlayer() {
+  const r = playerCard.getBoundingClientRect();
+  const fullyVisible = r.top >= 0 && r.bottom <= (window.innerHeight || 0);
+  if (!fullyVisible) {
+    playerCard.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  flashCard();
+}
+
+function ripple(event, el) {
+  if (!event || !el) return;
+  const r = el.getBoundingClientRect();
+  const size = Math.max(r.width, r.height) * 1.6;
+  const span = document.createElement("span");
+  span.className = "ripple";
+  span.style.width = span.style.height = size + "px";
+  span.style.left = (event.clientX - r.left - size / 2) + "px";
+  span.style.top  = (event.clientY - r.top  - size / 2) + "px";
+  el.appendChild(span);
+  setTimeout(() => span.remove(), 620);
+}
+
+/* ---------------- TEARDOWN ---------------- */
+
 function stopStream() {
+  srcToken++;
+  clearTimeout(connectTimer);
+
+  if (hls) { hls.destroy(); hls = null; }
+
+  // this pause event is ours - don't let it repaint the UI
+  if (!audio.paused) ignorePauseUntil = performance.now() + 600;
+
   audio.pause();
   audio.removeAttribute("src");
   audio.load();
 
-  if (hls) {
-    hls.destroy();
-    hls = null;
-  }
-
+  isPlaying = false;
   artwork.classList.remove("playing");
+  document.body.classList.remove("is-live");
 }
 
-async function playStation(index) {
-  current = index;
+/* ---------------- PLAYBACK ---------------- */
+
+function attemptPlay() {
+  const token = srcToken;
+  const promise = audio.play();
+  if (!promise) return;
+
+  promise.catch(err => {
+    if (token !== srcToken || err.name === "AbortError") return;
+    showError(err.name === "NotAllowedError"
+      ? "Autoplay was blocked — tap ▶ to start listening."
+      : "Unable to play this stream. It may be offline.");
+  });
+}
+
+function connect(index) {
   const station = stations[index];
+  if (!station) return;
 
-  stopStream();
+  stopStream();                      // bumps srcToken
+  current = index;
+  hlsRetries = 0;
 
-  document.getElementById("currentName").textContent =
-    station.name;
+  setTheme(station.hue);
+  playerCard.classList.add("active");
+  setSongName(station.name);
+  subtitle.textContent = "Tamil FM Radio • Streaming";
 
-  document.getElementById("subtitle").textContent =
-    "Tamil FM Radio • Streaming";
-
-  document.getElementById("liveStatus").textContent =
-    "● CONNECTING";
-
-  playButton.textContent = "⏳";
-  message.textContent = "Connecting to " + station.name;
-
+  setStatus("connecting", "CONNECTING");
+  playButton.className = "play is-loading";
+  loadbar.classList.add("on");
+  message.classList.remove("error");
+  message.textContent = "Connecting to " + station.name + "…";
   renderStations();
+
+  const token = srcToken;
 
   if (station.type === "hls") {
 
     if (audio.canPlayType("application/vnd.apple.mpegurl")) {
-      audio.src = station.url;
+      audio.src = station.url;                 // Safari / iOS native HLS
 
     } else if (window.Hls && Hls.isSupported()) {
-      hls = new Hls();
+      hls = new Hls({ enableWorker: true });
       hls.loadSource(station.url);
       hls.attachMedia(audio);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (token === srcToken) attemptPlay();
+      });
+
+      hls.on(Hls.Events.ERROR, (evt, data) => {
+        if (token !== srcToken || !data.fatal) return;
+
+        if (data.type === Hls.ErrorTypes.NETWORK_ERROR && hlsRetries < 3) {
+          hlsRetries++;
+          message.textContent = "Reconnecting…";
+          hls.startLoad();
+          return;
+        }
+        if (data.type === Hls.ErrorTypes.MEDIA_ERROR && hlsRetries < 3) {
+          hlsRetries++;
+          hls.recoverMediaError();
+          return;
+        }
+        showError("Stream error: " + data.details);
+      });
 
     } else {
       showError("HLS is not supported by this browser.");
@@ -485,84 +813,134 @@ async function playStation(index) {
     audio.src = station.url;
   }
 
-  try {
-    await audio.play();
-  } catch (error) {
-    showError("Unable to play. Check the stream or token.");
-  }
+  attemptPlay();                     // stays inside the tap gesture
+
+  connectTimer = setTimeout(() => {
+    if (token === srcToken && audio.readyState < 2 && !isPlaying) {
+      showError("Taking too long to connect. The stream may be offline.");
+    }
+  }, 15000);
 }
 
-function showError(text) {
-  playButton.textContent = "▶";
-  document.getElementById("liveStatus").textContent =
-    "● STREAM ERROR";
-  message.textContent = text;
-  artwork.classList.remove("playing");
-  renderStations();
-}
+function playStation(index, event) {
+  const row = event && event.currentTarget;
+  if (row) ripple(event, row);
 
-function togglePlay() {
-
-  if (current === -1) {
-    playStation(0);
+  if (index === current && isPlaying) {   // tapping the live station pauses it
+    focusPlayer();
+    audio.pause();
     return;
   }
 
+  focusPlayer();
+  connect(index);
+}
+
+function togglePlay(event) {
+  if (event) ripple(event, playButton);
+
+  if (current === -1) { focusPlayer(); connect(0); return; }
+
   if (audio.paused) {
-    audio.play().catch(() => {
-      showError("Playback failed. Check stream availability.");
-    });
+    connect(current);              // live radio: fresh connect beats a stale buffer
   } else {
     audio.pause();
   }
 }
 
-function next() {
-  playStation((current + 1) % stations.length);
+function step(delta) {
+  const i = current === -1
+    ? 0
+    : (current + delta + stations.length) % stations.length;
+  focusPlayer();
+  connect(i);
 }
 
-function previous() {
-  playStation(
-    (current - 1 + stations.length) % stations.length
-  );
+/* ---------------- ERRORS ---------------- */
+
+function showError(text) {
+  clearTimeout(connectTimer);
+  isPlaying = false;
+  playButton.className = "play";
+  loadbar.classList.remove("on");
+  setStatus("error", "STREAM ERROR");
+  message.classList.add("error");
+  message.textContent = text;
+  artwork.classList.remove("playing");
+  document.body.classList.remove("is-live");
+  renderStations();
 }
+
+/* ---------------- MEDIA EVENTS ---------------- */
 
 audio.addEventListener("playing", () => {
-  playButton.textContent = "Ⅱ";
-  document.getElementById("liveStatus").textContent =
-    "● LIVE NOW";
+  isPlaying = true;
+  clearTimeout(connectTimer);
 
+  playButton.className = "play is-playing";
+  loadbar.classList.remove("on");
+  setStatus("live", "LIVE NOW");
   artwork.classList.add("playing");
-  message.textContent =
-    "Now playing: " + stations[current].name;
-
+  document.body.classList.add("is-live");
+  message.classList.remove("error");
+  message.textContent = "Now playing: " + stations[current].name;
+  subtitle.textContent = "Tamil FM Radio • Streaming live";
   renderStations();
 });
 
 audio.addEventListener("pause", () => {
-  playButton.textContent = "▶";
+  if (performance.now() < ignorePauseUntil) { ignorePauseUntil = 0; return; }
+  if (current === -1) return;
 
-  if (current !== -1) {
-    document.getElementById("liveStatus").textContent =
-      "● PAUSED";
-  }
-
+  isPlaying = false;
+  clearTimeout(connectTimer);
+  playButton.className = "play";
+  loadbar.classList.remove("on");
+  setStatus("paused", "PAUSED");
   artwork.classList.remove("playing");
+  document.body.classList.remove("is-live");
   renderStations();
 });
 
 audio.addEventListener("error", () => {
-  showError("Stream unavailable or authorization expired.");
+  if (current === -1) return;
+  if (!audio.getAttribute("src") && !audio.currentSrc) return;  // ours
+
+  if (hls) { hls.destroy(); hls = null; }
+  showError("Stream unavailable or the link has expired.");
 });
 
-document.getElementById("volume").addEventListener(
-  "input", event => {
-    audio.volume = Number(event.target.value);
-  }
-);
+/* ---------------- VOLUME ---------------- */
 
-audio.volume = 0.8;
+function loadVolume() {
+  let v = 0.8;
+  try {
+    const saved = parseFloat(localStorage.getItem("tamilFmVolume"));
+    if (Number.isFinite(saved) && saved >= 0 && saved <= 1) v = saved;
+  } catch (e) { /* storage may be blocked */ }
+  volumeSlider.value = v;
+  audio.volume = v;
+}
 
+volumeSlider.addEventListener("input", e => {
+  const v = Number(e.target.value);
+  audio.volume = v;
+  try { localStorage.setItem("tamilFmVolume", String(v)); } catch (e) {}
+});
+
+/* ---------------- KEYBOARD ---------------- */
+
+document.addEventListener("keydown", e => {
+  if (e.code !== "Space") return;
+  if (/^(INPUT|BUTTON|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) return;
+  e.preventDefault();
+  togglePlay();
+});
+
+/* ---------------- INIT ---------------- */
+
+loadVolume();
+setTheme(200);
 renderStations();
 
 </script>
